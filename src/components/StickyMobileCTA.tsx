@@ -17,16 +17,16 @@ export function StickyMobileCTA() {
   return (
     <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-green-700 border-t border-green-800 shadow-lg">
       <div className="grid grid-cols-3 divide-x divide-green-800">
-        <a href={PHONE_TEL} className="flex flex-col items-center gap-1 py-3 text-white hover:bg-green-800">
-          <Phone className="h-5 w-5" />
+        <a href={PHONE_TEL} aria-label="Call now for septic service" className="flex flex-col items-center gap-1 py-3 text-white hover:bg-green-800">
+          <Phone className="h-5 w-5" aria-hidden="true" />
           <span className="text-xs font-semibold">Call Now</span>
         </a>
-        <button onClick={openChat} className="flex flex-col items-center gap-1 py-3 text-white hover:bg-green-800">
-          <MessageCircle className="h-5 w-5" />
+        <button onClick={openChat} aria-label="Open chat for septic help" className="flex flex-col items-center gap-1 py-3 text-white hover:bg-green-800">
+          <MessageCircle className="h-5 w-5" aria-hidden="true" />
           <span className="text-xs font-semibold">Chat Now</span>
         </button>
-        <button onClick={scrollToForm} className="flex flex-col items-center gap-1 py-3 text-white hover:bg-green-800">
-          <FileText className="h-5 w-5" />
+        <button onClick={scrollToForm} aria-label="Scroll to quote form" className="flex flex-col items-center gap-1 py-3 text-white hover:bg-green-800">
+          <FileText className="h-5 w-5" aria-hidden="true" />
           <span className="text-xs font-semibold">Get Quote</span>
         </button>
       </div>

@@ -93,8 +93,8 @@ export function ChatWidget() {
           <div className="w-2 h-2 rounded-full bg-green-300 animate-pulse" />
           <span className="font-semibold text-sm">Fix Septic Now</span>
         </div>
-        <button onClick={() => setOpen(false)} className="hover:bg-green-800 rounded p-1">
-          <X className="h-4 w-4" />
+        <button onClick={() => setOpen(false)} aria-label="Close chat" className="hover:bg-green-800 rounded p-1">
+          <X className="h-4 w-4" aria-hidden="true" />
         </button>
       </div>
 

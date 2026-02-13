@@ -94,16 +94,21 @@ export function LeadForm({ sourcePage, preselectedService, preselectedCity }: Le
       <p className="text-sm text-slate-500 mb-4">Free estimate — response in minutes</p>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
         <div>
-          <Input placeholder="Full Name" {...register("name")} />
+          <label htmlFor="lead-name" className="sr-only">Full Name</label>
+          <Input placeholder="Full Name" id="lead-name" aria-label="Full Name" {...register("name")} />
           {errors.name && <p className="text-xs text-red-500 mt-1">{errors.name.message}</p>}
         </div>
         <div>
-          <Input placeholder="Phone Number" type="tel" {...register("phone")} />
+          <label htmlFor="lead-phone" className="sr-only">Phone Number</label>
+          <Input placeholder="Phone Number" type="tel" id="lead-phone" aria-label="Phone Number" {...register("phone")} />
           {errors.phone && <p className="text-xs text-red-500 mt-1">{errors.phone.message}</p>}
         </div>
         <div>
+          <label htmlFor="lead-service" className="sr-only">Service Needed</label>
           <select
             {...register("service")}
+            id="lead-service"
+            aria-label="Service Needed"
             className="w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900"
           >
             <option value="">Select a Service</option>
@@ -114,11 +119,13 @@ export function LeadForm({ sourcePage, preselectedService, preselectedCity }: Le
           {errors.service && <p className="text-xs text-red-500 mt-1">{errors.service.message}</p>}
         </div>
         <div>
-          <Input placeholder="City or Zip Code" {...register("cityZip")} />
+          <label htmlFor="lead-city" className="sr-only">City or Zip Code</label>
+          <Input placeholder="City or Zip Code" id="lead-city" aria-label="City or Zip Code" {...register("cityZip")} />
           {errors.cityZip && <p className="text-xs text-red-500 mt-1">{errors.cityZip.message}</p>}
         </div>
         <div>
-          <Textarea placeholder="Describe your issue (optional)" rows={3} {...register("message")} />
+          <label htmlFor="lead-message" className="sr-only">Describe your issue</label>
+          <Textarea placeholder="Describe your issue (optional)" id="lead-message" aria-label="Describe your issue" rows={3} {...register("message")} />
         </div>
         <div className="flex items-start gap-2">
           <input type="checkbox" {...register("tcpaConsent")} className="mt-1" id="tcpa" />
