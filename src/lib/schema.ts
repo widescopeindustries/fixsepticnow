@@ -19,7 +19,17 @@ export function localBusinessSchema(city?: string, county?: string) {
     name: city ? `${SITE_NAME} - ${city}` : SITE_NAME,
     url: SITE_URL,
     telephone: PHONE,
+    email: "info@fixsepticnow.com",
     priceRange: "$$",
+    image: `${SITE_URL}/images/logo.png`,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "316 Brandywine Ave",
+      addressLocality: city || "Streetman",
+      addressRegion: "TX",
+      postalCode: "75859",
+      addressCountry: "US",
+    },
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
@@ -29,7 +39,11 @@ export function localBusinessSchema(city?: string, county?: string) {
     areaServed: city
       ? { "@type": "City", name: city, containedInPlace: { "@type": "State", name: "Texas" } }
       : { "@type": "State", name: "Texas" },
-    ...(county && { address: { "@type": "PostalAddress", addressRegion: "TX", addressLocality: city } }),
+    founder: {
+      "@type": "Organization",
+      name: "Widescope Industries LLC",
+      description: "Service-Disabled Veteran-Owned Small Business (SDVOSB)",
+    },
   };
 }
 
