@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { PhoneCTA } from "@/components/PhoneCTA";
 import { TrustSignals } from "@/components/TrustSignals";
 import { PHONE_NUMBER, EMAIL } from "@/lib/constants";
@@ -23,10 +24,33 @@ export default function AboutPage() {
 
       <section className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-4 space-y-6 text-slate-700">
-          <h2 className="text-2xl font-bold text-slate-900">Who We Are</h2>
-          <p>
-            Fix Septic Now is owned and operated by <strong>Widescope Industries LLC</strong>, a Texas-based company headquartered in Streetman, Texas. We are a certified <strong>Service-Disabled Veteran-Owned Small Business (SDVOSB)</strong> by the U.S. Small Business Administration, and we bring the same discipline, integrity, and commitment to service that defined our military careers to every septic job we take on.
-          </p>
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-8 pb-4">
+            <div className="flex-shrink-0">
+              <Image
+                src="/images/owner-portrait.jpg"
+                alt="Owner of Fix Septic Now - Veteran-owned septic service"
+                width={200}
+                height={200}
+                className="rounded-lg shadow-md"
+                priority
+              />
+              <div className="mt-3 flex justify-center">
+                <Image
+                  src="/images/sba-sdvosb-logo.png"
+                  alt="SBA Service-Disabled Veteran-Owned Small Business certification"
+                  width={150}
+                  height={60}
+                  className="object-contain"
+                />
+              </div>
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold text-slate-900 mb-4">Who We Are</h2>
+              <p className="text-slate-700">
+                Fix Septic Now is owned and operated by <strong>Widescope Industries LLC</strong>, a Texas-based company headquartered in Streetman, Texas. We are a certified <strong>Service-Disabled Veteran-Owned Small Business (SDVOSB)</strong> by the U.S. Small Business Administration, and we bring the same discipline, integrity, and commitment to service that defined our military careers to every septic job we take on.
+              </p>
+            </div>
+          </div>
           <p>
             Our mission is straightforward: provide Texas homeowners with fast, honest, professional septic service — any time of day, any day of the year. Whether it&apos;s a routine pump-out or a 2 AM sewage emergency, we dispatch licensed technicians to your door.
           </p>
