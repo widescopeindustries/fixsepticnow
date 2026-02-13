@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+function getOpenAI() {
+  return new OpenAI({ apiKey: process.env.OPENAI_API_KEY || "" });
+}
 
 const SYSTEM_PROMPT = `You are a helpful septic service assistant for Fix Septic Now, a 24/7 septic service company in Texas.
 
@@ -28,6 +30,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ reply: "For faster help, please call us at (936) 292-2926." });
     }
 
+    const openai = getOpenAI();
     const completion = await openai.chat.completions.create({
       model: "gpt-4o-mini",
       messages: [

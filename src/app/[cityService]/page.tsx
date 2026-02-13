@@ -3,6 +3,7 @@ import { cities, getCityBySlug, getNeighborCities } from "@/lib/cities";
 import { services, getServiceBySlug } from "@/lib/services";
 import { cityMetadata, comboMetadata } from "@/lib/metadata";
 import { localBusinessSchema, serviceSchema, faqSchema, breadcrumbSchema } from "@/lib/schema";
+import { getCityContent, getComboContent } from "@/lib/content";
 import { LeadForm } from "@/components/LeadForm";
 import { PhoneCTA } from "@/components/PhoneCTA";
 import { TrustSignals } from "@/components/TrustSignals";
@@ -17,14 +18,12 @@ import Link from "next/link";
 type PageType = "city" | "combo";
 
 function parseCityServiceSlug(slug: string): { type: PageType; citySlug: string; serviceSlug?: string; city?: ReturnType<typeof getCityBySlug>; service?: ReturnType<typeof getServiceBySlug> } | null {
-  // Try city page first: [city]-septic-services
   if (slug.endsWith("-septic-services")) {
     const citySlug = slug.replace("-septic-services", "");
     const city = getCityBySlug(citySlug);
     if (city) return { type: "city", citySlug, city };
   }
 
-  // Try combo: [city]-[service-slug]
   for (const service of services) {
     if (slug.endsWith(`-${service.slug}`)) {
       const citySlug = slug.replace(`-${service.slug}`, "");
@@ -38,19 +37,14 @@ function parseCityServiceSlug(slug: string): { type: PageType; citySlug: string;
 
 export function generateStaticParams() {
   const params: { cityService: string }[] = [];
-
-  // City pages
   for (const city of cities) {
     params.push({ cityService: `${city.slug}-septic-services` });
   }
-
-  // City+Service combo pages
   for (const city of cities) {
     for (const service of services) {
       params.push({ cityService: `${city.slug}-${service.slug}` });
     }
   }
-
   return params;
 }
 
@@ -80,7 +74,9 @@ export default async function CityServicePage({ params }: { params: Promise<{ ci
 
   // ========== CITY PAGE ==========
   if (parsed.type === "city") {
-    const cityFaqs = [
+    const content = getCityContent(city.slug);
+
+    const cityFaqs = content?.faqs || [
       { question: `How much does septic pumping cost in ${city.name}?`, answer: `Septic pumping in ${city.name} typically costs $300-$600. Prices vary based on tank size and accessibility. We provide free estimates.` },
       { question: `Do you offer emergency septic service in ${city.name}?`, answer: `Yes! We provide 24/7 emergency septic service in ${city.name} and throughout ${city.county} County. Call (936) 292-2926 anytime.` },
       { question: `What type of soil does ${city.name} have?`, answer: `${city.name} has predominantly ${city.soilType} soil. This soil type affects drain field performance and may require specific septic system designs.` },
@@ -111,7 +107,7 @@ export default async function CityServicePage({ params }: { params: Promise<{ ci
                   Septic Tank Services in {city.name}, Texas
                 </h1>
                 <p className="text-lg text-green-100 mb-6">
-                  Licensed septic professionals serving {city.name} and {city.county} County. 24/7 emergency service, fast response, fair pricing.
+                  {content?.heroDescription || `Licensed septic professionals serving ${city.name} and ${city.county} County. 24/7 emergency service, fast response, fair pricing.`}
                 </p>
                 <PhoneCTA size="lg" />
               </div>
@@ -138,18 +134,38 @@ export default async function CityServicePage({ params }: { params: Promise<{ ci
           </div>
         </section>
 
-        {/* Local info */}
+        {/* Local info - AI content or fallback */}
         <section className="py-12 bg-slate-50">
           <div className="max-w-3xl mx-auto px-4">
             <h2 className="text-2xl font-bold text-slate-900 mb-4">About Septic Systems in {city.name}</h2>
-            <p className="text-slate-600 mb-4">
-              {city.name} is located in {city.county} County, Texas, where many residential properties rely on septic systems rather than municipal sewer connections. The area&apos;s {city.soilType} soil conditions play a significant role in septic system performance and drain field effectiveness.
-            </p>
-            <p className="text-slate-600">
-              Regular septic maintenance is especially important in {city.name} due to local soil conditions. Our licensed technicians understand the specific challenges of {city.county} County properties and provide tailored solutions for your septic system needs.
-            </p>
+            {content?.aboutSection ? (
+              content.aboutSection.split("\n\n").map((p, i) => (
+                <p key={i} className="text-slate-600 mb-4 leading-relaxed">{p}</p>
+              ))
+            ) : (
+              <>
+                <p className="text-slate-600 mb-4">
+                  {city.name} is located in {city.county} County, Texas, where many residential properties rely on septic systems rather than municipal sewer connections. The area&apos;s {city.soilType} soil conditions play a significant role in septic system performance and drain field effectiveness.
+                </p>
+                <p className="text-slate-600">
+                  Regular septic maintenance is especially important in {city.name} due to local soil conditions. Our licensed technicians understand the specific challenges of {city.county} County properties and provide tailored solutions for your septic system needs.
+                </p>
+              </>
+            )}
           </div>
         </section>
+
+        {/* Why Choose Us - AI content */}
+        {content?.whyChooseSection && (
+          <section className="py-12 bg-white">
+            <div className="max-w-3xl mx-auto px-4">
+              <h2 className="text-2xl font-bold text-slate-900 mb-4">Why Choose Fix Septic Now in {city.name}</h2>
+              {content.whyChooseSection.split("\n\n").map((p, i) => (
+                <p key={i} className="text-slate-600 mb-4 leading-relaxed">{p}</p>
+              ))}
+            </div>
+          </section>
+        )}
 
         <ProcessSteps />
 
@@ -184,7 +200,9 @@ export default async function CityServicePage({ params }: { params: Promise<{ ci
 
   // ========== COMBO PAGE (city + service) ==========
   const service = parsed.service!;
-  const comboFaqs = [
+  const comboContent = getComboContent(city.slug, service.slug);
+
+  const comboFaqs = comboContent?.faqs || [
     { question: `How much does ${service.shortName.toLowerCase()} cost in ${city.name}?`, answer: `${service.name} in ${city.name} typically costs ${service.priceRange}. Final pricing depends on your specific situation. We provide free estimates.` },
     { question: `How fast can you get to ${city.name}?`, answer: `We dispatch technicians to ${city.name} and ${city.county} County 24/7. Response times are typically under 60 minutes for emergencies.` },
     { question: `Are you licensed to work in ${city.name}?`, answer: `Yes. All our technicians are Texas state licensed, insured, and experienced with the ${city.soilType} soil conditions common in ${city.name}.` },
@@ -215,7 +233,9 @@ export default async function CityServicePage({ params }: { params: Promise<{ ci
               <h1 className="text-4xl md:text-5xl font-black leading-tight mb-4">
                 {service.name} in {city.name}, Texas
               </h1>
-              <p className="text-lg text-green-100 mb-4">{service.description}</p>
+              <p className="text-lg text-green-100 mb-4">
+                {comboContent?.heroDescription || service.description}
+              </p>
               <p className="text-green-200 mb-6">Starting at {service.priceRange} in {city.name}</p>
               <PhoneCTA size="lg" />
             </div>
@@ -232,18 +252,26 @@ export default async function CityServicePage({ params }: { params: Promise<{ ci
 
       <TrustSignals cityName={city.name} countyName={city.county} />
 
-      {/* Why this city needs this service */}
+      {/* Why this city needs this service - AI content or fallback */}
       <section className="py-12 bg-white">
         <div className="max-w-3xl mx-auto px-4">
           <h2 className="text-2xl font-bold text-slate-900 mb-4">
             Why {city.name} Homes Need {service.name}
           </h2>
-          <p className="text-slate-600 mb-4">
-            Properties in {city.name}, {city.county} County rely on septic systems due to limited municipal sewer infrastructure. The area&apos;s {city.soilType} soil directly impacts septic system performance, making professional {service.shortName.toLowerCase()} essential for system longevity.
-          </p>
-          <p className="text-slate-600">
-            Our technicians are experienced with {city.name}&apos;s specific soil and groundwater conditions, ensuring your {service.shortName.toLowerCase()} is done correctly the first time.
-          </p>
+          {comboContent?.localRelevance ? (
+            comboContent.localRelevance.split("\n\n").map((p, i) => (
+              <p key={i} className="text-slate-600 mb-4 leading-relaxed">{p}</p>
+            ))
+          ) : (
+            <>
+              <p className="text-slate-600 mb-4">
+                Properties in {city.name}, {city.county} County rely on septic systems due to limited municipal sewer infrastructure. The area&apos;s {city.soilType} soil directly impacts septic system performance, making professional {service.shortName.toLowerCase()} essential for system longevity.
+              </p>
+              <p className="text-slate-600">
+                Our technicians are experienced with {city.name}&apos;s specific soil and groundwater conditions, ensuring your {service.shortName.toLowerCase()} is done correctly the first time.
+              </p>
+            </>
+          )}
         </div>
       </section>
 

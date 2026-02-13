@@ -62,7 +62,12 @@ export function LeadForm({ sourcePage, preselectedService, preselectedCity }: Le
           sourceUrl: sourcePage || window.location.pathname,
         }),
       });
-      if (res.ok) setSubmitted(true);
+      if (res.ok) {
+        setSubmitted(true);
+        if (typeof window !== "undefined" && typeof window.gtag === "function") {
+          window.gtag("event", "form_submit", { event_category: "conversion", event_label: data.service, value: 1 });
+        }
+      }
     } catch {
       // fail silently for now
     } finally {
