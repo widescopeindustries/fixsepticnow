@@ -1,11 +1,70 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { Resend } from "resend";
 
 function getSupabase() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
   if (!url || !key) throw new Error("Supabase not configured");
   return createClient(url, key);
+}
+
+async function sendLeadNotification(lead: {
+  name: string;
+  phone: string;
+  service: string;
+  city: string;
+  message?: string;
+}) {
+  const resendKey = process.env.RESEND_API_KEY;
+  if (!resendKey) {
+    console.warn("RESEND_API_KEY not configured - skipping email notification");
+    return;
+  }
+
+  const resend = new Resend(resendKey);
+
+  try {
+    await resend.emails.send({
+      from: "Fix Septic Now <leads@fixsepticnow.com>",
+      to: ["morelyndon@pm.me"],
+      subject: `🚨 NEW LEAD: ${lead.name} - ${lead.city}`,
+      html: `
+        <h2>🚨 New Septic Lead!</h2>
+        <table style="border-collapse: collapse; width: 100%; max-width: 500px;">
+          <tr>
+            <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Name</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">${lead.name}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Phone</td>
+            <td style="padding: 8px; border: 1px solid #ddd;"><a href="tel:${lead.phone}">${lead.phone}</a></td>
+          </tr>
+          <tr>
+            <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Service</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">${lead.service}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Location</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">${lead.city}</td>
+          </tr>
+          ${lead.message ? `
+          <tr>
+            <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Message</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">${lead.message}</td>
+          </tr>
+          ` : ""}
+        </table>
+        <p style="margin-top: 20px; color: #666;">
+          <strong>Call them NOW!</strong> Speed to lead = higher conversion.
+        </p>
+      `,
+    });
+    console.log("Lead notification email sent successfully");
+  } catch (emailError) {
+    console.error("Failed to send lead notification email:", emailError);
+    // Don't fail the request if email fails - lead is already saved
+  }
 }
 
 export async function POST(req: NextRequest) {
@@ -33,8 +92,14 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Failed to save lead" }, { status: 500 });
     }
 
-    // TODO: Send email notification
-    // TODO: Forward to CallRail/CRM
+    // Send email notification (non-blocking)
+    sendLeadNotification({
+      name: body.name,
+      phone: body.phone,
+      service: body.service,
+      city: body.cityZip,
+      message: body.message,
+    });
 
     return NextResponse.json({ success: true });
   } catch {
