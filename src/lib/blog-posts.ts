@@ -7,6 +7,8 @@ export interface BlogPost {
   readTime: string;
   category: string;
   tags: string[];
+  relatedServiceSlugs: string[];
+  relatedCitySlugs: string[];
   content: string;
 }
 
@@ -21,6 +23,8 @@ export const blogPosts: BlogPost[] = [
     readTime: "5 min read",
     category: "Maintenance",
     tags: ["septic pumping", "maintenance", "Texas", "how often"],
+    relatedServiceSlugs: ["septic-pumping", "septic-maintenance", "septic-inspection"],
+    relatedCitySlugs: ["conroe", "katy", "new-braunfels", "weatherford", "huntsville"],
     content: `
 <p>One of the most common questions we hear from Texas homeowners: <strong>"How often do I really need to pump my septic tank?"</strong> The honest answer is: it depends. But most homeowners wait too long — and that's where expensive problems start.</p>
 
@@ -71,12 +75,12 @@ export const blogPosts: BlogPost[] = [
   <li>Spread laundry loads throughout the week instead of washing everything on one day</li>
   <li>Don't pour grease, harsh chemicals, or antibacterial cleaners down the drain — they kill the beneficial bacteria your tank depends on</li>
   <li>Keep trees and shrubs away from your drain field — roots will find the pipes</li>
-  <li>Schedule an <strong>inspection every 1–2 years</strong> even if you're not due for a pump-out</li>
+  <li>Schedule a <strong><a href="/services/septic-inspection">septic inspection</a> every 1–2 years</strong> even if you're not due for a pump-out</li>
 </ul>
 
 <h2>Bottom Line</h2>
-<p>Most Texas homeowners with a standard 3–4 person household and a 1,000-gallon tank should be pumping every <strong>3 years</strong>. If you're on well water, have a garbage disposal, or live in an area with heavy clay soil, consider every 2 years.</p>
-<p>Not sure when your tank was last serviced? <strong>That's a red flag.</strong> If you can't remember, it's probably time. Give us a call — we serve most of Texas and can get someone out fast.</p>
+<p>Most Texas homeowners with a standard 3–4 person household and a 1,000-gallon tank should be <a href="/services/septic-pumping">pumping every <strong>3 years</strong></a>. If you're on well water, have a garbage disposal, or live in an area with heavy clay soil, consider every 2 years.</p>
+<p>Not sure when your tank was last serviced? <strong>That's a red flag.</strong> If you can't remember, it's probably time. <a href="/contact">Give us a call</a> — we serve most of Texas and can get someone out fast.</p>
     `,
   },
   {
@@ -89,12 +93,14 @@ export const blogPosts: BlogPost[] = [
     readTime: "4 min read",
     category: "Troubleshooting",
     tags: ["warning signs", "full septic tank", "emergency", "septic backup"],
+    relatedServiceSlugs: ["emergency-septic-service", "septic-pumping", "septic-cleaning"],
+    relatedCitySlugs: ["spring", "the-woodlands", "boerne", "georgetown", "conroe"],
     content: `
 <p>Your septic tank doesn't send a text message when it's full. Instead, it sends signals — and if you miss them, you're looking at sewage backup, drain field damage, or a full system replacement. Here are the seven warning signs every Texas homeowner should know.</p>
 
 <h2>1. Slow Drains Throughout the House</h2>
 <p>One slow drain usually means a clog in that line. <strong>Multiple slow drains at once</strong> — sinks, showers, tubs all draining sluggishly — is a sign the problem is downstream. A full or backed-up septic tank restricts flow across your entire home.</p>
-<p>Don't reach for the drain cleaner. Chemical drain cleaners kill the bacteria in your tank that break down waste. Call a septic professional instead.</p>
+<p>Don't reach for the drain cleaner. Chemical drain cleaners kill the bacteria in your tank that break down waste. <a href="/contact">Call a septic professional</a> instead.</p>
 
 <h2>2. Gurgling Sounds in Pipes</h2>
 <p>Hear gurgling after you flush or run water? That sound is air being displaced as water struggles to move through a system under pressure. It often means liquid levels in your tank are high, leaving less airspace in the system.</p>
@@ -124,7 +130,7 @@ export const blogPosts: BlogPost[] = [
 <ol>
   <li><strong>Stop using water</strong> as much as possible — every gallon makes it worse</li>
   <li><strong>Don't add chemicals</strong> — drain cleaners, RV treatments, and "magic bacteria" won't fix a full tank</li>
-  <li><strong>Call a licensed septic service</strong> — this requires a pump truck and professional equipment</li>
+  <li><strong><a href="/services/emergency-septic-service">Call a licensed septic service</a></strong> — this requires a pump truck and professional equipment</li>
   <li><strong>Keep people away from the drain field</strong> — effluent on the surface contains pathogens</li>
 </ol>
 
@@ -141,6 +147,8 @@ export const blogPosts: BlogPost[] = [
     readTime: "4 min read",
     category: "Pricing",
     tags: ["cost", "pricing", "septic pumping", "Texas"],
+    relatedServiceSlugs: ["septic-pumping", "septic-inspection", "emergency-septic-service"],
+    relatedCitySlugs: ["katy", "magnolia", "dripping-springs", "waxahachie", "lufkin"],
     content: `
 <p>Septic tank pumping is one of those services where prices vary wildly — and if you don't know what's fair, it's easy to get overcharged or, worse, underserved. Here's a straightforward breakdown of what septic pumping costs in Texas in 2026.</p>
 
@@ -166,7 +174,7 @@ export const blogPosts: BlogPost[] = [
 <p>Expect to pay more in suburban Houston, DFW, and Austin than in rural East Texas or the Hill Country — demand is higher and operating costs are steeper in metro areas. That said, we work hard to keep pricing competitive regardless of where you're located.</p>
 
 <h3>Time of Service</h3>
-<p><strong>Emergency or after-hours service costs more</strong> — typically 1.5x to 2x the standard rate. A pump-out during business hours that would cost $400 might run $700–$800 on a Saturday night. This is another reason to catch problems early.</p>
+<p><strong><a href="/services/emergency-septic-service">Emergency or after-hours service</a> costs more</strong> — typically 1.5x to 2x the standard rate. A pump-out during business hours that would cost $400 might run $700–$800 on a Saturday night. This is another reason to catch problems early.</p>
 
 <h3>Condition of the Tank</h3>
 <p>If the tank is severely overfilled, contains excessive grease, or requires extra water jetting to loosen hardened solids, expect additional charges. A tank that's never been pumped in 10+ years often takes longer and costs more to service.</p>
@@ -180,7 +188,7 @@ export const blogPosts: BlogPost[] = [
   <li>Distribution box inspection</li>
   <li>Written report or certificate (required for real estate transactions)</li>
 </ul>
-<p>If you need a full inspection — say, you're buying or selling a home — ask for a <strong>septic inspection package</strong>, which runs $200–$500 on top of the pump-out.</p>
+<p>If you need a full inspection — say, you're buying or selling a home — ask for a <strong><a href="/services/septic-inspection">septic inspection package</a></strong>, which runs $200–$500 on top of the pump-out.</p>
 
 <h2>How to Avoid Getting Overcharged</h2>
 <ol>
@@ -206,6 +214,8 @@ export const blogPosts: BlogPost[] = [
     readTime: "5 min read",
     category: "Education",
     tags: ["Texas soil", "drain field", "septic system design", "percolation"],
+    relatedServiceSlugs: ["septic-inspection", "septic-installation", "septic-maintenance"],
+    relatedCitySlugs: ["wimberley", "boerne", "cypress", "georgetown", "corsicana"],
     content: `
 <p>Texas is a big state with wildly different geology. The soil under your septic system isn't just dirt — it's the engine that treats and disperses wastewater. Understanding your soil type helps you maintain your system better and avoid costly failures.</p>
 
@@ -240,9 +250,9 @@ export const blogPosts: BlogPost[] = [
   <li>Very shallow effective soil depth — drain fields must be carefully engineered</li>
   <li>Rapid flow through fractures can bypass natural treatment, risking groundwater contamination</li>
   <li>Edwards Aquifer Protection Zone rules apply in many areas — stricter requirements</li>
-  <li>Many Hill Country properties require aerobic treatment systems (ATUs) instead of conventional septic</li>
+  <li>Many Hill Country properties require <a href="/services/septic-installation">aerobic treatment systems (ATUs)</a> instead of conventional septic</li>
 </ul>
-<p><strong>What this means for you:</strong> Know whether you're in a regulated zone. Aerobic systems require quarterly maintenance contracts by law in Texas. Don't skip inspections in karst terrain — the consequences for groundwater can be severe.</p>
+<p><strong>What this means for you:</strong> Know whether you're in a regulated zone. Aerobic systems require quarterly maintenance contracts by law in Texas. Don't skip <a href="/services/septic-inspection">inspections</a> in karst terrain — the consequences for groundwater can be severe.</p>
 
 <h3>Sandy Loam with Red Clay (Nacogdoches, Palestine, Corsicana, Athens)</h3>
 <p>Deep East Texas often has layers — sandy loam on top with red clay beneath. The clay layer can act as a barrier, causing the drain field to saturate seasonally (especially in wet winters and springs). This is often called a <strong>"perched water table"</strong> situation.</p>
@@ -254,7 +264,7 @@ export const blogPosts: BlogPost[] = [
   <li><strong>USDA Web Soil Survey</strong> (websoilsurvey.sc.egov.usda.gov) — free, maps soil types by address</li>
   <li><strong>Your county health department</strong> — they often have soil data on file from past perc tests</li>
   <li><strong>Your septic system permit</strong> — often lists soil type and perc test results from installation</li>
-  <li><strong>Ask a licensed septic professional</strong> — experienced techs know the local soil profiles well</li>
+  <li><strong><a href="/contact">Ask a licensed septic professional</a></strong> — experienced techs know the local soil profiles well</li>
 </ul>
 
 <h2>Bottom Line</h2>
@@ -271,6 +281,8 @@ export const blogPosts: BlogPost[] = [
     readTime: "4 min read",
     category: "Emergency",
     tags: ["emergency", "sewage backup", "septic overflow", "what to do"],
+    relatedServiceSlugs: ["emergency-septic-service", "septic-pumping", "septic-repair"],
+    relatedCitySlugs: ["humble", "richmond", "seguin", "canton", "navasota"],
     content: `
 <p>A septic emergency isn't something you can watch YouTube videos about and fix yourself. But knowing what to do in the first 30 minutes can prevent thousands of dollars in additional damage — and keep your family safe. Here's the playbook.</p>
 
@@ -298,7 +310,7 @@ export const blogPosts: BlogPost[] = [
 </ul>
 
 <h2>Step 3: Call for Emergency Septic Service</h2>
-<p>Call a licensed septic company that offers emergency service. Be ready to tell them:</p>
+<p>Call a <a href="/services/emergency-septic-service">licensed septic company that offers emergency service</a>. Be ready to tell them:</p>
 <ul>
   <li>What's happening (backup inside vs. surfacing outside vs. odor only)</li>
   <li>How many people are in the household</li>
@@ -357,6 +369,8 @@ export const blogPosts: BlogPost[] = [
     readTime: "6 min read",
     category: "Installation",
     tags: ["septic installation", "new septic system", "Texas permits", "cost"],
+    relatedServiceSlugs: ["septic-installation", "septic-inspection", "septic-repair"],
+    relatedCitySlugs: ["dripping-springs", "liberty-hill", "granbury", "bastrop", "brenham"],
     content: `
 <p>Installing a new septic system is one of the larger home improvement investments you'll make. In Texas, the process is regulated by the state and varies by county — so knowing the rules ahead of time saves time, money, and headaches. Here's everything you need to know before you break ground.</p>
 

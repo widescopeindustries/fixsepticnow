@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { blogPosts } from "@/lib/blog-posts";
+import { services } from "@/lib/services";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -85,6 +86,25 @@ export default function BlogPage() {
                   </div>
                 </Link>
               </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Browse by Service */}
+      <section className="py-12 bg-slate-50 border-t border-slate-100">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-xl font-bold text-slate-900 mb-2">Browse by Service</h2>
+          <p className="text-slate-500 text-sm mb-5">Find information about your specific septic need.</p>
+          <div className="flex flex-wrap gap-3">
+            {services.map((s) => (
+              <Link
+                key={s.slug}
+                href={`/services/${s.slug}`}
+                className="bg-white border border-slate-200 hover:border-green-300 hover:bg-green-50 text-slate-700 hover:text-green-800 text-sm font-medium px-4 py-2 rounded-lg transition-colors"
+              >
+                {s.name}
+              </Link>
             ))}
           </div>
         </div>

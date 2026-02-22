@@ -10,6 +10,7 @@ const navLinks = [
   { label: "Services", href: "/services/septic-pumping" },
   { label: "Emergency", href: "/services/emergency-septic-service" },
   { label: "Service Areas", href: "/#cities" },
+  { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];

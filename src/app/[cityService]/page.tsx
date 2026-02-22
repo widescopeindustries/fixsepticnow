@@ -14,6 +14,7 @@ import { FAQSection } from "@/components/FAQSection";
 import { SchemaMarkup } from "@/components/SchemaMarkup";
 import { SITE_URL } from "@/lib/constants";
 import Link from "next/link";
+import { blogPosts } from "@/lib/blog-posts";
 
 type PageType = "city" | "combo";
 
@@ -187,6 +188,27 @@ export default async function CityServicePage({ params }: { params: Promise<{ ci
 
         <FAQSection faqs={cityFaqs} />
 
+        {/* Helpful Guides */}
+        <section className="py-10 bg-white border-t border-slate-100">
+          <div className="max-w-5xl mx-auto px-4">
+            <h2 className="text-xl font-bold text-slate-900 mb-4">Helpful Septic Guides for Texas Homeowners</h2>
+            <div className="grid sm:grid-cols-3 gap-4">
+              {blogPosts.slice(0, 3).map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="border border-slate-200 rounded-lg p-4 hover:shadow-sm hover:border-green-200 transition-all group"
+                >
+                  <span className="text-xs font-semibold uppercase tracking-wide text-green-700">{post.category}</span>
+                  <h3 className="font-semibold text-slate-900 mt-2 text-sm leading-snug group-hover:text-green-700 transition-colors">
+                    {post.title}
+                  </h3>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="bg-green-800 text-white py-16">
           <div className="max-w-3xl mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold mb-4">Need Septic Help in {city.name}?</h2>
@@ -284,7 +306,12 @@ export default async function CityServicePage({ params }: { params: Promise<{ ci
       {neighbors.length > 0 && (
         <section className="py-12">
           <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6">{service.name} in Nearby Cities</h2>
+            <div className="flex items-baseline justify-between mb-6">
+              <h2 className="text-2xl font-bold text-slate-900">{service.name} in Nearby Cities</h2>
+              <Link href={`/services/${service.slug}`} className="text-green-700 hover:underline text-sm font-medium hidden sm:block">
+                View all Texas locations →
+              </Link>
+            </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {neighbors.map((n) => (
                 <Link key={n.slug} href={`/${n.slug}-${service.slug}`} className="text-green-700 hover:text-green-900 hover:underline text-sm py-1">
@@ -297,6 +324,33 @@ export default async function CityServicePage({ params }: { params: Promise<{ ci
       )}
 
       <FAQSection faqs={comboFaqs} />
+
+      {/* Related Reading - Blog Posts for this service */}
+      {(() => {
+        const posts = blogPosts.filter((p) => p.relatedServiceSlugs.includes(service.slug)).slice(0, 3);
+        if (!posts.length) return null;
+        return (
+          <section className="py-10 bg-white border-t border-slate-100">
+            <div className="max-w-5xl mx-auto px-4">
+              <h2 className="text-xl font-bold text-slate-900 mb-4">Helpful Guides</h2>
+              <div className="grid sm:grid-cols-3 gap-4">
+                {posts.map((post) => (
+                  <Link
+                    key={post.slug}
+                    href={`/blog/${post.slug}`}
+                    className="border border-slate-200 rounded-lg p-4 hover:shadow-sm hover:border-green-200 transition-all group"
+                  >
+                    <span className="text-xs font-semibold uppercase tracking-wide text-green-700">{post.category}</span>
+                    <h3 className="font-semibold text-slate-900 mt-2 text-sm leading-snug group-hover:text-green-700 transition-colors">
+                      {post.title}
+                    </h3>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      })()}
 
       <section className="bg-green-800 text-white py-16">
         <div className="max-w-3xl mx-auto px-4 text-center">

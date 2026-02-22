@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { LeadForm } from "@/components/LeadForm";
 import { PhoneCTA } from "@/components/PhoneCTA";
 import { TrustSignals } from "@/components/TrustSignals";
@@ -8,6 +9,7 @@ import { FAQSection } from "@/components/FAQSection";
 import { SchemaMarkup } from "@/components/SchemaMarkup";
 import { services } from "@/lib/services";
 import { cities } from "@/lib/cities";
+import { getRecentBlogPosts } from "@/lib/blog-posts";
 import { organizationSchema, localBusinessSchema, faqSchema } from "@/lib/schema";
 import { homeMetadata } from "@/lib/metadata";
 
@@ -21,6 +23,8 @@ const homeFaqs = [
   { question: "What areas do you serve in Texas?", answer: "We serve over 40 cities across Texas including Conroe, Katy, Spring, The Woodlands, New Braunfels, Boerne, Georgetown, Dripping Springs, Weatherford, and many more suburban and rural communities." },
   { question: "Can you pump my septic tank on weekends?", answer: "Absolutely. We offer weekend septic tank pumping at no extra charge for scheduled service. Emergency weekend service is also available 24/7." },
 ];
+
+const recentPosts = getRecentBlogPosts(3);
 
 export default function HomePage() {
   return (
@@ -67,6 +71,44 @@ export default function HomePage() {
       </section>
 
       <ProcessSteps />
+
+      {/* Blog Teaser */}
+      {recentPosts.length > 0 && (
+        <section className="py-16 bg-slate-50">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <h2 className="text-3xl font-bold text-slate-900">Septic Tips & Guides</h2>
+                <p className="text-slate-600 mt-1">Expert advice for Texas homeowners</p>
+              </div>
+              <Link href="/blog" className="text-green-700 hover:text-green-900 font-semibold text-sm hidden sm:block">
+                View all posts →
+              </Link>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {recentPosts.map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="bg-white border border-slate-200 rounded-xl p-5 hover:shadow-md hover:border-green-200 transition-all group"
+                >
+                  <span className="text-xs font-semibold uppercase tracking-wide text-green-700 bg-green-50 px-2 py-0.5 rounded-full">
+                    {post.category}
+                  </span>
+                  <h3 className="font-bold text-slate-900 mt-3 mb-2 leading-snug group-hover:text-green-700 transition-colors">
+                    {post.title}
+                  </h3>
+                  <p className="text-slate-500 text-sm line-clamp-2">{post.description}</p>
+                  <span className="text-green-700 text-sm font-semibold mt-3 inline-block">Read more →</span>
+                </Link>
+              ))}
+            </div>
+            <div className="text-center mt-6 sm:hidden">
+              <Link href="/blog" className="text-green-700 font-semibold text-sm">View all posts →</Link>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Cities Grid */}
       <section id="cities" className="py-16 bg-slate-50">

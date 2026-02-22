@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getBlogPostBySlug, blogPosts } from "@/lib/blog-posts";
+import { getServiceBySlug } from "@/lib/services";
+import { getCityBySlug } from "@/lib/cities";
 import type { Metadata } from "next";
 
 interface Props {
@@ -39,6 +41,14 @@ export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
   const post = getBlogPostBySlug(slug);
   if (!post) notFound();
+
+  const relatedServices = post.relatedServiceSlugs
+    .map((s) => getServiceBySlug(s))
+    .filter(Boolean);
+
+  const relatedCities = post.relatedCitySlugs
+    .map((c) => getCityBySlug(c))
+    .filter(Boolean);
 
   return (
     <>
@@ -108,6 +118,51 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {/* Related Services */}
+      {relatedServices.length > 0 && (
+        <section className="py-10 bg-slate-50 border-t border-slate-100">
+          <div className="max-w-3xl mx-auto px-4">
+            <h2 className="text-lg font-black text-slate-900 mb-4">Related Services</h2>
+            <div className="flex flex-wrap gap-3">
+              {relatedServices.map((service) => (
+                <Link
+                  key={service!.slug}
+                  href={`/services/${service!.slug}`}
+                  className="inline-flex items-center gap-2 bg-white border border-green-200 text-green-800 hover:bg-green-700 hover:text-white hover:border-green-700 font-semibold text-sm px-4 py-2 rounded-lg transition-colors"
+                >
+                  {service!.name} →
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Serving These Areas */}
+      {relatedCities.length > 0 && (
+        <section className="py-10 bg-white border-t border-slate-100">
+          <div className="max-w-3xl mx-auto px-4">
+            <h2 className="text-lg font-black text-slate-900 mb-1">
+              Serving Texas Communities
+            </h2>
+            <p className="text-slate-500 text-sm mb-4">
+              We provide professional septic service in these areas and throughout Texas.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {relatedCities.map((city) => (
+                <Link
+                  key={city!.slug}
+                  href={`/${city!.slug}-septic-services`}
+                  className="bg-slate-100 hover:bg-green-100 text-slate-700 hover:text-green-800 text-sm px-3 py-1.5 rounded-full transition-colors"
+                >
+                  {city!.name}, TX
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* CTA */}
       <section className="py-14 bg-green-50 border-t border-green-100">

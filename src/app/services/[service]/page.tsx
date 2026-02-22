@@ -1,5 +1,7 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import { services, getServiceBySlug } from "@/lib/services";
+import { blogPosts } from "@/lib/blog-posts";
 import { serviceMetadata } from "@/lib/metadata";
 import { serviceSchema, faqSchema, breadcrumbSchema, localBusinessSchema } from "@/lib/schema";
 import { getServiceContent } from "@/lib/content";
@@ -37,6 +39,9 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
 
   const content = getServiceContent(service.slug);
   const faqs = content?.faqs || fallbackFaqs;
+  const relatedPosts = blogPosts
+    .filter((p) => p.relatedServiceSlugs.includes(service.slug))
+    .slice(0, 3);
 
   const schemas = [
     serviceSchema(service.name, service.description, service.priceRange),
@@ -131,6 +136,30 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
       <CityServiceGrid mode="cities-for-service" serviceSlug={service.slug} />
 
       <FAQSection faqs={faqs} />
+
+      {/* Related Blog Posts */}
+      {relatedPosts.length > 0 && (
+        <section className="py-12 bg-white border-t border-slate-100">
+          <div className="max-w-5xl mx-auto px-4">
+            <h2 className="text-2xl font-bold text-slate-900 mb-6">Related Reading</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {relatedPosts.map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="border border-slate-200 rounded-lg p-4 hover:shadow-sm hover:border-green-200 transition-all group"
+                >
+                  <span className="text-xs font-semibold uppercase tracking-wide text-green-700">{post.category}</span>
+                  <h3 className="font-semibold text-slate-900 mt-2 mb-1 text-sm leading-snug group-hover:text-green-700 transition-colors">
+                    {post.title}
+                  </h3>
+                  <span className="text-green-700 text-xs font-semibold">Read more →</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Final CTA */}
       <section className="bg-green-800 text-white py-16">
