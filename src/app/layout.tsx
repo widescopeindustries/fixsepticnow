@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { EmergencyBanner } from "@/components/EmergencyBanner";
 import { StickyMobileCTA } from "@/components/StickyMobileCTA";
 import { ChatWidget } from "@/components/ChatWidget";
+import { ExitIntentPopup } from "@/components/ExitIntentPopup";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -42,6 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <StickyMobileCTA />
         <ChatWidget />
+        <ExitIntentPopup />
       </body>
     </html>
   );

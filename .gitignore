@@ -45,3 +45,14 @@ next-env.d.ts
 
 # Google service account credentials
 gsc-service-account.json
+
+.env*.local
+
+fixsepticnow-f4028fea87ff.json
+gsc-service-account.json
+*.json
+!package.json
+!package-lock.json
+!tsconfig.json
+!components.json
+!next-env.d.ts

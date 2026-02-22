@@ -3,6 +3,7 @@ import { cities } from "../src/lib/cities";
 import { services } from "../src/lib/services";
 
 const SITE_URL = "https://fixsepticnow.com";
+const SITE_PROPERTY = "sc-domain:fixsepticnow.com";
 const KEY_FILE = "./gsc-service-account.json";
 
 async function getAuthClient() {
@@ -42,7 +43,7 @@ async function main() {
       const result = await searchconsole.urlInspection.index.inspect({
         requestBody: {
           inspectionUrl: url,
-          siteUrl: SITE_URL,
+          siteUrl: SITE_PROPERTY,
         },
       });
 
