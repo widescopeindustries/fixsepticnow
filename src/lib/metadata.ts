@@ -20,8 +20,13 @@ export function homeMetadata(): Metadata {
 }
 
 export function serviceMetadata(serviceName: string, serviceSlug: string): Metadata {
-  const title = `${serviceName} in Texas | Licensed Pros | ${SITE_NAME}`;
-  const description = `Professional ${serviceName.toLowerCase()} across Texas. 24/7 availability, licensed & insured. Call ${PHONE} for a free estimate.`;
+  const isEmergency = serviceSlug === "emergency-septic-service";
+  const title = isEmergency
+    ? `${serviceName} Texas | 24/7 Same-Day Response | ${SITE_NAME}`
+    : `${serviceName} in Texas | Licensed & Insured | ${SITE_NAME}`;
+  const description = isEmergency
+    ? `Sewage backup? Septic overflow? We provide ${serviceName.toLowerCase()} across Texas — same-day response, 24/7. Call ${PHONE} now.`
+    : `Professional ${serviceName.toLowerCase()} across Texas. 24/7 availability, licensed & insured. Call ${PHONE} for a free estimate.`;
   const url = `${SITE_URL}/services/${serviceSlug}`;
 
   return {
@@ -46,8 +51,13 @@ export function cityMetadata(cityName: string, citySlug: string): Metadata {
 }
 
 export function comboMetadata(cityName: string, serviceName: string, comboSlug: string): Metadata {
-  const title = `${serviceName} in ${cityName}, TX | 24/7 Service | ${SITE_NAME}`;
-  const description = `Need ${serviceName.toLowerCase()} in ${cityName}? Fast, licensed service with 24/7 availability. Call ${PHONE} for immediate response.`;
+  const isEmergency = comboSlug.includes("emergency");
+  const title = isEmergency
+    ? `${serviceName} in ${cityName}, TX | Same-Day Response | ${SITE_NAME}`
+    : `${serviceName} in ${cityName}, TX | 24/7 Service | ${SITE_NAME}`;
+  const description = isEmergency
+    ? `Sewage backup in ${cityName}? We provide ${serviceName.toLowerCase()} with same-day response, 24/7. Licensed Texas pros. Call ${PHONE} now.`
+    : `Need ${serviceName.toLowerCase()} in ${cityName}? Fast, licensed service with 24/7 availability. Call ${PHONE} for immediate response.`;
   const url = `${SITE_URL}/${comboSlug}`;
 
   return {
