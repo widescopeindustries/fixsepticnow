@@ -11,15 +11,33 @@ import { TrustSignals } from "@/components/TrustSignals";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { CityServiceGrid } from "@/components/CityServiceGrid";
 import { FAQSection } from "@/components/FAQSection";
+import { QuickAnswer } from "@/components/QuickAnswer";
 import { SchemaMarkup } from "@/components/SchemaMarkup";
 import { SITE_URL } from "@/lib/constants";
 
-// Fallback FAQs if AI content not available
-const fallbackFaqs = [
-  { question: "How much does this service cost?", answer: "Pricing varies based on your system and property. Call (936) 292-2926 for a free estimate." },
-  { question: "Do you offer 24/7 service?", answer: "Yes! We provide round-the-clock emergency and scheduled service across Texas." },
-  { question: "Are you licensed and insured?", answer: "Absolutely. All our technicians are Texas state licensed and fully insured." },
-];
+// GEO-optimized FAQs per service (used when AI content not available)
+function getServiceFaqs(serviceName: string, shortName: string, priceRange: string) {
+  const sn = shortName.toLowerCase();
+  return [
+    { question: `How much does ${serviceName.toLowerCase()} cost in Texas?`, answer: `${serviceName} in Texas typically costs ${priceRange}. Final pricing depends on tank size, accessibility, and property conditions. Call (936) 292-2926 for a free estimate.` },
+    { question: `How often do I need ${serviceName.toLowerCase()}?`, answer: `Most Texas homeowners need ${sn} every 3–5 years for standard systems. Homes with more occupants, garbage disposals, or heavy clay soil may need service every 2–3 years.` },
+    { question: `How long does ${serviceName.toLowerCase()} take?`, answer: `A typical ${sn} appointment takes 1–3 hours depending on tank size and accessibility. Complex jobs like installations or major repairs may take 1–3 days.` },
+    { question: `What are signs I need ${serviceName.toLowerCase()}?`, answer: `Common signs include slow drains throughout the house, sewage odors indoors or outdoors, gurgling pipes, soggy ground over the drain field, and unusually green grass over the septic area.` },
+    { question: `Is emergency ${serviceName.toLowerCase()} available?`, answer: `Yes. We provide 24/7 emergency ${sn} across Texas with same-day dispatch. Call (936) 292-2926 anytime — nights, weekends, and holidays included.` },
+    { question: `Does homeowners insurance cover ${serviceName.toLowerCase()}?`, answer: `Standard homeowners insurance typically does not cover routine ${sn}. However, some policies cover damage caused by sudden septic failures. Check with your insurer and document any damage with photos.` },
+  ];
+}
+
+// Quick answer data per service slug
+const serviceQuickAnswers: Record<string, { question: string; answer: string }> = {
+  "septic-pumping": { question: "How much does septic tank pumping cost in Texas?", answer: "Septic tank pumping in Texas costs $300–$600 for a standard 1,000-gallon tank. Emergency service is available 24/7 with same-day dispatch. Prices vary by tank size and accessibility." },
+  "septic-cleaning": { question: "How much does septic tank cleaning cost in Texas?", answer: "Septic tank cleaning in Texas costs $350–$700, which includes pumping, inspection, and bacteria treatment. A full cleaning extends your system's lifespan and prevents costly drain field failures." },
+  "septic-repair": { question: "How much does septic tank repair cost in Texas?", answer: "Septic tank repair in Texas ranges from $500 for minor fixes to $3,000+ for major component replacement. Early diagnosis saves money — most repairs cost far less than a full system replacement ($10,000+)." },
+  "emergency-septic-service": { question: "How quickly can I get emergency septic service in Texas?", answer: "We dispatch emergency septic technicians 24/7 across Texas with response times typically under 60 minutes. Stop using all water immediately and call (936) 292-2926 — every minute matters during a sewage backup." },
+  "septic-inspection": { question: "How much does a septic inspection cost in Texas?", answer: "A comprehensive septic inspection in Texas costs $200–$500. Inspections are essential for home buyers and sellers, and recommended every 1–2 years for routine maintenance. We provide written reports for real estate transactions." },
+  "septic-installation": { question: "How much does a new septic system cost in Texas?", answer: "New septic system installation in Texas costs $5,000–$15,000+ depending on system type and soil conditions. Conventional gravity systems start around $5,000; aerobic treatment units required in some counties run $10,000–$20,000." },
+  "septic-maintenance": { question: "How much does a septic maintenance plan cost in Texas?", answer: "Annual septic maintenance plans in Texas cost $200–$400/year and include scheduled inspections, pumping reminders, and priority emergency service. Regular maintenance extends your system's life by 10–15 years." },
+};
 
 export function generateStaticParams() {
   return services.map((s) => ({ service: s.slug }));
@@ -38,7 +56,8 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
   if (!service) notFound();
 
   const content = getServiceContent(service.slug);
-  const faqs = content?.faqs || fallbackFaqs;
+  const faqs = content?.faqs || getServiceFaqs(service.name, service.shortName, service.priceRange);
+  const quickAnswer = serviceQuickAnswers[service.slug];
   const relatedPosts = blogPosts
     .filter((p) => p.relatedServiceSlugs.includes(service.slug))
     .slice(0, 3);
@@ -82,6 +101,19 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
       </section>
 
       <TrustSignals />
+
+      {/* Quick Answer Box + Stats */}
+      <section className="py-10 bg-white">
+        <div className="max-w-3xl mx-auto px-4 space-y-6">
+          {quickAnswer && (
+            <QuickAnswer question={quickAnswer.question} answer={quickAnswer.answer} />
+          )}
+          <div className="text-slate-600 text-sm leading-relaxed space-y-2">
+            <p>According to the EPA, <strong>1 in 5 U.S. homes</strong> relies on a septic system for wastewater treatment.</p>
+            <p>Texas has over <strong>3 million septic systems</strong> statewide, more than nearly every other state (Texas Commission on Environmental Quality).</p>
+          </div>
+        </div>
+      </section>
 
       {/* What Is Section */}
       {content?.whatIsSection && (
