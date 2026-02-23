@@ -83,6 +83,7 @@ export default async function CityServicePage({ params }: { params: Promise<{ ci
       { question: `Do you offer emergency septic service in ${city.name}?`, answer: `Yes! We provide 24/7 emergency septic service in ${city.name} and throughout ${city.county} County. Call (936) 292-2926 anytime.` },
       { question: `What type of soil does ${city.name} have?`, answer: `${city.name} has predominantly ${city.soilType} soil. This soil type affects drain field performance and may require specific septic system designs.` },
       { question: `How often should I pump my septic tank in ${city.name}?`, answer: `With ${city.soilType} soil common in ${city.name}, we recommend pumping every 3-5 years. Homes with more occupants should pump more frequently.` },
+      { question: `How do I find a licensed septic company near ${city.name}?`, answer: `Look for companies licensed by the Texas Commission on Environmental Quality (TCEQ) with insurance and local experience. Fix Septic Now is fully licensed, insured, and serves ${city.name} and all of ${city.county} County. Call (936) 292-2926 for a free estimate.` },
     ];
 
     const schemas = [
