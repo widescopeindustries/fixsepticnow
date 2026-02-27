@@ -7,9 +7,22 @@ interface CityServiceGridProps {
   serviceSlug?: string;
   citySlug?: string;
   neighborSlugs?: string[];
+  /** "nested" uses new URL structure (/septic-services/[city]-tx/[service]) */
+  urlStyle?: "flat" | "nested";
 }
 
-export function CityServiceGrid({ mode, serviceSlug, citySlug, neighborSlugs }: CityServiceGridProps) {
+export function CityServiceGrid({ mode, serviceSlug, citySlug, neighborSlugs, urlStyle = "nested" }: CityServiceGridProps) {
+  // Helper to generate URLs based on style
+  const getCityServiceUrl = (cSlug: string, sSlug: string) =>
+    urlStyle === "nested"
+      ? `/septic-services/${cSlug}-tx/${sSlug}`
+      : `/${cSlug}-${sSlug}`;
+
+  const getCityHubUrl = (cSlug: string) =>
+    urlStyle === "nested"
+      ? `/septic-services/${cSlug}-tx`
+      : `/${cSlug}-septic-services`;
+
   if (mode === "cities-for-service" && serviceSlug) {
     const service = services.find((s) => s.slug === serviceSlug);
     return (
@@ -22,7 +35,7 @@ export function CityServiceGrid({ mode, serviceSlug, citySlug, neighborSlugs }: 
             {cities.map((city) => (
               <Link
                 key={city.slug}
-                href={`/${city.slug}-${serviceSlug}`}
+                href={getCityServiceUrl(city.slug, serviceSlug)}
                 className="text-sm text-green-700 hover:text-green-900 hover:underline py-1"
               >
                 {city.name}, TX
@@ -46,7 +59,7 @@ export function CityServiceGrid({ mode, serviceSlug, citySlug, neighborSlugs }: 
             {services.map((service) => (
               <Link
                 key={service.slug}
-                href={`/${citySlug}-${service.slug}`}
+                href={getCityServiceUrl(citySlug, service.slug)}
                 className="text-sm text-green-700 hover:text-green-900 hover:underline py-1"
               >
                 {service.name}
@@ -70,7 +83,7 @@ export function CityServiceGrid({ mode, serviceSlug, citySlug, neighborSlugs }: 
             {neighbors.map((city) => (
               <Link
                 key={city!.slug}
-                href={`/${city!.slug}-septic-services`}
+                href={getCityHubUrl(city!.slug)}
                 className="text-sm text-green-700 hover:text-green-900 hover:underline py-1"
               >
                 {city!.name}, TX

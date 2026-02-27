@@ -35,7 +35,7 @@ export function Footer() {
             <ul className="space-y-1">
               {cities.slice(0, 20).map((c) => (
                 <li key={c.slug}>
-                  <Link href={`/${c.slug}-septic-services`} className="text-sm hover:text-green-400">{c.name}, TX</Link>
+                  <Link href={`/septic-services/${c.slug}-tx`} className="text-sm hover:text-green-400">{c.name}, TX</Link>
                 </li>
               ))}
             </ul>
@@ -47,7 +47,7 @@ export function Footer() {
             <ul className="space-y-1">
               {cities.slice(20).map((c) => (
                 <li key={c.slug}>
-                  <Link href={`/${c.slug}-septic-services`} className="text-sm hover:text-green-400">{c.name}, TX</Link>
+                  <Link href={`/septic-services/${c.slug}-tx`} className="text-sm hover:text-green-400">{c.name}, TX</Link>
                 </li>
               ))}
             </ul>

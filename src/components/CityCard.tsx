@@ -10,8 +10,8 @@ interface CityCardProps {
 
 export function CityCard({ city, serviceSlug }: CityCardProps) {
   const href = serviceSlug
-    ? `/${city.slug}-${serviceSlug}`
-    : `/${city.slug}-septic-services`;
+    ? `/septic-services/${city.slug}-tx/${serviceSlug}`
+    : `/septic-services/${city.slug}-tx`;
 
   return (
     <Link href={href}>

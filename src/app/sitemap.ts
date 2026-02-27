@@ -8,7 +8,7 @@ const SITE_URL = "https://fixsepticnow.com";
 // Real content creation dates — content doesn't change on every request,
 // so we use static dates so Googlebot trusts our lastModified signals.
 const CONTENT_LAUNCHED = "2025-11-15"; // site first went live
-const CONTENT_UPDATED = "2026-02-21";  // last significant content update
+const CONTENT_UPDATED = "2026-02-26";  // URL restructure for hub+spoke SEO
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/terms-of-service`, lastModified: CONTENT_LAUNCHED, changeFrequency: "yearly", priority: 0.2 },
   ];
 
+  // Service type pages (not city-specific)
   const servicePages: MetadataRoute.Sitemap = services.map((s) => ({
     url: `${SITE_URL}/services/${s.slug}`,
     lastModified: CONTENT_LAUNCHED,
@@ -27,19 +28,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
-  const cityPages: MetadataRoute.Sitemap = cities.map((c) => ({
-    url: `${SITE_URL}/${c.slug}-septic-services`,
-    lastModified: CONTENT_LAUNCHED,
+  // NEW: City hub pages with nested URL structure
+  // /septic-services/[city]-tx/ -> Hub pages (high priority, crawl frequently)
+  const cityHubPages: MetadataRoute.Sitemap = cities.map((c) => ({
+    url: `${SITE_URL}/septic-services/${c.slug}-tx`,
+    lastModified: CONTENT_UPDATED,
     changeFrequency: "monthly" as const,
-    priority: 0.8,
+    priority: 0.85,
   }));
 
-  const comboPages: MetadataRoute.Sitemap = cities.flatMap((c) =>
+  // NEW: Service detail pages (spokes) with nested URL structure
+  // /septic-services/[city]-tx/[service] -> Individual service pages
+  const serviceDetailPages: MetadataRoute.Sitemap = cities.flatMap((c) =>
     services.map((s) => ({
-      url: `${SITE_URL}/${c.slug}-${s.slug}`,
-      lastModified: CONTENT_LAUNCHED,
+      url: `${SITE_URL}/septic-services/${c.slug}-tx/${s.slug}`,
+      lastModified: CONTENT_UPDATED,
       changeFrequency: "monthly" as const,
-      priority: 0.7,
+      priority: 0.75,
     }))
   );
 
@@ -50,5 +55,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...blogPages, ...servicePages, ...cityPages, ...comboPages];
+  return [...staticPages, ...blogPages, ...servicePages, ...cityHubPages, ...serviceDetailPages];
 }
