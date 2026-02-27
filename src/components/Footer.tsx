@@ -65,6 +65,11 @@ export function Footer() {
         </div>
 
         <div className="border-t border-slate-700 pt-6 text-center text-xs text-slate-500">
+          <div className="mb-4">
+            <a href="https://www.veteranownedbusiness.com" target="_blank" rel="noopener noreferrer">
+              <img src="https://www.veteranownedbusiness.com/images/banner_links/SDVOSB-Member-Badge-Horizontal.jpg" alt="Veteran Owned Business Directory, Get your free listing, now!" style={{ maxWidth: '200px', height: 'auto' }} className="inline-block" />
+            </a>
+          </div>
           <p>&copy; {year} {SITE_NAME}. All rights reserved. Licensed & Insured in Texas.</p>
         </div>
       </div>
