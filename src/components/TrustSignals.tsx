@@ -6,10 +6,10 @@ interface TrustSignalsProps {
 }
 
 const signals = [
-  { icon: Shield, label: "Licensed & Insured", sublabel: "Texas State Licensed" },
-  { icon: Clock, label: "24/7 Emergency", sublabel: "< 60 Min Response" },
-  { icon: Star, label: "4.9★ Rating", sublabel: "500+ Reviews" },
-  { icon: BadgeCheck, label: "Satisfaction Guaranteed", sublabel: "Free Re-service" },
+  { icon: Shield, label: "Vetted Local Partners", sublabel: "Licensed septic contractors" },
+  { icon: Clock, label: "24/7 Availability Checks", sublabel: "Weekend and after-hours help" },
+  { icon: Star, label: "Price + ETA Up Front", sublabel: "No blind dispatch" },
+  { icon: BadgeCheck, label: "Approval Before Dispatch", sublabel: "You confirm before work starts" },
 ];
 
 export function TrustSignals({ cityName, countyName }: TrustSignalsProps) {

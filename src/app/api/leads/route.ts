@@ -55,8 +55,18 @@ async function sendLeadNotification(lead: {
           </tr>
           ` : ""}
         </table>
-        <p style="margin-top: 20px; color: #666;">
-          <strong>Call them NOW!</strong> Speed to lead = higher conversion.
+        <div style="margin-top: 20px; padding: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; max-width: 500px;">
+          <p style="margin: 0 0 10px; font-weight: bold; color: #0f172a;">Dispatch Checklist</p>
+          <ol style="margin: 0; padding-left: 18px; color: #334155;">
+            <li>Call the lead immediately and confirm the exact job type.</li>
+            <li>Find the nearest local septic partner who can actually take the job.</li>
+            <li>Confirm price, ETA, and any Sunday or emergency add-on.</li>
+            <li>Do not dispatch until the customer approves the quote.</li>
+            <li>Text or call back with contractor name, ETA, and final price.</li>
+          </ol>
+        </div>
+        <p style="margin-top: 16px; color: #666;">
+          <strong>Speed to lead matters.</strong> The goal is to get a confirmed local partner, price, and ETA in front of the customer fast.
         </p>
       `,
     });
