@@ -6,6 +6,7 @@ import { getCityBySlug } from "@/lib/cities";
 import { faqSchema, breadcrumbSchema } from "@/lib/schema";
 import { SchemaMarkup } from "@/components/SchemaMarkup";
 import { FAQSection } from "@/components/FAQSection";
+import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 import { SITE_URL } from "@/lib/constants";
 import type { Metadata } from "next";
 
@@ -84,6 +85,13 @@ const blogFaqMap: Record<string, { question: string; answer: string }[]> = {
     { question: "How long does septic system installation take in Texas?", answer: "Once permitted, installation typically takes 1–3 days: excavation and tank placement on day 1, drain field installation on days 1–2, and backfill and connections on days 2–3. A county inspection is required before final backfill." },
     { question: "What type of septic system do I need in Texas?", answer: "This depends on your soil type and county requirements. Sandy loam supports conventional gravity systems. Clay soils may need low-pressure dosing. Hill Country limestone often requires aerobic treatment units. A licensed OSSF designer determines the right system after soil testing." },
     { question: "What questions should I ask my septic installer?", answer: "Ask: Are you TCEQ-licensed? Will you handle the permit? What's included in the price (tank, drain field, risers)? What's the warranty? Will you be present for the county inspection? What maintenance does this system require?" },
+  ],
+  "emergency-septic-pumping-cost-texas-2026": [
+    { question: "How much does emergency septic pumping cost in Texas in 2026?", answer: "Emergency septic pumping in Texas costs $500–$1,500 depending on tank size, time of day, and location. A standard 1,000-gallon tank runs $500–$700 for emergency service, while larger tanks or commercial systems can reach $900–$1,500+. This is roughly 1.5x–2x the standard daytime rate." },
+    { question: "Why is emergency septic pumping more expensive?", answer: "Emergency rates reflect overtime pay for crews, disrupted scheduled routes, limited after-hours availability, and the urgency of the call. A $350 daytime pump-out typically costs $600–$700 on a weekend night. Weekend and holiday premiums can push rates to 1.75x–2.5x standard pricing." },
+    { question: "What factors increase emergency septic pumping costs?", answer: "Key cost drivers include: tank accessibility (buried lids add $100–$250 for emergency excavation), location (rural areas may have $50–$150 travel charges), tank condition (overdue tanks with hardened sludge add $100–$300), and additional problems discovered during service like broken baffles or clogged filters." },
+    { question: "How can I avoid paying emergency septic rates?", answer: "Pump your tank every 3 years on schedule, watch for early warning signs (slow drains, odors, gurgling), install risers to make lids accessible, and call for standard service at the first sign of trouble rather than waiting for a backup." },
+    { question: "What should I ask before agreeing to emergency septic service?", answer: "Ask for the total estimated cost including after-hours fees, a specific arrival window, whether excavation is included, what happens if additional problems are found, and what payment methods are accepted. Get a written quote when possible." },
   ],
   "same-day-septic-pumping-texas": [
     { question: "Is same-day septic pumping really available in Texas?", answer: "Yes, same-day septic pumping is available in most major Texas metros including Houston, Austin, San Antonio, and DFW. However, not every company offers it. Same-day requires dedicated emergency dispatch crews and standby trucks. Call before noon for the best chance." },
@@ -261,12 +269,7 @@ export default async function BlogPostPage({ params }: Props) {
             pump-outs to emergency service. Fast response, fair pricing.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a
-              href="tel:+14695066606"
-              className="bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-8 rounded-lg transition-colors text-lg"
-            >
-              Call (469) 506-6606
-            </a>
+            <TrackedPhoneButton label="Blog Post CTA Phone Click" />
             <Link
               href="/contact"
               className="border-2 border-green-700 text-green-700 hover:bg-green-700 hover:text-white font-bold py-3 px-8 rounded-lg transition-colors text-lg"

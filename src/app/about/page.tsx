@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { PhoneCTA } from "@/components/PhoneCTA";
+import { TrackedPhoneLink } from "@/components/TrackedPhoneLink";
 import { TrustSignals } from "@/components/TrustSignals";
-import { PHONE_NUMBER, EMAIL } from "@/lib/constants";
+import { EMAIL } from "@/lib/constants";
 
 export const metadata = {
   title: "About Fix Septic Now | Veteran-Owned Texas Septic Service",
@@ -85,7 +86,7 @@ export default function AboutPage() {
             Streetman, TX 75859
           </p>
           <p>
-            Phone: <a href="tel:+14695066606" className="text-green-700 font-semibold">{PHONE_NUMBER}</a><br />
+            Phone: <TrackedPhoneLink label="About Page Phone Click" className="text-green-700 font-semibold" /><br />
             Email: <a href={`mailto:${EMAIL}`} className="text-green-700">{EMAIL}</a>
           </p>
         </div>

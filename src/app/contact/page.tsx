@@ -1,6 +1,7 @@
 import { LeadForm } from "@/components/LeadForm";
 import { PhoneCTA } from "@/components/PhoneCTA";
-import { PHONE_NUMBER, EMAIL } from "@/lib/constants";
+import { TrackedPhoneLink } from "@/components/TrackedPhoneLink";
+import { EMAIL } from "@/lib/constants";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 export const metadata = {
@@ -29,7 +30,7 @@ export default function ContactPage() {
                 <Phone className="h-6 w-6 text-green-700 mt-1" />
                 <div>
                   <p className="font-semibold text-slate-900">Phone (24/7)</p>
-                  <a href="tel:+14695066606" className="text-green-700 text-lg font-bold">{PHONE_NUMBER}</a>
+                  <TrackedPhoneLink label="Contact Page Phone Click" className="text-green-700 text-lg font-bold" />
                 </div>
               </div>
               <div className="flex items-start gap-4">

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { blogPosts } from "@/lib/blog-posts";
 import { services } from "@/lib/services";
+import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -121,12 +122,7 @@ export default function BlogPage() {
             Fast, licensed septic service across Texas.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a
-              href="tel:+14695066606"
-              className="bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-8 rounded-lg transition-colors text-lg"
-            >
-              Call (469) 506-6606
-            </a>
+            <TrackedPhoneButton label="Blog CTA Phone Click" />
             <Link
               href="/contact"
               className="border-2 border-green-700 text-green-700 hover:bg-green-700 hover:text-white font-bold py-3 px-8 rounded-lg transition-colors text-lg"

@@ -83,6 +83,11 @@ export function LeadForm({ sourcePage, preselectedCity }: LeadFormProps) {
         <div className="mt-4">
           <a
             href="tel:+14695066606"
+            onClick={() => {
+              if (typeof window !== "undefined" && typeof window.gtag === "function") {
+                window.gtag("event", "phone_click", { event_category: "conversion", event_label: "LeadForm Submitted Phone Click" });
+              }
+            }}
             className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white font-bold px-6 py-3 rounded-lg"
           >
             Call {PHONE_NUMBER}
@@ -137,6 +142,11 @@ export function LeadForm({ sourcePage, preselectedCity }: LeadFormProps) {
         <p className="text-xs text-slate-400 mb-2">Rather talk to a human?</p>
         <a
           href="tel:+14695066606"
+          onClick={() => {
+            if (typeof window !== "undefined" && typeof window.gtag === "function") {
+              window.gtag("event", "phone_click", { event_category: "conversion", event_label: "LeadForm Fallback Phone Click" });
+            }
+          }}
           className="inline-flex items-center gap-2 text-green-700 font-bold text-sm hover:underline"
         >
           {PHONE_NUMBER} — We&apos;re answering calls now
