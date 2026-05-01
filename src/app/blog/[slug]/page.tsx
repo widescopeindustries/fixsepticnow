@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getBlogPostBySlug, blogPosts } from "@/lib/blog-posts";
 import { getServiceBySlug } from "@/lib/services";
 import { getCityBySlug } from "@/lib/cities";
-import { faqSchema, breadcrumbSchema } from "@/lib/schema";
+import { faqSchema, breadcrumbSchema, articleSchema } from "@/lib/schema";
 import { SchemaMarkup } from "@/components/SchemaMarkup";
 import { FAQSection } from "@/components/FAQSection";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
@@ -130,12 +130,14 @@ export default async function BlogPostPage({ params }: Props) {
     .filter(Boolean);
 
   const blogFaqs = blogFaqMap[slug] || [];
+  const postUrl = `${SITE_URL}/blog/${slug}`;
   const schemas = [
+    articleSchema(post.title, post.description, postUrl, post.date),
     ...(blogFaqs.length > 0 ? [faqSchema(blogFaqs)] : []),
     breadcrumbSchema([
       { name: "Home", url: SITE_URL },
       { name: "Blog", url: `${SITE_URL}/blog` },
-      { name: post.title, url: `${SITE_URL}/blog/${slug}` },
+      { name: post.title, url: postUrl },
     ]),
   ];
 

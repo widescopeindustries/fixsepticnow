@@ -14,7 +14,7 @@ import { services } from "@/lib/services";
 import { cities } from "@/lib/cities";
 import { getRecentBlogPosts } from "@/lib/blog-posts";
 import { testimonials } from "@/lib/testimonials";
-import { organizationSchema, localBusinessSchema, faqSchema } from "@/lib/schema";
+import { organizationSchema, localBusinessSchema, faqSchema, websiteSchema } from "@/lib/schema";
 import { homeMetadata } from "@/lib/metadata";
 
 export const metadata = homeMetadata();
@@ -33,7 +33,7 @@ const recentPosts = getRecentBlogPosts(3);
 export default function HomePage() {
   return (
     <>
-      <SchemaMarkup schemas={[organizationSchema(), localBusinessSchema(), faqSchema(homeFaqs)]} />
+      <SchemaMarkup schemas={[websiteSchema(), organizationSchema(), localBusinessSchema(), faqSchema(homeFaqs)]} />
 
       {/* Hero */}
       <section className="bg-gradient-to-br from-green-900 via-green-800 to-green-900 text-white py-16 md:py-24">

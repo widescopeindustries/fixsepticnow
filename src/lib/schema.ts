@@ -80,6 +80,39 @@ export function faqSchema(faqs: { question: string; answer: string }[]) {
   };
 }
 
+export function articleSchema(title: string, description: string, url: string, datePublished: string, dateModified?: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    description,
+    url,
+    datePublished,
+    dateModified: dateModified || datePublished,
+    author: { "@type": "Organization", name: SITE_NAME },
+    publisher: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/images/logo.png` },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+  };
+}
+
+export function websiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE_NAME,
+    url: SITE_URL,
+    potentialAction: {
+      "@type": "SearchAction",
+      target: `${SITE_URL}/septic-services/{search_term_string}`,
+      "query-input": "required name=search_term_string",
+    },
+  };
+}
+
 export function breadcrumbSchema(items: { name: string; url: string }[]) {
   return {
     "@context": "https://schema.org",
