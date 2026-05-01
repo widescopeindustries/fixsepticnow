@@ -1,23 +1,28 @@
 import { notFound } from "next/navigation";
-import { cities, getCityBySlug, getNeighborCities } from "@/lib/cities";
+import { cities, getCityBySlug, getNeighborCities, getResponseTime } from "@/lib/cities";
 import { services } from "@/lib/services";
 import { localBusinessSchema, faqSchema, breadcrumbSchema } from "@/lib/schema";
 import { getCityContent } from "@/lib/content";
 import { LeadForm } from "@/components/LeadForm";
 import { PhoneCTA } from "@/components/PhoneCTA";
 import { TrustSignals } from "@/components/TrustSignals";
+import { LiveAvailability } from "@/components/LiveAvailability";
+import { UrgencyBar } from "@/components/UrgencyBar";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { ServiceCard } from "@/components/ServiceCard";
 import { FAQSection } from "@/components/FAQSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { MapEmbed } from "@/components/MapEmbed";
 import { QuickAnswer } from "@/components/QuickAnswer";
 import { SchemaMarkup } from "@/components/SchemaMarkup";
 import { SITE_URL } from "@/lib/constants";
 import Link from "next/link";
 import { blogPosts } from "@/lib/blog-posts";
+import { getCityTestimonials } from "@/lib/testimonials";
 import type { Metadata } from "next";
 
 const SITE_NAME = "Fix Septic Now";
-const PHONE = "(936) 292-2926";
+const PHONE = "(469) 506-6606";
 
 // Parse city slug from URL param (e.g., "conroe-tx" -> "conroe")
 function parseCityParam(param: string): string | null {
@@ -41,8 +46,8 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
   const city = getCityBySlug(citySlug);
   if (!city) return {};
 
-  const title = `Septic Services in ${city.name}, TX | Pumping, Repair & More | ${SITE_NAME}`;
-  const description = `${city.name}'s trusted septic service provider. Pumping, cleaning, repair & emergency service. 24/7 availability. Call ${PHONE}.`;
+  const title = `Emergency Septic Service ${city.name}, TX | ${PHONE} | 24/7`;
+  const description = `24/7 emergency septic pumping & repair in ${city.name}, TX. Licensed pros, same-day response. Call ${PHONE} now for immediate dispatch.`;
   const url = `${SITE_URL}/septic-services/${cityParam}`;
 
   return {
@@ -63,13 +68,15 @@ export default async function CityHubPage({ params }: { params: Promise<{ city: 
 
   const neighbors = getNeighborCities(city.slug);
   const content = getCityContent(city.slug);
+  const responseTime = getResponseTime(city);
+  const cityTestimonials = getCityTestimonials(city.name);
 
   const cityFaqs = content?.faqs || [
     { question: `How much does septic pumping cost in ${city.name}?`, answer: `Septic pumping in ${city.name} typically costs $300-$600. Prices vary based on tank size and accessibility. We provide free estimates.` },
-    { question: `Do you offer emergency septic service in ${city.name}?`, answer: `Yes! We provide 24/7 emergency septic service in ${city.name} and throughout ${city.county} County. Call (936) 292-2926 anytime.` },
+    { question: `Do you offer emergency septic service in ${city.name}?`, answer: `Yes! We provide 24/7 emergency septic service in ${city.name} and throughout ${city.county} County. Call (469) 506-6606 anytime.` },
     { question: `What type of soil does ${city.name} have?`, answer: `${city.name} has predominantly ${city.soilType} soil. This soil type affects drain field performance and may require specific septic system designs.` },
     { question: `How often should I pump my septic tank in ${city.name}?`, answer: `With ${city.soilType} soil common in ${city.name}, we recommend pumping every 3-5 years. Homes with more occupants should pump more frequently.` },
-    { question: `How do I find a licensed septic company near ${city.name}?`, answer: `Look for companies licensed by the Texas Commission on Environmental Quality (TCEQ) with insurance and local experience. Fix Septic Now is fully licensed, insured, and serves ${city.name} and all of ${city.county} County. Call (936) 292-2926 for a free estimate.` },
+    { question: `How do I find a licensed septic company near ${city.name}?`, answer: `Look for companies licensed by the Texas Commission on Environmental Quality (TCEQ) with insurance and local experience. Fix Septic Now is fully licensed, insured, and serves ${city.name} and all of ${city.county} County. Call (469) 506-6606 for a free estimate.` },
   ];
 
   const schemas = [
@@ -96,12 +103,14 @@ export default async function CityHubPage({ params }: { params: Promise<{ city: 
                 <span>{city.name} Septic Services</span>
               </nav>
               <h1 className="text-4xl md:text-5xl font-black leading-tight mb-4">
-                Septic Tank Services in {city.name}, Texas
+                Emergency Septic Service in {city.name}, TX — 24/7 Available
               </h1>
-              <p className="text-lg text-green-100 mb-6">
+              <p className="text-lg text-green-100 mb-2">
                 {content?.heroDescription || `Licensed septic professionals serving ${city.name} and ${city.county} County. 24/7 emergency service, fast response, fair pricing.`}
               </p>
+              <p className="text-green-200 mb-4 font-semibold">Average response time to {city.name}: {responseTime}</p>
               <PhoneCTA size="lg" />
+              <LiveAvailability cityName={city.name} />
             </div>
             <div id="lead-form">
               <LeadForm sourcePage={`/septic-services/${city.slug}-tx`} preselectedCity={city.name} />
@@ -110,14 +119,16 @@ export default async function CityHubPage({ params }: { params: Promise<{ city: 
         </div>
       </section>
 
-      <TrustSignals cityName={city.name} countyName={city.county} />
+      <UrgencyBar cityName={city.name} />
+
+      <TrustSignals cityName={city.name} countyName={city.county} responseTime={responseTime} />
 
       {/* Quick Answer Box + Stats */}
       <section className="py-10 bg-white">
         <div className="max-w-3xl mx-auto px-4 space-y-6">
           <QuickAnswer
             question={`How much do septic services cost in ${city.name}, Texas?`}
-            answer={`Septic services in ${city.name} range from $200 for inspections to $600+ for pumping and cleaning. Emergency service is available 24/7. Pricing depends on tank size and the ${city.soilType} soil conditions in ${city.county} County. Call (936) 292-2926 for a free estimate.`}
+            answer={`Septic services in ${city.name} range from $200 for inspections to $600+ for pumping and cleaning. Emergency service is available 24/7. Pricing depends on tank size and the ${city.soilType} soil conditions in ${city.county} County. Call (469) 506-6606 for a free estimate.`}
           />
           <div className="text-slate-600 text-sm leading-relaxed space-y-2">
             <p>Texas has over <strong>3 million septic systems</strong> statewide, more than nearly every other state (Texas Commission on Environmental Quality).</p>
@@ -194,6 +205,15 @@ export default async function CityHubPage({ params }: { params: Promise<{ city: 
         </section>
       )}
 
+      <TestimonialsSection testimonials={cityTestimonials} cityName={city.name} />
+
+      <section className="py-12 bg-white">
+        <div className="max-w-5xl mx-auto px-4">
+          <h2 className="text-2xl font-bold text-slate-900 mb-4">Our Service Area in {city.name}</h2>
+          <MapEmbed cityName={city.name} />
+        </div>
+      </section>
+
       <FAQSection faqs={cityFaqs} />
 
       {/* Helpful Guides */}
@@ -220,7 +240,7 @@ export default async function CityHubPage({ params }: { params: Promise<{ city: 
       <section className="bg-green-800 text-white py-16">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Need Septic Help in {city.name}?</h2>
-          <p className="text-green-100 mb-8">Call now for fast, professional septic service in {city.county} County.</p>
+          <p className="text-green-100 mb-8">Call now for fast, professional septic service in {city.county} County. Emergency dispatch available 24/7.</p>
           <PhoneCTA size="lg" />
         </div>
       </section>

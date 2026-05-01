@@ -85,3 +85,20 @@ export function getNeighborCities(slug: string): City[] {
 export function getCitiesByRegion(region: string): City[] {
   return cities.filter((c) => c.region === region);
 }
+
+export function getResponseTime(city: City): string {
+  switch (city.region) {
+    case "houston-metro":
+      return "30–60 minutes";
+    case "austin-metro":
+      return "45–90 minutes";
+    case "san-antonio-metro":
+      return "45–90 minutes";
+    case "dfw-metro":
+      return "45–90 minutes";
+    case "east-texas":
+      return "60–120 minutes";
+    default:
+      return "45–90 minutes";
+  }
+}

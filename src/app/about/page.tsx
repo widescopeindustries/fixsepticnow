@@ -85,7 +85,7 @@ export default function AboutPage() {
             Streetman, TX 75859
           </p>
           <p>
-            Phone: <a href="tel:+19362922926" className="text-green-700 font-semibold">{PHONE_NUMBER}</a><br />
+            Phone: <a href="tel:+14695066606" className="text-green-700 font-semibold">{PHONE_NUMBER}</a><br />
             Email: <a href={`mailto:${EMAIL}`} className="text-green-700">{EMAIL}</a>
           </p>
         </div>

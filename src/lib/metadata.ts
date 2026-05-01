@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 
 const SITE_NAME = "Fix Septic Now";
 const SITE_URL = "https://fixsepticnow.com";
-const PHONE = "(936) 292-2926";
+const PHONE = "(469) 506-6606";
 
 export function homeMetadata(): Metadata {
   return {
-    title: `Emergency Septic Pumping & Repair in Texas | ${SITE_NAME}`,
-    description: `24/7 emergency septic tank pumping, cleaning & repair across Texas. Licensed pros, fast response. Call ${PHONE} for immediate service.`,
+    title: `24/7 Emergency Septic Service Texas | ${PHONE} | Same-Day Response`,
+    description: `Emergency septic pumping, repair & installation across Texas. Licensed pros, average response under 2 hours. Call ${PHONE} now — 24/7 dispatch.`,
     openGraph: {
       title: `Emergency Septic Pumping & Repair in Texas | ${SITE_NAME}`,
-      description: `24/7 emergency septic tank pumping, cleaning & repair across Texas. Licensed pros, fast response.`,
+      description: `Emergency septic pumping, repair & installation across Texas. Licensed pros, average response under 2 hours. Call now — 24/7 dispatch.`,
       url: SITE_URL,
       siteName: SITE_NAME,
       type: "website",
@@ -38,9 +38,9 @@ export function serviceMetadata(serviceName: string, serviceSlug: string): Metad
 }
 
 export function cityMetadata(cityName: string, citySlug: string): Metadata {
-  const title = `Septic Services in ${cityName}, TX | Pumping, Repair & More | ${SITE_NAME}`;
-  const description = `${cityName}'s trusted septic service provider. Pumping, cleaning, repair & emergency service. 24/7 availability. Call ${PHONE}.`;
-  const url = `${SITE_URL}/${citySlug}-septic-services`;
+  const title = `Emergency Septic Service ${cityName}, TX | ${PHONE} | 24/7`;
+  const description = `24/7 emergency septic pumping & repair in ${cityName}, TX. Licensed pros, same-day response. Call ${PHONE} now for immediate dispatch.`;
+  const url = `${SITE_URL}/septic-services/${citySlug}-tx`;
 
   return {
     title,
@@ -53,12 +53,12 @@ export function cityMetadata(cityName: string, citySlug: string): Metadata {
 export function comboMetadata(cityName: string, serviceName: string, comboSlug: string): Metadata {
   const isEmergency = comboSlug.includes("emergency");
   const title = isEmergency
-    ? `${serviceName} in ${cityName}, TX | Same-Day Response | ${SITE_NAME}`
-    : `${serviceName} in ${cityName}, TX | 24/7 Service | ${SITE_NAME}`;
+    ? `${serviceName} ${cityName}, TX | ${PHONE} | 24/7 Same-Day`
+    : `${serviceName} ${cityName}, TX | ${PHONE} | 24/7 Service`;
   const description = isEmergency
-    ? `Sewage backup in ${cityName}? We provide ${serviceName.toLowerCase()} with same-day response, 24/7. Licensed Texas pros. Call ${PHONE} now.`
+    ? `Sewage backup in ${cityName}? ${serviceName} with same-day response, 24/7. Licensed Texas pros. Call ${PHONE} now.`
     : `Need ${serviceName.toLowerCase()} in ${cityName}? Fast, licensed service with 24/7 availability. Call ${PHONE} for immediate response.`;
-  const url = `${SITE_URL}/${comboSlug}`;
+  const url = `${SITE_URL}/septic-services/${comboSlug}`;
 
   return {
     title,

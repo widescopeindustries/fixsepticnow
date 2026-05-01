@@ -241,10 +241,10 @@ export default async function BlogPostPage({ params }: Props) {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href="tel:+19362922926"
+              href="tel:+14695066606"
               className="bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-8 rounded-lg transition-colors text-lg"
             >
-              Call (936) 292-2926
+              Call (469) 506-6606
             </a>
             <Link
               href="/contact"

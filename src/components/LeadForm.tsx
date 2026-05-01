@@ -6,47 +6,24 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { CheckCircle, Loader2 } from "lucide-react";
-import { PhoneCTA } from "./PhoneCTA";
+import { PHONE_NUMBER } from "@/lib/constants";
 
 const schema = z.object({
   name: z.string().min(2, "Name is required"),
   phone: z.string().min(10, "Valid phone number required"),
-  service: z.string().min(1, "Please select a service"),
   cityZip: z.string().min(2, "City or zip code required"),
-  urgency: z.string().optional(),
-  tankSize: z.string().optional(),
-  message: z.string().optional(),
-  tcpaConsent: z.literal(true, { message: "Consent is required" }),
+  problem: z.string().min(1, "Please select a problem"),
 });
 
 type FormData = z.infer<typeof schema>;
 
-const serviceOptions = [
-  "Septic Pumping",
-  "Septic Cleaning",
-  "Septic Repair",
-  "Emergency Service",
-  "Septic Inspection",
-  "Septic Installation",
-  "Septic Maintenance",
-  "Other",
-];
-
-const urgencyOptions = [
-  { value: "standard", label: "Standard" },
-  { value: "same-day", label: "Same Day" },
-  { value: "emergency", label: "Emergency / Backup" },
-];
-
-const tankSizeOptions = [
-  { value: "", label: "Tank Size (Optional)" },
-  { value: "unknown", label: "Not Sure" },
-  { value: "750", label: "750 Gallons" },
-  { value: "1000", label: "1,000 Gallons" },
-  { value: "1250", label: "1,250 Gallons" },
-  { value: "1500", label: "1,500+ Gallons" },
+const problemOptions = [
+  { value: "", label: "What's the problem?" },
+  { value: "backing-up", label: "Tank is backing up" },
+  { value: "routine-pumping", label: "Need routine pumping" },
+  { value: "smell-in-yard", label: "Smell in yard" },
+  { value: "other", label: "Other" },
 ];
 
 interface LeadFormProps {
@@ -55,41 +32,39 @@ interface LeadFormProps {
   preselectedCity?: string;
 }
 
-export function LeadForm({ sourcePage, preselectedService, preselectedCity }: LeadFormProps) {
+export function LeadForm({ sourcePage, preselectedCity }: LeadFormProps) {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
     resolver: zodResolver(schema),
     defaultValues: {
-      service: preselectedService || "",
       cityZip: preselectedCity || "",
+      problem: "",
     },
   });
 
   async function onSubmit(data: FormData) {
     setSubmitting(true);
     try {
-      const details = [
-        data.urgency ? `Urgency: ${data.urgency}` : null,
-        data.tankSize ? `Tank Size: ${data.tankSize}` : null,
-        data.message ? `Customer Note: ${data.message}` : null,
-      ].filter(Boolean).join("\n");
-
       const res = await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          ...data,
-          message: details || undefined,
+          name: data.name,
+          phone: data.phone,
+          cityZip: data.cityZip,
+          service: problemOptions.find(o => o.value === data.problem)?.label || data.problem,
+          message: `Problem: ${problemOptions.find(o => o.value === data.problem)?.label || data.problem}`,
           sourceType: "form",
           sourceUrl: sourcePage || window.location.pathname,
+          tcpaConsent: true,
         }),
       });
       if (res.ok) {
         setSubmitted(true);
         if (typeof window !== "undefined" && typeof window.gtag === "function") {
-          window.gtag("event", "form_submit", { event_category: "conversion", event_label: data.service, value: 1 });
+          window.gtag("event", "form_submit", { event_category: "conversion", event_label: data.problem, value: 1 });
         }
       }
     } catch {
@@ -104,9 +79,14 @@ export function LeadForm({ sourcePage, preselectedService, preselectedCity }: Le
       <div className="bg-green-50 border border-green-200 rounded-lg p-8 text-center">
         <CheckCircle className="h-12 w-12 text-green-600 mx-auto mb-4" />
         <h3 className="text-xl font-bold text-green-900 mb-2">We Got Your Request!</h3>
-        <p className="text-green-700">We are checking local partner availability now. You will get price and ETA before any job is dispatched.</p>
+        <p className="text-green-700">A technician will call you back within 15 minutes. If this is an emergency, call us now.</p>
         <div className="mt-4">
-          <PhoneCTA size="lg" />
+          <a
+            href="tel:+14695066606"
+            className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white font-bold px-6 py-3 rounded-lg"
+          >
+            Call {PHONE_NUMBER}
+          </a>
         </div>
       </div>
     );
@@ -114,8 +94,8 @@ export function LeadForm({ sourcePage, preselectedService, preselectedCity }: Le
 
   return (
     <div className="bg-white border border-slate-200 rounded-lg p-6 shadow-sm">
-      <h3 className="text-xl font-bold text-slate-900 mb-1">Check Local Availability</h3>
-      <p className="text-sm text-slate-500 mb-4">We contact local septic partners, confirm price + ETA, then dispatch only after you approve.</p>
+      <h3 className="text-xl font-bold text-slate-900 mb-1">Get Help Now</h3>
+      <p className="text-sm text-slate-500 mb-4">Fill out the form and a technician will call you back within 15 minutes.</p>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
         <div>
           <label htmlFor="lead-name" className="sr-only">Full Name</label>
@@ -128,71 +108,39 @@ export function LeadForm({ sourcePage, preselectedService, preselectedCity }: Le
           {errors.phone && <p className="text-xs text-red-500 mt-1">{errors.phone.message}</p>}
         </div>
         <div>
-          <label htmlFor="lead-service" className="sr-only">Service Needed</label>
-          <select
-            {...register("service")}
-            id="lead-service"
-            aria-label="Service Needed"
-            className="w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900"
-          >
-            <option value="">Select a Service</option>
-            {serviceOptions.map((s) => (
-              <option key={s} value={s}>{s}</option>
-            ))}
-          </select>
-          {errors.service && <p className="text-xs text-red-500 mt-1">{errors.service.message}</p>}
-        </div>
-        <div>
           <label htmlFor="lead-city" className="sr-only">City or Zip Code</label>
           <Input placeholder="City or Zip Code" id="lead-city" aria-label="City or Zip Code" {...register("cityZip")} />
           {errors.cityZip && <p className="text-xs text-red-500 mt-1">{errors.cityZip.message}</p>}
         </div>
-        <div className="grid gap-3 sm:grid-cols-2">
-          <div>
-            <label htmlFor="lead-urgency" className="sr-only">Urgency</label>
-            <select
-              {...register("urgency")}
-              id="lead-urgency"
-              aria-label="Urgency"
-              className="w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900"
-            >
-              {urgencyOptions.map((option) => (
-                <option key={option.value} value={option.value}>{option.label}</option>
-              ))}
-            </select>
-          </div>
-          <div>
-            <label htmlFor="lead-tank-size" className="sr-only">Tank Size</label>
-            <select
-              {...register("tankSize")}
-              id="lead-tank-size"
-              aria-label="Tank Size"
-              className="w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900"
-            >
-              {tankSizeOptions.map((option) => (
-                <option key={option.value || "blank"} value={option.value}>{option.label}</option>
-              ))}
-            </select>
-          </div>
-        </div>
         <div>
-          <label htmlFor="lead-message" className="sr-only">Describe your issue</label>
-          <Textarea placeholder="Describe your issue, access details, or lid location (optional)" id="lead-message" aria-label="Describe your issue" rows={3} {...register("message")} />
+          <label htmlFor="lead-problem" className="sr-only">What's the problem?</label>
+          <select
+            {...register("problem")}
+            id="lead-problem"
+            aria-label="What's the problem?"
+            className="w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900"
+          >
+            {problemOptions.map((option) => (
+              <option key={option.value || "blank"} value={option.value}>{option.label}</option>
+            ))}
+          </select>
+          {errors.problem && <p className="text-xs text-red-500 mt-1">{errors.problem.message}</p>}
         </div>
-        <div className="flex items-start gap-2">
-          <input type="checkbox" {...register("tcpaConsent")} className="mt-1" id="tcpa" />
-          <label htmlFor="tcpa" className="text-xs text-slate-500">
-            By submitting, I consent to receive calls/texts from Fix Septic Now at the number provided. Message & data rates may apply. Consent is not a condition of purchase.
-          </label>
-        </div>
-        {errors.tcpaConsent && <p className="text-xs text-red-500">{errors.tcpaConsent.message}</p>}
         <Button type="submit" className="w-full bg-green-700 hover:bg-green-800 text-white font-bold py-3" disabled={submitting}>
-          {submitting ? <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Checking...</> : "Check Availability"}
+          {submitting ? <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Sending...</> : "Get Help Now"}
         </Button>
+        <p className="text-[10px] text-slate-400 text-center leading-relaxed">
+          By submitting, you agree to be contacted by Fix Septic Now at the number provided. Message & data rates may apply.
+        </p>
       </form>
-      <div className="mt-4 text-center">
-        <p className="text-xs text-slate-400 mb-2">Need a faster answer? Call now for local dispatch help:</p>
-        <PhoneCTA variant="outline" size="sm" />
+      <div className="mt-4 text-center border-t border-slate-100 pt-4">
+        <p className="text-xs text-slate-400 mb-2">Rather talk to a human?</p>
+        <a
+          href="tel:+14695066606"
+          className="inline-flex items-center gap-2 text-green-700 font-bold text-sm hover:underline"
+        >
+          {PHONE_NUMBER} — We&apos;re answering calls now
+        </a>
       </div>
     </div>
   );

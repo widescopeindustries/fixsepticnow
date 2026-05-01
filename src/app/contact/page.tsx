@@ -5,7 +5,7 @@ import { Mail, Phone, MapPin } from "lucide-react";
 
 export const metadata = {
   title: "Contact Fix Septic Now | 24/7 Septic Service in Texas",
-  description: "Contact Fix Septic Now for emergency septic service, free estimates, or questions. Call (936) 292-2926 or fill out our form.",
+  description: "Contact Fix Septic Now for emergency septic service, free estimates, or questions. Call (469) 506-6606 or fill out our form.",
 };
 
 export default function ContactPage() {
@@ -29,7 +29,7 @@ export default function ContactPage() {
                 <Phone className="h-6 w-6 text-green-700 mt-1" />
                 <div>
                   <p className="font-semibold text-slate-900">Phone (24/7)</p>
-                  <a href="tel:+19362922926" className="text-green-700 text-lg font-bold">{PHONE_NUMBER}</a>
+                  <a href="tel:+14695066606" className="text-green-700 text-lg font-bold">{PHONE_NUMBER}</a>
                 </div>
               </div>
               <div className="flex items-start gap-4">

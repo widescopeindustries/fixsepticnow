@@ -8,7 +8,7 @@ const SITE_URL = "https://fixsepticnow.com";
 // Real content creation dates — content doesn't change on every request,
 // so we use static dates so Googlebot trusts our lastModified signals.
 const CONTENT_LAUNCHED = "2025-11-15"; // site first went live
-const CONTENT_UPDATED = "2026-02-26";  // URL restructure for hub+spoke SEO
+const CONTENT_UPDATED = "2026-04-30";  // Major CRO rework: hero rewrite, form simplification, trust signals, response times
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/contact`, lastModified: CONTENT_LAUNCHED, changeFrequency: "yearly", priority: 0.6 },
     { url: `${SITE_URL}/privacy-policy`, lastModified: CONTENT_LAUNCHED, changeFrequency: "yearly", priority: 0.2 },
     { url: `${SITE_URL}/terms-of-service`, lastModified: CONTENT_LAUNCHED, changeFrequency: "yearly", priority: 0.2 },
+    { url: `${SITE_URL}/septic-pumping-wait-time`, lastModified: CONTENT_UPDATED, changeFrequency: "monthly", priority: 0.85 },
   ];
 
   // Service type pages (not city-specific)

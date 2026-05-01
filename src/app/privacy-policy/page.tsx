@@ -33,10 +33,10 @@ export default function PrivacyPolicyPage() {
         <p>We may share your information with licensed septic service providers in your area to fulfill your service request. We do not sell your personal information to third parties for marketing purposes.</p>
 
         <h2>TCPA Consent</h2>
-        <p>By submitting your phone number through our forms, you consent to receive calls and text messages from Fix Septic Now and our service partners. You may opt out at any time by replying STOP or calling us.</p>
+        <p>By submitting your phone number through our forms, you consent to receive calls and text messages from Fix Septic Now. You may opt out at any time by replying STOP or calling us.</p>
 
         <h2>Contact Us</h2>
-        <p>For privacy questions, contact us at <a href="mailto:info@fixsepticnow.com">info@fixsepticnow.com</a> or call (936) 292-2926.</p>
+        <p>For privacy questions, contact us at <a href="mailto:info@fixsepticnow.com">info@fixsepticnow.com</a> or call (469) 506-6606.</p>
       </div>
     </section>
   );

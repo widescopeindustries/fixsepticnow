@@ -15,7 +15,7 @@ const GA_MEASUREMENT_ID = "G-5T9GG24J5G";
 
 export const metadata: Metadata = {
   title: "Emergency Septic Pumping & Repair in Texas | Fix Septic Now",
-  description: "24/7 emergency septic tank pumping, cleaning & repair across Texas. Licensed pros, fast response. Call (936) 292-2926.",
+  description: "24/7 emergency septic tank pumping, cleaning & repair across Texas. Licensed pros, fast response. Call (469) 506-6606.",
   metadataBase: new URL("https://fixsepticnow.com"),
 };
 

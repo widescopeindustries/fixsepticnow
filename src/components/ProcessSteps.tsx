@@ -1,9 +1,9 @@
 import { Phone, Truck, CheckCircle } from "lucide-react";
 
 const steps = [
-  { icon: Phone, title: "1. Tell Us the Job", description: "Call or submit the form with your city, service type, urgency, and tank size if you know it." },
-  { icon: Truck, title: "2. Get Price + ETA", description: "We contact available local septic partners and confirm a real quote and arrival window before anything is dispatched." },
-  { icon: CheckCircle, title: "3. Approve the Dispatch", description: "Once you approve the price and ETA, the local contractor heads out and completes the job." },
+  { icon: Phone, title: "1. Call or Request Help", description: "Call (469) 506-6606 or submit the form with your city and problem. It takes 30 seconds." },
+  { icon: Truck, title: "2. Get Price + ETA", description: "We confirm a real quote and arrival window before any work begins. No surprises, no hidden fees." },
+  { icon: CheckCircle, title: "3. We Fix It", description: "A licensed technician arrives on time and completes the job. Satisfaction guaranteed — if we can't fix it, you don't pay." },
 ];
 
 export function ProcessSteps() {

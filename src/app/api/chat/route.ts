@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
     const { messages, sessionId, sourcePage } = await req.json();
 
     if (!messages || messages.length > 20) {
-      return NextResponse.json({ reply: "For faster help, please call us at (936) 292-2926." });
+      return NextResponse.json({ reply: "For faster help, please call us at (469) 506-6606." });
     }
 
     const openai = getOpenAI();
@@ -78,7 +78,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ reply: cleanReply });
   } catch {
     return NextResponse.json(
-      { reply: "I'm having trouble right now. Please call (936) 292-2926 for immediate help." },
+      { reply: "I'm having trouble right now. Please call (469) 506-6606 for immediate help." },
       { status: 500 }
     );
   }

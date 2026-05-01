@@ -2,14 +2,18 @@ import Link from "next/link";
 import { LeadForm } from "@/components/LeadForm";
 import { PhoneCTA } from "@/components/PhoneCTA";
 import { TrustSignals } from "@/components/TrustSignals";
+import { LiveAvailability } from "@/components/LiveAvailability";
+import { UrgencyBar } from "@/components/UrgencyBar";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { ServiceCard } from "@/components/ServiceCard";
 import { CityCard } from "@/components/CityCard";
 import { FAQSection } from "@/components/FAQSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { SchemaMarkup } from "@/components/SchemaMarkup";
 import { services } from "@/lib/services";
 import { cities } from "@/lib/cities";
 import { getRecentBlogPosts } from "@/lib/blog-posts";
+import { testimonials } from "@/lib/testimonials";
 import { organizationSchema, localBusinessSchema, faqSchema } from "@/lib/schema";
 import { homeMetadata } from "@/lib/metadata";
 
@@ -19,9 +23,9 @@ const homeFaqs = [
   { question: "How much does septic tank pumping cost in Texas?", answer: "Septic tank pumping in Texas typically costs $300-$600 depending on tank size, accessibility, and location. Emergency or after-hours service may cost more. We provide free estimates before any work begins." },
   { question: "How often should a septic tank be pumped?", answer: "Most septic tanks should be pumped every 3-5 years. However, this depends on household size, tank size, and water usage. Homes with garbage disposals or more occupants may need pumping more frequently." },
   { question: "What are signs my septic tank needs pumping?", answer: "Common signs include slow drains, gurgling toilets, sewage odors near the tank or drain field, standing water over the drain field, and sewage backup in your home. If you notice any of these, call us immediately." },
-  { question: "Do you offer 24/7 emergency septic service?", answer: "Yes. We coordinate 24/7 emergency septic service across Texas by contacting available local septic partners and confirming the earliest price and ETA before any job is dispatched." },
+  { question: "Do you offer 24/7 emergency septic service?", answer: "Yes. We provide 24/7 emergency septic service across Texas. Our licensed technicians are available days, nights, weekends, and holidays. Call (469) 506-6606 anytime." },
   { question: "What areas do you serve in Texas?", answer: "We serve over 40 cities across Texas including Conroe, Katy, Spring, The Woodlands, New Braunfels, Boerne, Georgetown, Dripping Springs, Weatherford, and many more suburban and rural communities." },
-  { question: "Can you pump my septic tank on weekends?", answer: "Yes. Weekend and after-hours septic pumping is available in many Texas markets. Pricing depends on the local contractor's availability, travel time, and whether the job is emergency service." },
+  { question: "Can you pump my septic tank on weekends?", answer: "Yes. Weekend and after-hours septic pumping is available across our Texas service areas. Pricing depends on travel time and whether the job is emergency service." },
 ];
 
 const recentPosts = getRecentBlogPosts(3);
@@ -37,28 +41,29 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl font-black leading-tight mb-4">
-                Texas Septic Pumping, Repair & Local Dispatch
+                24/7 Emergency Septic Service Across Texas — Same-Day Response
               </h1>
               <p className="text-lg text-green-100 mb-6">
-                We connect homeowners with vetted local septic contractors across 40+ Texas cities. Get a confirmed price and ETA before any work is dispatched.
+                Licensed Texas septic contractors. Real trucks. Real technicians. Average response under 2 hours for emergencies. No hidden fees.
               </p>
               <div className="grid gap-3 sm:grid-cols-3 mb-6 text-sm">
                 <div className="rounded-lg border border-green-700/60 bg-green-950/30 px-4 py-3 text-green-50">
-                  <p className="font-semibold">Local Partner Match</p>
-                  <p className="mt-1 text-green-100">We check who can actually take the job in your area.</p>
+                  <p className="font-semibold">Licensed & Insured</p>
+                  <p className="mt-1 text-green-100">Texas TCEQ certified. General liability & workers comp.</p>
                 </div>
                 <div className="rounded-lg border border-green-700/60 bg-green-950/30 px-4 py-3 text-green-50">
-                  <p className="font-semibold">Price + ETA First</p>
-                  <p className="mt-1 text-green-100">You approve the quote before anything is dispatched.</p>
+                  <p className="font-semibold">Under 2 Hour Response</p>
+                  <p className="mt-1 text-green-100">Emergency dispatch 24/7. Nights, weekends & holidays.</p>
                 </div>
                 <div className="rounded-lg border border-green-700/60 bg-green-950/30 px-4 py-3 text-green-50">
-                  <p className="font-semibold">Pumping to Repairs</p>
-                  <p className="mt-1 text-green-100">Weekend, emergency, and standard septic jobs across Texas.</p>
+                  <p className="font-semibold">Satisfaction Guaranteed</p>
+                  <p className="mt-1 text-green-100">If we can&apos;t fix it, you don&apos;t pay. Upfront pricing always.</p>
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row gap-3">
                 <PhoneCTA size="lg" />
               </div>
+              <LiveAvailability />
             </div>
             <div id="lead-form">
               <LeadForm sourcePage="/" />
@@ -67,6 +72,8 @@ export default function HomePage() {
         </div>
       </section>
 
+      <UrgencyBar />
+
       <TrustSignals />
 
       {/* Services Grid */}
@@ -74,7 +81,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-slate-900 mb-4">Our Septic Services</h2>
           <p className="text-center text-slate-600 mb-10 max-w-2xl mx-auto">
-            From routine pumping to emergency repairs, we coordinate vetted local septic contractors for the job type and city you need.
+            From routine pumping to emergency repairs, our licensed technicians handle it all across 40+ Texas cities.
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {services.map((s) => (
@@ -139,13 +146,15 @@ export default function HomePage() {
         </div>
       </section>
 
+      <TestimonialsSection testimonials={testimonials} />
+
       <FAQSection faqs={homeFaqs} />
 
       {/* Final CTA */}
       <section className="bg-green-800 text-white py-16">
         <div className="max-w-3xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Fix Your Septic Problem?</h2>
-          <p className="text-green-100 mb-8">Call now or request local availability online. We confirm contractor availability, price, and ETA before any job is dispatched.</p>
+          <h2 className="text-3xl font-bold mb-4">Need Septic Help Now?</h2>
+          <p className="text-green-100 mb-8">Call now for immediate dispatch. Emergency service available 24/7 across Texas.</p>
           <PhoneCTA size="lg" />
         </div>
       </section>
