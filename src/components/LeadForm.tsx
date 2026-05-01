@@ -10,7 +10,6 @@ import { CheckCircle, Loader2 } from "lucide-react";
 import { PHONE_NUMBER } from "@/lib/constants";
 
 const schema = z.object({
-  name: z.string().min(2, "Name is required"),
   phone: z.string().min(10, "Valid phone number required"),
   cityZip: z.string().min(2, "City or zip code required"),
   problem: z.string().min(1, "Please select a problem"),
@@ -51,7 +50,7 @@ export function LeadForm({ sourcePage, preselectedCity }: LeadFormProps) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: data.name,
+          name: "Form Lead",
           phone: data.phone,
           cityZip: data.cityZip,
           service: problemOptions.find(o => o.value === data.problem)?.label || data.problem,
@@ -102,11 +101,6 @@ export function LeadForm({ sourcePage, preselectedCity }: LeadFormProps) {
       <h3 className="text-xl font-bold text-slate-900 mb-1">Get Help Now</h3>
       <p className="text-sm text-slate-500 mb-4">Fill out the form and a technician will call you back within 15 minutes.</p>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
-        <div>
-          <label htmlFor="lead-name" className="sr-only">Full Name</label>
-          <Input placeholder="Full Name" id="lead-name" aria-label="Full Name" {...register("name")} />
-          {errors.name && <p className="text-xs text-red-500 mt-1">{errors.name.message}</p>}
-        </div>
         <div>
           <label htmlFor="lead-phone" className="sr-only">Phone Number</label>
           <Input placeholder="Phone Number" type="tel" id="lead-phone" aria-label="Phone Number" {...register("phone")} />
