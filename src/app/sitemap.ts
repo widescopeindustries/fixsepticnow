@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/privacy-policy`, lastModified: CONTENT_LAUNCHED, changeFrequency: "yearly", priority: 0.2 },
     { url: `${SITE_URL}/terms-of-service`, lastModified: CONTENT_LAUNCHED, changeFrequency: "yearly", priority: 0.2 },
     { url: `${SITE_URL}/septic-pumping-wait-time`, lastModified: CONTENT_UPDATED, changeFrequency: "monthly", priority: 0.85 },
+    { url: `${SITE_URL}/service-areas`, lastModified: CONTENT_UPDATED, changeFrequency: "monthly", priority: 0.85 },
   ];
 
   // Service type pages (not city-specific)
