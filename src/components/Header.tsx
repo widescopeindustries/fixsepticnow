@@ -9,7 +9,8 @@ import { PHONE_NUMBER, PHONE_TEL } from "@/lib/constants";
 const navLinks = [
   { label: "Services", href: "/services/septic-pumping" },
   { label: "Emergency", href: "/services/emergency-septic-service" },
-  { label: "Service Areas", href: "/#cities" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Service Areas", href: "/service-areas" },
   { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
@@ -36,7 +37,7 @@ export function Header() {
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
-          <Button asChild variant="outline" size="sm">
+          <Button asChild size="sm" className="bg-amber-500 hover:bg-amber-600 text-white font-bold">
             <a href={PHONE_TEL} className="flex items-center gap-2">
               <Phone className="h-4 w-4" />
               {PHONE_NUMBER}
