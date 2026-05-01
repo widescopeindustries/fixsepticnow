@@ -90,16 +90,8 @@ export function ExitIntentPopup({ sourcePage }: ExitIntentPopupProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [trigger]);
 
-  // Tab visibility: user switches away (on mobile)
-  useEffect(() => {
-    function handleVisibilityChange() {
-      if (document.visibilityState === "hidden") {
-        trigger();
-      }
-    }
-    document.addEventListener("visibilitychange", handleVisibilityChange);
-    return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
-  }, [trigger]);
+  // Note: removed visibilitychange trigger — it was too aggressive and fired
+  // whenever users switched tabs, even if they intended to return.
 
   function dismiss() {
     setVisible(false);
