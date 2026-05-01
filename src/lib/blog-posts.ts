@@ -360,6 +360,174 @@ export const blogPosts: BlogPost[] = [
     `,
   },
   {
+    slug: "same-day-septic-pumping-texas",
+    title: "Same-Day Septic Pumping: Is It Really Available in Texas?",
+    description:
+      "Most septic companies book 3-5 days out. But when your tank is backing up, you can't wait. Here's the truth about same-day septic pumping in Texas — and how to get it.",
+    date: "2026-04-30",
+    author: "Fix Septic Now Team",
+    readTime: "5 min read",
+    category: "Emergency",
+    tags: ["same-day pumping", "emergency septic", "fast response", "Texas"],
+    relatedServiceSlugs: ["septic-pumping", "emergency-septic-service"],
+    relatedCitySlugs: ["conroe", "katy", "spring", "georgetown", "new-braunfels"],
+    content: `
+<p>When your septic tank is backing up into your shower, "we'll be there next Tuesday" isn't an answer you can accept. Same-day septic pumping sounds like a luxury — but in Texas, it's often a necessity. Here's what you need to know about getting your tank pumped today, not next week.</p>
+
+<h2>Is Same-Day Septic Pumping Actually Available?</h2>
+<p><strong>Yes — but not from every company.</strong> Most septic pumping companies in Texas operate on a 3–5 day scheduling window for routine service. They run fixed routes, and their trucks are booked out days in advance. That's fine for maintenance — but useless for emergencies.</p>
+
+<p>Same-day septic pumping is available from companies that maintain dedicated emergency dispatch crews and keep trucks on standby. In major Texas metros like Houston, Austin, San Antonio, and DFW, same-day service is realistic if you call before early afternoon. In more rural East Texas markets, next-day is often the fastest option — but even that beats waiting a week.</p>
+
+<h2>What "Same-Day" Actually Means</h2>
+<p>When a septic company says "same-day," clarify what they mean:</p>
+<ul>
+  <li><strong>Truck arrives today:</strong> The gold standard. You call at 9 AM, the truck arrives by 4 PM.</li>
+  <li><strong>Scheduled for today:</strong> You're on today's route, but the truck might arrive at 6 PM or later.</li>
+  <li><strong>Technician visits today, pumps tomorrow:</strong> Some companies send a tech to assess the situation, then schedule the pump truck for the next day. This is common for complex jobs but doesn't solve an immediate backup.</li>
+  <li><strong>Emergency fee applies:</strong> Same-day service almost always carries a premium — typically 1.5x to 2x standard rates.</li>
+</ul>
+
+<h2>How to Get Same-Day Service</h2>
+<ol>
+  <li><strong>Call early.</strong> Most same-day slots fill by noon. Calling at 8 AM gives you the best chance.</li>
+  <li><strong>Be clear it's urgent.</strong> Say "my tank is backing up into the house" — not "I think I need pumping soon." Emergency calls get prioritized.</li>
+  <li><strong>Have your info ready.</strong> Tank size, last pump date, property address, and whether the lid is accessible. The faster you answer, the faster they can dispatch.</li>
+  <li><strong>Accept the emergency rate.</strong> Same-day service costs more because it disrupts the schedule. Expect $600–$1,000 versus $300–$500 for a standard appointment.</li>
+  <li><strong>Ask for an arrival window, not a time.</strong> "Between 1 and 4 PM" is realistic. "Exactly at 2 PM" probably isn't.</li>
+</ol>
+
+<h2>Same-Day Availability by Texas Region</h2>
+<ul>
+  <li><strong>Houston Metro</strong> (Conroe, Katy, Spring, The Woodlands): Same-day available most days. High competition means more trucks on the road.</li>
+  <li><strong>Austin Metro</strong> (Georgetown, Leander, Buda, Kyle): Same-day usually available before 2 PM. High demand can limit afternoon slots.</li>
+  <li><strong>San Antonio Metro</strong> (New Braunfels, Boerne, Seguin): Same-day possible but less common than Houston/Austin. Next-day guaranteed.</li>
+  <li><strong>DFW Suburbs</strong> (Waxahachie, Weatherford, Cleburne): Same-day often available. Wide service area means longer drive times.</li>
+  <li><strong>East Texas</strong> (Huntsville, Lufkin, Nacogdoches): Next-day is standard. Same-day possible for true emergencies.</li>
+</ul>
+
+<h2>When Same-Day Isn't Necessary</h2>
+<p>Not every situation requires same-day service. If you're scheduling routine maintenance and your drains are working fine, book a standard appointment 1–2 weeks out. You'll save money and the company can plan efficiently. Same-day is for:</p>
+<ul>
+  <li>Sewage backup inside the home</li>
+  <li>Overflowing tank or surfacing effluent</li>
+  <li>Strong sewage odor that won't dissipate</li>
+  <li>Real estate transactions with a hard closing date</li>
+</ul>
+
+<h2>The Bottom Line</h2>
+<p>Same-day septic pumping is real, but it's not universal. It requires calling the right company early, being willing to pay the emergency rate, and having realistic expectations about arrival windows. If you're in a major Texas metro and you call before noon, there's a good chance a truck can be at your property today.</p>
+<p>If you're dealing with a backup right now, <a href="/services/emergency-septic-service">call our emergency line</a>. We dispatch same-day across most of our Texas service areas.</p>
+    `,
+  },
+  {
+    slug: "septic-repair-vs-replace-texas",
+    title: "Septic Repair vs. Replace: A Texas Homeowner's Guide",
+    description:
+      "Your septic system is failing. Do you repair it or replace it? Here's how to make the right decision based on cost, age, soil conditions, and Texas regulations.",
+    date: "2026-04-28",
+    author: "Fix Septic Now Team",
+    readTime: "5 min read",
+    category: "Education",
+    tags: ["septic repair", "septic replacement", "cost comparison", "Texas"],
+    relatedServiceSlugs: ["septic-repair", "septic-installation", "septic-inspection"],
+    relatedCitySlugs: ["magnolia", "cypress", "wimberley", "waxahachie", "huntsville"],
+    content: `
+<p>Few things strike fear into a Texas homeowner like hearing "your septic system is failing." The immediate question: Can it be fixed, or do you need a whole new system? The answer depends on what's actually wrong, how old the system is, and what the soil under your property can handle.</p>
+
+<h2>When Repair Makes Sense</h2>
+<p>Not every septic problem requires a full replacement. In fact, most issues are repairable — and cost a fraction of what replacement runs. Consider repair when:</p>
+<ul>
+  <li><strong>The tank itself is sound.</strong> Concrete tanks can last 40+ years. Cracks can be sealed. Baffles can be replaced. A damaged tank doesn't mean a dead system.</li>
+  <li><strong>The drain field is partially compromised.</strong> Sometimes only a portion of the drain field has failed. Adding a replacement zone or installing a gravel-less chamber system can extend life without full replacement.</li>
+  <li><strong>The problem is mechanical.</strong> Broken effluent filters, clogged distribution boxes, or damaged risers are all fixable for $200–$1,500.</li>
+  <li><strong>Your system is under 20 years old.</strong> If the system was well-designed and properly maintained, repairs often make economic sense.</li>
+</ul>
+
+<h2>Common Septic Repairs and Costs</h2>
+<table>
+  <thead>
+    <tr><th>Repair Type</th><th>Typical Cost</th><th>Lifespan Extension</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Baffle replacement</td><td>$300–$600</td><td>5–10 years</td></tr>
+    <tr><td>Effluent filter cleaning/replacement</td><td>$150–$400</td><td>Immediate fix</td></tr>
+    <tr><td>Distribution box replacement</td><td>$500–$1,500</td><td>10–15 years</td></tr>
+    <tr><td>Drain field rejuvenation (jetting/bacteria)</td><td>$1,000–$3,000</td><td>2–5 years</td></tr>
+    <tr><td>Partial drain field replacement</td><td>$2,500–$6,000</td><td>10–20 years</td></tr>
+    <tr><td>Tank crack repair/sealing</td><td>$500–$2,000</td><td>10–20 years</td></tr>
+  </tbody>
+</table>
+
+<h2>When Replacement Is the Smarter Choice</h2>
+<p>There comes a point where throwing money at repairs is just delaying the inevitable. Consider full replacement when:</p>
+<ul>
+  <li><strong>The system is 25+ years old.</strong> Even well-maintained systems reach end of life. At this age, one repair often leads to another.</li>
+  <li><strong>The drain field has completely failed.</strong> If effluent is surfacing across the entire leach area and soil percolation is shot, repair options are limited.</li>
+  <li><strong>You're adding bedrooms.</strong> Texas TCEQ rules require your system to match bedroom count. Adding a bedroom without upgrading the system is illegal and risky.</li>
+  <li><strong>Repairs would cost 50%+ of replacement.</strong> If you're looking at $8,000 in repairs on a system that's already 20 years old, replacement is usually the better investment.</li>
+  <li><strong>The soil has changed.</strong> In Texas, shifting clay soils, erosion, or groundwater changes can make the original drain field design obsolete. No repair fixes bad soil.</li>
+</ul>
+
+<h2>Replacement Costs in Texas</h2>
+<ul>
+  <li><strong>Conventional gravity system:</strong> $5,000–$10,000</li>
+  <li><strong>Low-pressure dosing (LPD):</strong> $8,000–$15,000</li>
+  <li><strong>Aerobic treatment unit (ATU):</strong> $10,000–$20,000</li>
+  <li><strong>Mound system:</strong> $10,000–$18,000</li>
+  <li><strong>Add soil evaluation + permits:</strong> $500–$1,400</li>
+</ul>
+
+<h2>How to Decide: The 50% Rule</h2>
+<p>Our guideline: If repair estimates exceed 50% of replacement cost and your system is over 20 years old, lean toward replacement. You'll get a new warranty, modern components, and 25–40 years of reliable service. If repairs are under 50% and the system is under 20, repair is usually the smarter financial move.</p>
+
+<h2>Get an Honest Assessment</h2>
+<p>The only way to know for sure is a professional inspection. A licensed technician can run a camera through the lines, assess drain field saturation, check tank integrity, and give you a real cost comparison. Don't let a company pressure you into replacement without proof the drain field is actually dead.</p>
+<p>At Fix Septic Now, we provide written inspection reports with repair and replacement options so you can make an informed decision. <a href="/services/septic-inspection">Schedule an inspection</a> or <a href="/contact">call us</a> for a second opinion.</p>
+    `,
+  },
+  {
+    slug: "why-does-my-septic-tank-smell",
+    title: "Why Does My Septic Tank Smell? 5 Causes & Fixes",
+    description:
+      "A smelly septic tank isn't just unpleasant — it's a warning sign. Here are the 5 most common causes of septic odors and exactly what to do about each one.",
+    date: "2026-04-25",
+    author: "Fix Septic Now Team",
+    readTime: "4 min read",
+    category: "Troubleshooting",
+    tags: ["septic odor", "septic smell", "troubleshooting", "drain field"],
+    relatedServiceSlugs: ["septic-pumping", "septic-repair", "septic-inspection"],
+    relatedCitySlugs: ["katy", "boerne", "corsicana", "elgin", "navasota"],
+    content: `
+<p>Septic tanks aren't supposed to smell — at least not where you can notice them. If you're catching whiffs of rotten eggs, sewage, or something worse, your system is trying to tell you something. Here are the five most common causes of septic tank odors and what to do about each one.</p>
+
+<h2>1. Your Tank Needs Pumping</h2>
+<p>This is the most common cause of septic odors. When the tank gets too full, solids and scum rise to the level of the outlet pipe and start escaping into the drain field — or backing up into your house. The smell is often strongest near floor drains, toilets, or outside over the drain field.</p>
+<p><strong>Fix:</strong> <a href="/services/septic-pumping">Pump the tank</a>. A standard pump-out costs $300–$600 and should eliminate the odor within hours. If it's been more than 3 years since your last pump, this is almost certainly your problem.</p>
+
+<h2>2. Dry Traps in Unused Drains</h2>
+<p>Every drain in your home has a U-shaped "trap" that holds water and blocks sewer gases from coming back up. If a sink, shower, or floor drain hasn't been used in weeks, the water in the trap evaporates — and sewer gas flows freely into the room.</p>
+<p><strong>Fix:</strong> Run water down every drain in your house for 30 seconds, especially guest bathrooms, basement sinks, and utility room drains. If the smell disappears, you found your culprit. For drains you rarely use, pour a tablespoon of mineral oil down after running water — it slows evaporation.</p>
+
+<h2>3. Damaged or Missing Vent Pipe</h2>
+<p>Your plumbing system has vent pipes that run through the roof and allow sewer gases to escape safely above your home. If a vent pipe is cracked, clogged with debris, or was never installed correctly, those gases get forced out through drains and toilets instead.</p>
+<p><strong>Fix:</strong> This requires a plumber or septic professional. They'll inspect the vent system, clear any blockages (bird nests, leaves), and repair cracks. Never cap or block a vent pipe — it's a critical safety feature.</p>
+
+<h2>4. Drain Field Failure</h2>
+<p>When a drain field fails, effluent (partially treated wastewater) surfaces in your yard instead of filtering through the soil. This creates a persistent sewage smell outside — often strongest after rain or during hot weather when biological activity increases.</p>
+<p><strong>Signs it's the drain field:</strong> Soggy or spongy ground over the leach area, unusually green grass, standing water, and the smell is outside rather than inside.</p>
+<p><strong>Fix:</strong> Drain field issues range from $500 for minor repairs to $5,000–$15,000+ for full replacement. <a href="/services/septic-inspection">Get an inspection</a> immediately — a failing drain field won't fix itself.</p>
+
+<h2>5. Broken or Missing Tank Seal / Riser Gasket</h2>
+<p>Modern septic tanks have sealed lids and riser gaskets that keep odors contained. If a seal cracks, a riser shifts, or a lid is left ajar after service, odors escape directly from the tank. This is more common after pump-outs by companies that don't properly reseat lids.</p>
+<p><strong>Fix:</strong> Inspect the tank lid and risers (if visible). Look for cracks, gaps, or lids that don't sit flush. Replacement gaskets and riser seals cost $50–$200. If the tank itself is cracked, repairs run $500–$2,000.</p>
+
+<h2>When to Call a Professional</h2>
+<p>Try the easy fixes first — pump the tank if it's overdue, run water in unused drains, and check visible tank lids. If the smell persists after these steps, call a licensed septic professional. Persistent odors often indicate a deeper problem: drain field failure, cracked tank, or damaged plumbing vents.</p>
+<p>Don't mask the smell with air fresheners or bleach. Sewage odors are a warning sign of a system that's not functioning properly. Address the root cause before it becomes a $10,000+ repair.</p>
+    `,
+  },
+  {
     slug: "new-septic-installation-texas-guide",
     title: "New Septic Tank Installation in Texas: What Homeowners Need to Know",
     description:

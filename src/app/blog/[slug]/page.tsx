@@ -85,6 +85,27 @@ const blogFaqMap: Record<string, { question: string; answer: string }[]> = {
     { question: "What type of septic system do I need in Texas?", answer: "This depends on your soil type and county requirements. Sandy loam supports conventional gravity systems. Clay soils may need low-pressure dosing. Hill Country limestone often requires aerobic treatment units. A licensed OSSF designer determines the right system after soil testing." },
     { question: "What questions should I ask my septic installer?", answer: "Ask: Are you TCEQ-licensed? Will you handle the permit? What's included in the price (tank, drain field, risers)? What's the warranty? Will you be present for the county inspection? What maintenance does this system require?" },
   ],
+  "same-day-septic-pumping-texas": [
+    { question: "Is same-day septic pumping really available in Texas?", answer: "Yes, same-day septic pumping is available in most major Texas metros including Houston, Austin, San Antonio, and DFW. However, not every company offers it. Same-day requires dedicated emergency dispatch crews and standby trucks. Call before noon for the best chance." },
+    { question: "How much does same-day septic pumping cost?", answer: "Same-day septic pumping typically costs $600–$1,000 versus $300–$500 for standard scheduling. The premium reflects the disruption to the company's route and the urgency of the call. Emergency after-hours rates can run higher." },
+    { question: "What is the best time to call for same-day septic service?", answer: "Call as early as possible — ideally before 8 AM. Most same-day slots fill by noon. Being clear that your situation is urgent (backup, overflow, strong odor) helps prioritize your call." },
+    { question: "How fast can a septic truck arrive for same-day service?", answer: "In Houston metro areas, trucks often arrive within 2–4 hours of the call. Austin and San Antonio average 3–5 hours. DFW suburbs vary by location. Rural East Texas may be next-day even for emergencies." },
+    { question: "Do I need same-day service or can it wait?", answer: "Same-day is necessary for sewage backup inside the home, overflowing tanks, surfacing effluent, or strong persistent odors. Routine maintenance with working drains can safely wait 1–2 weeks for a standard appointment." },
+  ],
+  "septic-repair-vs-replace-texas": [
+    { question: "Should I repair or replace my septic system?", answer: "Repair makes sense if your system is under 20 years old and the problem is mechanical (baffles, filters, distribution box) or partial drain field damage. Replace if the system is 25+ years old, the drain field has completely failed, or repairs would cost 50%+ of replacement." },
+    { question: "How much does septic repair cost in Texas?", answer: "Common repairs range from $150–$3,000: baffle replacement ($300–$600), distribution box replacement ($500–$1,500), partial drain field replacement ($2,500–$6,000), and tank crack sealing ($500–$2,000). Full replacement costs $5,000–$20,000+." },
+    { question: "What is the 50% rule for septic systems?", answer: "If repair estimates exceed 50% of replacement cost and your system is over 20 years old, replacement is usually the smarter investment. Under 50% and under 20 years, repair is typically the better financial choice." },
+    { question: "How long does a repaired septic system last?", answer: "Proper repairs can extend a system's life 5–20 years depending on the fix. Baffle replacements add 5–10 years. Partial drain field replacements add 10–20 years. However, a system that's already 25+ years old may develop new problems even after repairs." },
+    { question: "Do I need a permit to replace my septic system in Texas?", answer: "Yes. All septic system replacements in Texas require a county permit. The process includes soil evaluation, system design approval, and a final inspection. Permits cost $200–$600 and take 2–6 weeks depending on your county." },
+  ],
+  "why-does-my-septic-tank-smell": [
+    { question: "Why does my septic tank smell?", answer: "The 5 most common causes are: 1) The tank needs pumping, 2) Dry traps in unused drains, 3) Damaged or missing vent pipes, 4) Drain field failure, and 5) Broken tank seals or riser gaskets. Each has a distinct smell pattern and location." },
+    { question: "Is a smelly septic tank dangerous?", answer: "Yes. Sewage odors contain hydrogen sulfide and other gases that can be harmful at high concentrations. Persistent odors also indicate your system isn't functioning properly, which can lead to sewage backup and groundwater contamination." },
+    { question: "How do I get rid of septic tank smell?", answer: "First, pump the tank if it's overdue. Second, run water in all drains to refill dry traps. Third, inspect visible tank lids and risers for gaps. If the smell persists, call a professional — you may have a drain field failure or vent pipe damage." },
+    { question: "Can I use bleach or chemicals to stop septic odor?", answer: "No. Bleach and antibacterial chemicals kill the beneficial bacteria your tank needs to function. This can make odors worse and accelerate system failure. Address the root cause instead of masking the smell." },
+    { question: "When should I call a professional for septic odor?", answer: "Call a licensed septic professional if odors persist after pumping the tank and refilling drain traps. Persistent odors often indicate drain field failure, cracked tanks, or damaged plumbing vents — all issues requiring professional diagnosis and repair." },
+  ],
 };
 
 export default async function BlogPostPage({ params }: Props) {
@@ -218,7 +239,7 @@ export default async function BlogPostPage({ params }: Props) {
               {relatedCities.map((city) => (
                 <Link
                   key={city!.slug}
-                  href={`/${city!.slug}-septic-services`}
+                  href={`/septic-services/${city!.slug}-tx`}
                   className="bg-slate-100 hover:bg-green-100 text-slate-700 hover:text-green-800 text-sm px-3 py-1.5 rounded-full transition-colors"
                 >
                   {city!.name}, TX
