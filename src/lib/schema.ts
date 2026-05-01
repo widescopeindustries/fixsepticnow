@@ -12,8 +12,8 @@ export function organizationSchema() {
   };
 }
 
-export function localBusinessSchema(city?: string, county?: string) {
-  return {
+export function localBusinessSchema(city?: string, county?: string, lat?: number, lng?: number) {
+  const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Plumber",
     name: city ? `${SITE_NAME} - ${city}` : SITE_NAME,
@@ -45,6 +45,16 @@ export function localBusinessSchema(city?: string, county?: string) {
       description: "Service-Disabled Veteran-Owned Small Business (SDVOSB)",
     },
   };
+
+  if (lat !== undefined && lng !== undefined) {
+    schema.geo = {
+      "@type": "GeoCoordinates",
+      latitude: lat,
+      longitude: lng,
+    };
+  }
+
+  return schema;
 }
 
 export function serviceSchema(serviceName: string, description: string, priceRange: string, city?: string) {

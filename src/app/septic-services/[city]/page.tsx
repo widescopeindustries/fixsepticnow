@@ -80,7 +80,7 @@ export default async function CityHubPage({ params }: { params: Promise<{ city: 
   ];
 
   const schemas = [
-    localBusinessSchema(city.name, city.county),
+    localBusinessSchema(city.name, city.county, city.lat, city.lng),
     faqSchema(cityFaqs),
     breadcrumbSchema([
       { name: "Home", url: SITE_URL },

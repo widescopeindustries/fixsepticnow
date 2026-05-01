@@ -95,7 +95,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
   const schemas = [
     serviceSchema(service.name, service.description, service.priceRange, city.name),
-    localBusinessSchema(city.name, city.county),
+    localBusinessSchema(city.name, city.county, city.lat, city.lng),
     faqSchema(comboFaqs),
     breadcrumbSchema([
       { name: "Home", url: SITE_URL },
