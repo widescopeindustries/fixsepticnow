@@ -40,6 +40,13 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
+              <div className="inline-flex items-center gap-2 bg-green-950/40 border border-green-700/50 rounded-full px-3 py-1 mb-4 text-xs font-semibold text-green-100 uppercase tracking-wide">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                </span>
+                Service-Disabled Veteran-Owned Small Business
+              </div>
               <h1 className="text-4xl md:text-5xl font-black leading-tight mb-4">
                 24/7 Emergency Septic Service Across Texas — Same-Day Response
               </h1>
