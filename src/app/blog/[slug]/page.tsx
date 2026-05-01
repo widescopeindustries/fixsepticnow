@@ -121,6 +121,10 @@ export default async function BlogPostPage({ params }: Props) {
   const post = getBlogPostBySlug(slug);
   if (!post) notFound();
 
+  const postIndex = blogPosts.findIndex((p) => p.slug === slug);
+  const prevPost = postIndex > 0 ? blogPosts[postIndex - 1] : null;
+  const nextPost = postIndex < blogPosts.length - 1 ? blogPosts[postIndex + 1] : null;
+
   const relatedServices = post.relatedServiceSlugs
     .map((s) => getServiceBySlug(s))
     .filter(Boolean);
@@ -128,6 +132,10 @@ export default async function BlogPostPage({ params }: Props) {
   const relatedCities = post.relatedCitySlugs
     .map((c) => getCityBySlug(c))
     .filter(Boolean);
+
+  const relatedPosts = blogPosts
+    .filter((p) => p.slug !== slug && p.tags.some((t) => post.tags.includes(t)))
+    .slice(0, 3);
 
   const blogFaqs = blogFaqMap[slug] || [];
   const postUrl = `${SITE_URL}/blog/${slug}`;
@@ -215,9 +223,30 @@ export default async function BlogPostPage({ params }: Props) {
       {/* FAQs */}
       {blogFaqs.length > 0 && <FAQSection faqs={blogFaqs} />}
 
+      {/* Related Blog Posts */}
+      {relatedPosts.length > 0 && (
+        <section className="py-10 bg-slate-50 border-t border-slate-100">
+          <div className="max-w-3xl mx-auto px-4">
+            <h2 className="text-lg font-black text-slate-900 mb-4">Related Reading</h2>
+            <div className="space-y-3">
+              {relatedPosts.map((rp) => (
+                <Link
+                  key={rp.slug}
+                  href={`/blog/${rp.slug}`}
+                  className="block bg-white border border-slate-200 rounded-lg p-4 hover:border-green-300 hover:shadow-sm transition-all"
+                >
+                  <span className="text-xs font-semibold uppercase tracking-wide text-green-700">{rp.category}</span>
+                  <p className="font-semibold text-slate-900 mt-1">{rp.title}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Related Services */}
       {relatedServices.length > 0 && (
-        <section className="py-10 bg-slate-50 border-t border-slate-100">
+        <section className="py-10 bg-white border-t border-slate-100">
           <div className="max-w-3xl mx-auto px-4">
             <h2 className="text-lg font-black text-slate-900 mb-4">Related Services</h2>
             <div className="flex flex-wrap gap-3">
@@ -259,6 +288,24 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         </section>
       )}
+
+      {/* Next / Prev Navigation */}
+      <section className="py-8 bg-white border-t border-slate-100">
+        <div className="max-w-3xl mx-auto px-4 flex flex-col sm:flex-row justify-between gap-4">
+          {prevPost ? (
+            <Link href={`/blog/${prevPost.slug}`} className="text-left group">
+              <span className="text-xs text-slate-400 uppercase tracking-wide">← Previous</span>
+              <p className="text-green-700 font-semibold group-hover:underline">{prevPost.title}</p>
+            </Link>
+          ) : <div />}
+          {nextPost ? (
+            <Link href={`/blog/${nextPost.slug}`} className="text-right group">
+              <span className="text-xs text-slate-400 uppercase tracking-wide">Next →</span>
+              <p className="text-green-700 font-semibold group-hover:underline">{nextPost.title}</p>
+            </Link>
+          ) : <div />}
+        </div>
+      </section>
 
       {/* CTA */}
       <section className="py-14 bg-green-50 border-t border-green-100">

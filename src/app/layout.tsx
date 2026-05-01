@@ -17,6 +17,14 @@ export const metadata: Metadata = {
   title: "Emergency Septic Pumping & Repair in Texas | Fix Septic Now",
   description: "24/7 emergency septic tank pumping, cleaning & repair across Texas. Licensed pros, fast response. Call (469) 506-6606.",
   metadataBase: new URL("https://fixsepticnow.com"),
+  openGraph: {
+    images: ["/images/FIXSEPTIC%20NOW%20IMAGE.png"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/images/FIXSEPTIC%20NOW%20IMAGE.png"],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
