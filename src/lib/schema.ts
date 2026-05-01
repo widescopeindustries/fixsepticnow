@@ -109,6 +109,23 @@ export function articleSchema(title: string, description: string, url: string, d
   };
 }
 
+export function howToSchema(name: string, description: string, steps: { name: string; text: string; url?: string }[], totalTime?: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name,
+    description,
+    totalTime,
+    step: steps.map((step, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: step.name,
+      text: step.text,
+      url: step.url,
+    })),
+  };
+}
+
 export function websiteSchema() {
   return {
     "@context": "https://schema.org",
