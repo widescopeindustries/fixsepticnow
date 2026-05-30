@@ -8,28 +8,28 @@ export function organizationSchema() {
     url: SITE_URL,
     telephone: PHONE,
     areaServed: { "@type": "State", name: "Texas" },
-    logo: `${SITE_URL}/images/logo.png`,
+    logo: `${SITE_URL}/images/FIXSEPTIC%20NOW%20IMAGE.png`,
   };
 }
 
 export function localBusinessSchema(city?: string, county?: string, lat?: number, lng?: number) {
   const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
-    "@type": "Plumber",
-    name: city ? `${SITE_NAME} - ${city}` : SITE_NAME,
+    "@type": "HomeAndConstructionBusiness",
+    name: city ? `${SITE_NAME} — ${city}, TX` : SITE_NAME,
     url: SITE_URL,
     telephone: PHONE,
     email: "info@fixsepticnow.com",
     priceRange: "$$",
-    image: `${SITE_URL}/images/logo.png`,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "316 Brandywine Ave",
-      addressLocality: city || "Streetman",
-      addressRegion: "TX",
-      postalCode: "75859",
-      addressCountry: "US",
-    },
+    image: `${SITE_URL}/images/FIXSEPTIC%20NOW%20IMAGE.png`,
+    address: city
+      ? {
+          "@type": "PostalAddress",
+          addressLocality: city,
+          addressRegion: "TX",
+          addressCountry: "US",
+        }
+      : undefined,
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
@@ -37,8 +37,15 @@ export function localBusinessSchema(city?: string, county?: string, lat?: number
       closes: "23:59",
     },
     areaServed: city
-      ? { "@type": "City", name: city, containedInPlace: { "@type": "State", name: "Texas" } }
-      : { "@type": "State", name: "Texas" },
+      ? {
+          "@type": "City",
+          name: city,
+          containedInPlace: { "@type": "State", name: "Texas" },
+        }
+      : {
+          "@type": "State",
+          name: "Texas",
+        },
     founder: {
       "@type": "Organization",
       name: "Widescope Industries LLC",
@@ -64,9 +71,10 @@ export function serviceSchema(serviceName: string, description: string, priceRan
     name: city ? `${serviceName} in ${city}, TX` : `${serviceName} in Texas`,
     description,
     provider: {
-      "@type": "Plumber",
+      "@type": "HomeAndConstructionBusiness",
       name: SITE_NAME,
       telephone: PHONE,
+      url: SITE_URL,
     },
     areaServed: city
       ? { "@type": "City", name: city }
@@ -103,7 +111,7 @@ export function articleSchema(title: string, description: string, url: string, d
     publisher: {
       "@type": "Organization",
       name: SITE_NAME,
-      logo: { "@type": "ImageObject", url: `${SITE_URL}/images/logo.png` },
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/images/FIXSEPTIC%20NOW%20IMAGE.png` },
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
   };
@@ -132,11 +140,6 @@ export function websiteSchema() {
     "@type": "WebSite",
     name: SITE_NAME,
     url: SITE_URL,
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `${SITE_URL}/septic-services/{search_term_string}`,
-      "query-input": "required name=search_term_string",
-    },
   };
 }
 

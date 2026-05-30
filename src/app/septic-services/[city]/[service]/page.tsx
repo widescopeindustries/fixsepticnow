@@ -68,6 +68,10 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
     description,
     openGraph: { title, description, url, siteName: SITE_NAME, type: "website" },
     alternates: { canonical: url },
+    robots: {
+      index: true,
+      follow: true,
+    },
   };
 }
 

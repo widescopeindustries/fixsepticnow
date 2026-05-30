@@ -6,8 +6,8 @@ const PHONE = "(469) 506-6606";
 
 export function homeMetadata(): Metadata {
   return {
-    title: `24/7 Emergency Septic Service Texas | ${PHONE} | Same-Day Response`,
-    description: `Emergency septic pumping, repair & installation across Texas. Licensed pros, average response under 2 hours. Call ${PHONE} now — 24/7 dispatch.`,
+    title: `Emergency Septic Service Texas | 24/7 Same-Day — ${PHONE}`,
+    description: `Emergency septic pumping, repair & installation across Texas. Licensed TCEQ pros, average response under 2 hours. Call ${PHONE} now — 24/7 dispatch.`,
     openGraph: {
       title: `Emergency Septic Pumping & Repair in Texas | ${SITE_NAME}`,
       description: `Emergency septic pumping, repair & installation across Texas. Licensed pros, average response under 2 hours. Call now — 24/7 dispatch.`,
@@ -22,8 +22,8 @@ export function homeMetadata(): Metadata {
 export function serviceMetadata(serviceName: string, serviceSlug: string): Metadata {
   const isEmergency = serviceSlug === "emergency-septic-service";
   const title = isEmergency
-    ? `${serviceName} Texas | 24/7 Same-Day Response | ${SITE_NAME}`
-    : `${serviceName} in Texas | Licensed & Insured | ${SITE_NAME}`;
+    ? `Sewage Backup? ${serviceName} Texas — 24/7 Same-Day Response`
+    : `${serviceName} in Texas — Free Estimates, Same-Day Service`;
   const description = isEmergency
     ? `Sewage backup? Septic overflow? We provide ${serviceName.toLowerCase()} across Texas — same-day response, 24/7. Call ${PHONE} now.`
     : `Professional ${serviceName.toLowerCase()} across Texas. 24/7 availability, licensed & insured. Call ${PHONE} for a free estimate.`;
@@ -38,8 +38,8 @@ export function serviceMetadata(serviceName: string, serviceSlug: string): Metad
 }
 
 export function cityMetadata(cityName: string, citySlug: string): Metadata {
-  const title = `Emergency Septic Service ${cityName}, TX | ${PHONE} | 24/7`;
-  const description = `24/7 emergency septic pumping & repair in ${cityName}, TX. Licensed pros, same-day response. Call ${PHONE} now for immediate dispatch.`;
+  const title = `Septic Pumping & Repair ${cityName}, TX | 24/7 Emergency Service — ${PHONE}`;
+  const description = `Emergency septic pumping & repair in ${cityName}, TX. Licensed TCEQ contractors, same-day response. Call ${PHONE} now for immediate dispatch.`;
   const url = `${SITE_URL}/septic-services/${citySlug}-tx`;
 
   return {
@@ -53,8 +53,8 @@ export function cityMetadata(cityName: string, citySlug: string): Metadata {
 export function comboMetadata(cityName: string, serviceName: string, comboSlug: string): Metadata {
   const isEmergency = comboSlug.includes("emergency");
   const title = isEmergency
-    ? `${serviceName} ${cityName}, TX | ${PHONE} | 24/7 Same-Day`
-    : `${serviceName} ${cityName}, TX | ${PHONE} | 24/7 Service`;
+    ? `${serviceName} ${cityName}, TX | 24/7 Same-Day — ${PHONE}`
+    : `${serviceName} ${cityName}, TX | Free Estimate — ${PHONE}`;
   const description = isEmergency
     ? `Sewage backup in ${cityName}? ${serviceName} with same-day response, 24/7. Licensed Texas pros. Call ${PHONE} now.`
     : `Need ${serviceName.toLowerCase()} in ${cityName}? Fast, licensed service with 24/7 availability. Call ${PHONE} for immediate response.`;
