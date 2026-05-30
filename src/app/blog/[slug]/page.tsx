@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getBlogPostBySlug(slug);
   if (!post) return {};
+  const postUrl = `${SITE_URL}/blog/${slug}`;
   return {
     title: `${post.title} | Fix Septic Now`,
     description: post.description,
@@ -30,7 +31,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: post.description,
       type: "article",
       publishedTime: post.date,
+      url: postUrl,
     },
+    alternates: { canonical: postUrl },
   };
 }
 

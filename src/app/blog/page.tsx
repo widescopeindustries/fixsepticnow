@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Septic Tank Tips & Guides | Fix Septic Now Blog",
   description:
     "Expert septic tank maintenance tips, guides, and advice for Texas homeowners. Learn how to care for your septic system, recognize warning signs, and save money.",
+  alternates: { canonical: "https://fixsepticnow.com/blog" },
 };
 
 function formatDate(dateStr: string): string {

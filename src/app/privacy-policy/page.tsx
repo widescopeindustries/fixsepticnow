@@ -1,6 +1,7 @@
 export const metadata = {
   title: "Privacy Policy | Fix Septic Now",
   description: "Fix Septic Now privacy policy. Learn how we collect, use, and protect your personal information.",
+  alternates: { canonical: "https://fixsepticnow.com/privacy-policy" },
 };
 
 export default function PrivacyPolicyPage() {

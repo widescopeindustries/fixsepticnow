@@ -13,6 +13,7 @@ const CONTENT_UPDATED = "2026-04-30";  // Major CRO rework: hero rewrite, form s
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     { url: SITE_URL, lastModified: CONTENT_UPDATED, changeFrequency: "weekly", priority: 1.0 },
+    { url: `${SITE_URL}/septic-services`, lastModified: CONTENT_UPDATED, changeFrequency: "weekly", priority: 0.9 },
     { url: `${SITE_URL}/blog`, lastModified: CONTENT_UPDATED, changeFrequency: "weekly", priority: 0.8 },
     { url: `${SITE_URL}/about`, lastModified: CONTENT_LAUNCHED, changeFrequency: "yearly", priority: 0.5 },
     { url: `${SITE_URL}/contact`, lastModified: CONTENT_LAUNCHED, changeFrequency: "yearly", priority: 0.6 },

@@ -7,6 +7,7 @@ import { EMAIL } from "@/lib/constants";
 export const metadata = {
   title: "About Fix Septic Now | Veteran-Owned Texas Septic Service",
   description: "Fix Septic Now is operated by Widescope Industries LLC, a Service-Disabled Veteran-Owned Small Business providing 24/7 septic services across Texas.",
+  alternates: { canonical: "https://fixsepticnow.com/about" },
 };
 
 export default function AboutPage() {

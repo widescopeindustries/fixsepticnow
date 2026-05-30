@@ -1,6 +1,7 @@
 export const metadata = {
   title: "Terms of Service | Fix Septic Now",
   description: "Fix Septic Now terms of service. Read our terms and conditions for using our website and services.",
+  alternates: { canonical: "https://fixsepticnow.com/terms-of-service" },
 };
 
 export default function TermsPage() {

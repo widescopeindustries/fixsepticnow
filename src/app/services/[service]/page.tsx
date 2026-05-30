@@ -85,10 +85,7 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <nav className="text-sm text-green-200 mb-4">
-                <a href="/" className="hover:underline">Home</a> → <span>{service.name}</span>
-              </nav>
-              <nav className="text-sm text-green-200 mb-4">
+              <nav className="text-sm text-green-200 mb-4" aria-label="breadcrumb">
                 <a href="/" className="hover:underline">Home</a> → <span>{service.name}</span>
               </nav>
               <h1 className="text-4xl md:text-5xl font-black leading-tight mb-4">

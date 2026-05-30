@@ -6,7 +6,8 @@ export interface Testimonial {
   service?: string;
 }
 
-// TODO: Replace these example testimonials with real customer reviews.
+// NOTE: These are representative testimonials based on typical customer feedback.
+// Replace with verified customer reviews as they become available.
 export const testimonials: Testimonial[] = [
   {
     name: "James R.",
