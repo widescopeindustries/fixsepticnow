@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, JetBrains_Mono, Oswald } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { EmergencyBanner } from "@/components/EmergencyBanner";
+import NewNavigation from "@/components/NewNavigation";
+import NewFooter from "@/components/NewFooter";
+
 import { StickyMobileCTA } from "@/components/StickyMobileCTA";
 import { ChatWidget } from "@/components/ChatWidget";
 import { ExitIntentPopup } from "@/components/ExitIntentPopup";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains" });
+const oswald = Oswald({ subsets: ["latin"], variable: "--font-oswald", weight: ["700"] });
 
 const GA_MEASUREMENT_ID = "G-5T9GG24J5G";
 
@@ -46,11 +48,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script>
       </head>
-      <body className={`${inter.className} antialiased`}>
-        <EmergencyBanner />
-        <Header />
+      <body className={`${inter.variable} ${jetbrainsMono.variable} ${oswald.variable} font-sans antialiased`}>
+        
+        <NewNavigation />
         <main className="min-h-screen pb-16 md:pb-0">{children}</main>
-        <Footer />
+        <NewFooter />
         <StickyMobileCTA />
         <ChatWidget />
         <ExitIntentPopup />
