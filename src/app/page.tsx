@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { LeadForm } from "@/components/LeadForm";
 import { PhoneCTA } from "@/components/PhoneCTA";
@@ -72,7 +73,20 @@ export default function HomePage() {
               </div>
               <LiveAvailability />
             </div>
-            <div id="lead-form">
+            <div id="lead-form" className="space-y-4">
+              <div className="rounded-xl overflow-hidden shadow-lg border border-green-700/30">
+                <Image
+                  src="/images/worker-valve.jpg"
+                  alt="Licensed septic technician performing pipe repair"
+                  width={600}
+                  height={400}
+                  className="w-full h-auto object-cover"
+                  priority
+                />
+                <p className="text-xs text-green-300/70 px-3 py-1.5 bg-green-950/40 text-center">
+                  Photo: Shixart1985 via Wikimedia Commons (CC BY 2.0)
+                </p>
+              </div>
               <LeadForm sourcePage="/" />
             </div>
           </div>

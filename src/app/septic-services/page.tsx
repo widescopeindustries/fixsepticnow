@@ -1,4 +1,4 @@
-import { cities, getCitiesByRegion } from "@/lib/cities";
+import { getCitiesByRegion } from "@/lib/cities";
 import { services } from "@/lib/services";
 import { localBusinessSchema, breadcrumbSchema, websiteSchema } from "@/lib/schema";
 import { SchemaMarkup } from "@/components/SchemaMarkup";
@@ -6,6 +6,7 @@ import { PhoneCTA } from "@/components/PhoneCTA";
 import { LeadForm } from "@/components/LeadForm";
 import { TrustSignals } from "@/components/TrustSignals";
 import { FAQSection } from "@/components/FAQSection";
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { SITE_URL, PHONE_NUMBER } from "@/lib/constants";
@@ -60,7 +61,17 @@ export default function SepticServicesIndexPage() {
               </p>
               <PhoneCTA size="lg" />
             </div>
-            <div>
+            <div className="space-y-4">
+              <div className="rounded-xl overflow-hidden shadow-lg border border-green-700/30">
+                <Image
+                  src="/images/construction-worker-tools.jpg"
+                  alt="Licensed septic technicians excavating for septic tank access"
+                  width={600}
+                  height={400}
+                  className="w-full h-auto object-cover"
+                  priority
+                />
+              </div>
               <LeadForm sourcePage="/septic-services" />
             </div>
           </div>

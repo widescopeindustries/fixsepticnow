@@ -93,6 +93,35 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Service Areas Image */}
+      <section className="py-16 bg-slate-50">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="rounded-xl overflow-hidden shadow-lg">
+              <Image
+                src="/images/suburban-neighborhood.jpg"
+                alt="Suburban Texas neighborhood with homes that rely on septic systems"
+                width={600}
+                height={400}
+                className="w-full h-auto object-cover"
+              />
+              <p className="text-xs text-slate-500 px-3 py-1.5 bg-slate-100 text-center">
+                Photo: Pink Sherbet Photography via Wikimedia Commons (CC BY 2.0)
+              </p>
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold text-slate-900 mb-4">Serving Communities Across Texas</h2>
+              <p className="text-slate-700 mb-4">
+                From suburban neighborhoods to rural properties, we understand the septic challenges Texas homeowners face. Heavy clay soils in East Texas, limestone karst in the Hill Country, and sandy loam in the Piney Woods — each region requires different expertise.
+              </p>
+              <p className="text-slate-700">
+                Our technicians live and work in the communities they serve. When you call Fix Septic Now, you are talking to someone who knows your area, understands local regulations, and can be at your door fast.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-green-800 text-white py-16">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>

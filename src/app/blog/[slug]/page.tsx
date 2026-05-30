@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getBlogPostBySlug, blogPosts } from "@/lib/blog-posts";
 import { getServiceBySlug } from "@/lib/services";
 import { getCityBySlug } from "@/lib/cities";
-import { faqSchema, breadcrumbSchema, articleSchema, howToSchema } from "@/lib/schema";
+import { faqSchema, breadcrumbSchema, articleSchema } from "@/lib/schema";
 import { SchemaMarkup } from "@/components/SchemaMarkup";
 import { FAQSection } from "@/components/FAQSection";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
