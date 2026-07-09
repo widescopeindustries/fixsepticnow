@@ -19,6 +19,7 @@ export interface CityContent {
   whyChooseSection: string;
   faqs: { question: string; answer: string }[];
   metaDescription: string;
+  metaTitle?: string;
 }
 
 export interface ComboContent {
@@ -26,6 +27,7 @@ export interface ComboContent {
   localRelevance: string;
   faqs: { question: string; answer: string }[];
   metaDescription: string;
+  metaTitle?: string;
 }
 
 function loadJson<T>(filePath: string): T | null {

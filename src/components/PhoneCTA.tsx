@@ -9,9 +9,11 @@ interface PhoneCTAProps {
   variant?: "default" | "outline";
   className?: string;
   showIcon?: boolean;
+  label?: string;
+  eventLabel?: string;
 }
 
-export function PhoneCTA({ size = "default", variant = "default", className = "", showIcon = true }: PhoneCTAProps) {
+export function PhoneCTA({ size = "default", variant = "default", className = "", showIcon = true, label, eventLabel }: PhoneCTAProps) {
   const isOutline = variant === "outline";
   return (
     <Button
@@ -22,11 +24,11 @@ export function PhoneCTA({ size = "default", variant = "default", className = ""
     >
       <a href={PHONE_TEL} onClick={() => {
         if (typeof window !== "undefined" && typeof window.gtag === "function") {
-          window.gtag("event", "phone_click", { event_category: "conversion", event_label: "Phone CTA Click" });
+          window.gtag("event", "phone_click", { event_category: "conversion", event_label: eventLabel || label || "Phone CTA Click" });
         }
       }}>
         {showIcon && <Phone className={`mr-2 ${size === "lg" ? "h-5 w-5" : "h-4 w-4"}`} />}
-        {PHONE_NUMBER}
+        {label || PHONE_NUMBER}
       </a>
     </Button>
   );

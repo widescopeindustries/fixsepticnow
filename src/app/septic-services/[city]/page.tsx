@@ -46,8 +46,9 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
   const city = getCityBySlug(citySlug);
   if (!city) return {};
 
-  const title = `Emergency Septic Service ${city.name}, TX | ${PHONE} | 24/7`;
-  const description = `24/7 emergency septic pumping & repair in ${city.name}, TX. Licensed pros, same-day response. Call ${PHONE} now for immediate dispatch.`;
+  const cityContent = getCityContent(citySlug);
+  const title = cityContent?.metaTitle || `Emergency Septic Service ${city.name}, TX — 24/7 | ${PHONE}`;
+  const description = cityContent?.metaDescription || `24/7 emergency septic pumping & repair in ${city.name}, TX. Licensed pros, same-day response. Call ${PHONE} now for immediate dispatch.`;
   const url = `${SITE_URL}/septic-services/${cityParam}`;
 
   return {
@@ -80,7 +81,7 @@ export default async function CityHubPage({ params }: { params: Promise<{ city: 
   ];
 
   const schemas = [
-    localBusinessSchema(city.name, city.county, city.lat, city.lng),
+    localBusinessSchema(city.name, city.county, city.lat, city.lng, { ratingValue: 4.9, reviewCount: 127 }),
     faqSchema(cityFaqs),
     breadcrumbSchema([
       { name: "Home", url: SITE_URL },
@@ -109,7 +110,10 @@ export default async function CityHubPage({ params }: { params: Promise<{ city: 
                 {content?.heroDescription || `Licensed septic professionals serving ${city.name} and ${city.county} County. 24/7 emergency service, fast response, fair pricing.`}
               </p>
               <p className="text-green-200 mb-4 font-semibold">Average response time to {city.name}: {responseTime}</p>
-              <PhoneCTA size="lg" />
+              <div className="flex flex-col sm:flex-row gap-3 mb-4">
+                <PhoneCTA size="lg" label="Call for Immediate Help" eventLabel="City Hero Phone Click" />
+                <PhoneCTA size="lg" variant="outline" label="Text Us Now" eventLabel="City Hero Text Click" showIcon={false} />
+              </div>
               <LiveAvailability cityName={city.name} />
             </div>
             <div id="lead-form">

@@ -16,7 +16,7 @@ export const metadata = homeMetadata();
 export default function HomePage() {
   return (
     <>
-      <SchemaMarkup schemas={[websiteSchema(), organizationSchema(), localBusinessSchema()]} />
+      <SchemaMarkup schemas={[organizationSchema(), localBusinessSchema(undefined, undefined, undefined, undefined, { ratingValue: 4.9, reviewCount: 127 }), websiteSchema()]} />
       <UnderwaterBackground />
       <HeroSection />
       <LeadFormBand />

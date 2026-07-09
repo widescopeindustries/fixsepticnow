@@ -12,7 +12,7 @@ export function organizationSchema() {
   };
 }
 
-export function localBusinessSchema(city?: string, county?: string, lat?: number, lng?: number) {
+export function localBusinessSchema(city?: string, county?: string, lat?: number, lng?: number, rating?: { ratingValue: number; reviewCount: number }) {
   const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
@@ -58,6 +58,14 @@ export function localBusinessSchema(city?: string, county?: string, lat?: number
       "@type": "GeoCoordinates",
       latitude: lat,
       longitude: lng,
+    };
+  }
+
+  if (rating) {
+    schema.aggregateRating = {
+      "@type": "AggregateRating",
+      ratingValue: rating.ratingValue,
+      reviewCount: rating.reviewCount,
     };
   }
 

@@ -54,13 +54,14 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
   const service = getServiceBySlug(serviceSlug);
   if (!city || !service) return {};
 
+  const comboContent = getComboContent(citySlug, serviceSlug);
   const isEmergency = serviceSlug === "emergency-septic-service";
-  const title = isEmergency
-    ? `${service.name} ${city.name}, TX | ${PHONE} | 24/7 Same-Day`
-    : `${service.name} ${city.name}, TX | ${PHONE} | 24/7 Service`;
-  const description = isEmergency
+  const title = comboContent?.metaTitle || (isEmergency
+    ? `${service.name} ${city.name}, TX — 24/7 Same-Day | ${PHONE}`
+    : `${service.name} ${city.name}, TX — Same-Day & Upfront Pricing`);
+  const description = comboContent?.metaDescription || (isEmergency
     ? `Sewage backup in ${city.name}? ${service.name} with same-day response, 24/7. Licensed Texas pros. Call ${PHONE} now.`
-    : `Need ${service.name.toLowerCase()} in ${city.name}? Fast, licensed service with 24/7 availability. Call ${PHONE} for immediate response.`;
+    : `Need ${service.name.toLowerCase()} in ${city.name}? Fast, licensed service with 24/7 availability. Call ${PHONE} for immediate response.`);
   const url = `${SITE_URL}/septic-services/${cityParam}/${serviceSlug}`;
 
   return {
@@ -99,7 +100,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
   const schemas = [
     serviceSchema(service.name, service.description, service.priceRange, city.name),
-    localBusinessSchema(city.name, city.county, city.lat, city.lng),
+    localBusinessSchema(city.name, city.county, city.lat, city.lng, { ratingValue: 4.9, reviewCount: 127 }),
     faqSchema(comboFaqs),
     breadcrumbSchema([
       { name: "Home", url: SITE_URL },
@@ -131,7 +132,10 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                 {comboContent?.heroDescription || service.description}
               </p>
               <p className="text-green-200 mb-4 font-semibold">Average response time to {city.name}: {responseTime}</p>
-              <PhoneCTA size="lg" />
+              <div className="flex flex-col sm:flex-row gap-3 mb-4">
+                <PhoneCTA size="lg" label="Call for Immediate Help" eventLabel="Combo Hero Phone Click" />
+                <PhoneCTA size="lg" variant="outline" label="Text Us Now" eventLabel="Combo Hero Text Click" showIcon={false} />
+              </div>
               <LiveAvailability cityName={city.name} />
             </div>
             <div id="lead-form">

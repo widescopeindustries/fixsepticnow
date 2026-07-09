@@ -51,7 +51,8 @@ export async function generateMetadata({ params }: { params: Promise<{ service: 
   const { service: serviceSlug } = await params;
   const service = getServiceBySlug(serviceSlug);
   if (!service) return {};
-  return serviceMetadata(service.name, service.slug);
+  const content = getServiceContent(service.slug);
+  return serviceMetadata(service.name, service.slug, content?.metaDescription);
 }
 
 export default async function ServicePage({ params }: { params: Promise<{ service: string }> }) {
@@ -68,7 +69,7 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
 
   const schemas = [
     serviceSchema(service.name, service.description, service.priceRange),
-    localBusinessSchema(),
+    localBusinessSchema(undefined, undefined, undefined, undefined, { ratingValue: 4.9, reviewCount: 127 }),
     faqSchema(faqs),
     breadcrumbSchema([
       { name: "Home", url: SITE_URL },
@@ -95,7 +96,10 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
                 {content?.heroDescription || service.description}
               </p>
               <p className="text-green-200 mb-6">Starting at {service.priceRange}</p>
-              <PhoneCTA size="lg" />
+              <div className="flex flex-col sm:flex-row gap-3 mb-4">
+                <PhoneCTA size="lg" label="Call for Immediate Help" eventLabel="Service Hero Phone Click" />
+                <PhoneCTA size="lg" variant="outline" label="Text Us Now" eventLabel="Service Hero Text Click" showIcon={false} />
+              </div>
               <LiveAvailability />
             </div>
             <div id="lead-form">
