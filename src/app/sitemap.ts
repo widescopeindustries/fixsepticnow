@@ -8,7 +8,7 @@ const SITE_URL = "https://fixsepticnow.com";
 // Real content creation dates — content doesn't change on every request,
 // so we use static dates so Googlebot trusts our lastModified signals.
 const CONTENT_LAUNCHED = "2025-11-15"; // site first went live
-const CONTENT_UPDATED = "2026-04-30";  // Major CRO rework: hero rewrite, form simplification, trust signals, response times
+const CONTENT_UPDATED = "2026-07-18";  // Added Ennis, TX location cluster with full service pages and Ellis County content
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [

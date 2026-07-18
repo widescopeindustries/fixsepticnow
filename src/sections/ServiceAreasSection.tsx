@@ -27,6 +27,7 @@ const ALL_CITIES = [
   { name: "Boerne", slug: "boerne" },
   { name: "Seguin", slug: "seguin" },
   { name: "Waxahachie", slug: "waxahachie" },
+  { name: "Ennis", slug: "ennis" },
   { name: "Weatherford", slug: "weatherford" },
   { name: "Granbury", slug: "granbury" },
   { name: "Cleburne", slug: "cleburne" },

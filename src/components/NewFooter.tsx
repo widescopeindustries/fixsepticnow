@@ -22,6 +22,7 @@ const AREA_LINKS = [
   { label: "Tomball", href: "/septic-services/tomball-tx" },
   { label: "Magnolia", href: "/septic-services/magnolia-tx" },
   { label: "Cypress", href: "/septic-services/cypress-tx" },
+  { label: "Ennis", href: "/septic-services/ennis-tx" },
 ];
 
 const COMPANY_LINKS = [

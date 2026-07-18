@@ -47,7 +47,8 @@ export const cities: City[] = [
   { name: "San Marcos", slug: "san-marcos", county: "Hays", region: "san-antonio-metro", population: 67553, neighbors: ["new-braunfels", "kyle", "wimberley", "seguin"], soilType: "limestone and blackland clay", lat: 29.8833, lng: -97.9414 },
 
   // Tier 1 - DFW Metro
-  { name: "Waxahachie", slug: "waxahachie", county: "Ellis", region: "dfw-metro", population: 41250, neighbors: ["cleburne", "corsicana", "midlothian"], soilType: "blackland clay", lat: 32.3866, lng: -96.8483 },
+  { name: "Waxahachie", slug: "waxahachie", county: "Ellis", region: "dfw-metro", population: 41250, neighbors: ["cleburne", "corsicana", "midlothian", "ennis"], soilType: "blackland clay", lat: 32.3866, lng: -96.8483 },
+  { name: "Ennis", slug: "ennis", county: "Ellis", region: "dfw-metro", population: 22588, neighbors: ["waxahachie", "corsicana", "midlothian", "palmer"], soilType: "blackland clay", lat: 32.3294, lng: -96.6253 },
   { name: "Weatherford", slug: "weatherford", county: "Parker", region: "dfw-metro", population: 32930, neighbors: ["azle", "granbury", "mineral-wells"], soilType: "sandy loam and clay", lat: 32.7593, lng: -97.7973 },
   { name: "Azle", slug: "azle", county: "Tarrant", region: "dfw-metro", population: 13024, neighbors: ["weatherford", "springtown", "decatur"], soilType: "sandy loam", lat: 32.8954, lng: -97.5458 },
   { name: "Granbury", slug: "granbury", county: "Hood", region: "dfw-metro", population: 11320, neighbors: ["weatherford", "cleburne", "glen-rose"], soilType: "sandy loam and limestone", lat: 32.4419, lng: -97.7942 },

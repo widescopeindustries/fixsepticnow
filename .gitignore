@@ -56,3 +56,4 @@ gsc-service-account.json
 !tsconfig.json
 !components.json
 !next-env.d.ts
+!src/data/content/**/*.json

@@ -30,6 +30,20 @@ export const testimonials: Testimonial[] = [
     text: "Our drain field was failing and they diagnosed the issue fast. Saved us thousands by catching it early. Honest, knowledgeable, and veteran-owned.",
     service: "Septic Repair",
   },
+  {
+    name: "Robert M.",
+    city: "Ennis",
+    rating: 5,
+    text: "Called about a backed-up septic tank at our Ennis property and they had someone out within the hour. The technician explained the clay soil issue and pumped the tank completely. Fair price and great service.",
+    service: "Septic Pumping",
+  },
+  {
+    name: "Jennifer L.",
+    city: "Ennis",
+    rating: 5,
+    text: "We needed a septic inspection before closing on our home in Ennis. Fix Septic Now was thorough, professional, and got us the report same day. Made the closing process much easier.",
+    service: "Septic Inspection",
+  },
 ];
 
 export function getCityTestimonials(cityName: string): Testimonial[] {
