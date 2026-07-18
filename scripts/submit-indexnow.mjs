@@ -19,6 +19,27 @@ const ENNIS_URLS = [
   "https://fixsepticnow.com/septic-services/ennis-tx/emergency-septic-service",
 ];
 
+const NEW_CITY_URLS = [
+  "https://fixsepticnow.com/septic-services/midlothian-tx/",
+  "https://fixsepticnow.com/septic-services/midlothian-tx/septic-pumping",
+  "https://fixsepticnow.com/septic-services/midlothian-tx/emergency-septic-service",
+  "https://fixsepticnow.com/septic-services/red-oak-tx/",
+  "https://fixsepticnow.com/septic-services/red-oak-tx/septic-pumping",
+  "https://fixsepticnow.com/septic-services/red-oak-tx/emergency-septic-service",
+  "https://fixsepticnow.com/septic-services/gainesville-tx/",
+  "https://fixsepticnow.com/septic-services/gainesville-tx/septic-pumping",
+  "https://fixsepticnow.com/septic-services/gainesville-tx/emergency-septic-service",
+  "https://fixsepticnow.com/septic-services/stephenville-tx/",
+  "https://fixsepticnow.com/septic-services/stephenville-tx/septic-pumping",
+  "https://fixsepticnow.com/septic-services/stephenville-tx/emergency-septic-service",
+  "https://fixsepticnow.com/septic-services/paris-tx/",
+  "https://fixsepticnow.com/septic-services/paris-tx/septic-pumping",
+  "https://fixsepticnow.com/septic-services/paris-tx/emergency-septic-service",
+  "https://fixsepticnow.com/septic-services/jacksonville-tx/",
+  "https://fixsepticnow.com/septic-services/jacksonville-tx/septic-pumping",
+  "https://fixsepticnow.com/septic-services/jacksonville-tx/emergency-septic-service",
+];
+
 async function submitUrl(url) {
   const submitUrl = new URL(ENDPOINT);
   submitUrl.searchParams.set("url", url);
@@ -41,10 +62,21 @@ async function submitUrl(url) {
 
 async function main() {
   const args = process.argv.slice(2);
-  const urls = args.includes("--ennis") ? ENNIS_URLS : args.filter((a) => a.startsWith("http"));
+  let urls = args.filter((a) => a.startsWith("http"));
+
+  if (args.includes("--ennis")) {
+    urls = [...urls, ...ENNIS_URLS];
+  }
+  if (args.includes("--new-cities")) {
+    urls = [...urls, ...NEW_CITY_URLS];
+  }
+
+  // Deduplicate
+  urls = [...new Set(urls)];
 
   if (urls.length === 0) {
     console.error("Usage: node scripts/submit-indexnow.mjs --ennis");
+    console.error("       node scripts/submit-indexnow.mjs --new-cities");
     console.error("   or: node scripts/submit-indexnow.mjs https://... https://...");
     process.exit(1);
   }

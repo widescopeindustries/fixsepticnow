@@ -18,11 +18,10 @@ const AREA_LINKS = [
   { label: "Conroe", href: "/septic-services/conroe-tx" },
   { label: "The Woodlands", href: "/septic-services/the-woodlands-tx" },
   { label: "Katy", href: "/septic-services/katy-tx" },
-  { label: "Spring", href: "/septic-services/spring-tx" },
-  { label: "Tomball", href: "/septic-services/tomball-tx" },
-  { label: "Magnolia", href: "/septic-services/magnolia-tx" },
-  { label: "Cypress", href: "/septic-services/cypress-tx" },
   { label: "Ennis", href: "/septic-services/ennis-tx" },
+  { label: "Midlothian", href: "/septic-services/midlothian-tx" },
+  { label: "Waxahachie", href: "/septic-services/waxahachie-tx" },
+  { label: "View All", href: "/service-areas" },
 ];
 
 const COMPANY_LINKS = [

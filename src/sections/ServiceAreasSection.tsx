@@ -28,6 +28,7 @@ const ALL_CITIES = [
   { name: "Seguin", slug: "seguin" },
   { name: "Waxahachie", slug: "waxahachie" },
   { name: "Ennis", slug: "ennis" },
+  { name: "Midlothian", slug: "midlothian" },
   { name: "Weatherford", slug: "weatherford" },
   { name: "Granbury", slug: "granbury" },
   { name: "Cleburne", slug: "cleburne" },
@@ -60,6 +61,11 @@ const EXPANDED_CITIES = [
   { name: "Kaufman", slug: "kaufman" },
   { name: "Forney", slug: "forney" },
   { name: "Lufkin", slug: "lufkin" },
+  { name: "Red Oak", slug: "red-oak" },
+  { name: "Gainesville", slug: "gainesville" },
+  { name: "Stephenville", slug: "stephenville" },
+  { name: "Paris", slug: "paris" },
+  { name: "Jacksonville", slug: "jacksonville" },
 ];
 
 export default function ServiceAreasSection() {

@@ -44,6 +44,27 @@ export const testimonials: Testimonial[] = [
     text: "We needed a septic inspection before closing on our home in Ennis. Fix Septic Now was thorough, professional, and got us the report same day. Made the closing process much easier.",
     service: "Septic Inspection",
   },
+  {
+    name: "Michael B.",
+    city: "Midlothian",
+    rating: 5,
+    text: "Our septic tank was way overdue for pumping. They came out to Midlothian the same day, explained the clay soil issue, and got everything flowing again. Great service and fair price.",
+    service: "Septic Pumping",
+  },
+  {
+    name: "Susan K.",
+    city: "Red Oak",
+    rating: 5,
+    text: "Woke up to a sewage smell in the yard and called right away. They diagnosed the issue fast and had it repaired before dinner. Professional crew and no hidden charges.",
+    service: "Septic Repair",
+  },
+  {
+    name: "Tom W.",
+    city: "Stephenville",
+    rating: 5,
+    text: "Called for an emergency septic backup at our ranch property. They made it out quickly and handled everything. Honest assessment and they didn't try to sell us work we didn't need.",
+    service: "Emergency Septic Service",
+  },
 ];
 
 export function getCityTestimonials(cityName: string): Testimonial[] {

@@ -48,7 +48,17 @@ export const cities: City[] = [
 
   // Tier 1 - DFW Metro
   { name: "Waxahachie", slug: "waxahachie", county: "Ellis", region: "dfw-metro", population: 41250, neighbors: ["cleburne", "corsicana", "midlothian", "ennis"], soilType: "blackland clay", lat: 32.3866, lng: -96.8483 },
-  { name: "Ennis", slug: "ennis", county: "Ellis", region: "dfw-metro", population: 22588, neighbors: ["waxahachie", "corsicana", "midlothian", "palmer"], soilType: "blackland clay", lat: 32.3294, lng: -96.6253 },
+  { name: "Ennis", slug: "ennis", county: "Ellis", region: "dfw-metro", population: 22588, neighbors: ["waxahachie", "corsicana", "midlothian"], soilType: "blackland clay", lat: 32.3294, lng: -96.6253 },
+  { name: "Midlothian", slug: "midlothian", county: "Ellis", region: "dfw-metro", population: 36000, neighbors: ["waxahachie", "ennis", "cleburne", "red-oak"], soilType: "blackland clay", lat: 32.4824, lng: -96.9942 },
+  { name: "Red Oak", slug: "red-oak", county: "Ellis", region: "dfw-metro", population: 14000, neighbors: ["midlothian", "ennis", "waxahachie"], soilType: "blackland clay", lat: 32.5176, lng: -96.8044 },
+
+  // Tier 2 - North DFW / Texoma
+  { name: "Gainesville", slug: "gainesville", county: "Cooke", region: "dfw-metro", population: 17000, neighbors: ["weatherford"], soilType: "sandy loam and clay", lat: 33.6259, lng: -97.1334 },
+  { name: "Stephenville", slug: "stephenville", county: "Erath", region: "dfw-metro", population: 21000, neighbors: ["granbury", "weatherford"], soilType: "sandy loam and clay", lat: 32.2207, lng: -98.2023 },
+
+  // Tier 2 - East Texas
+  { name: "Paris", slug: "paris", county: "Lamar", region: "east-texas", population: 24000, neighbors: ["athens"], soilType: "sandy loam", lat: 33.6609, lng: -95.5555 },
+  { name: "Jacksonville", slug: "jacksonville", county: "Cherokee", region: "east-texas", population: 14000, neighbors: ["palestine", "athens", "canton"], soilType: "sandy loam", lat: 31.9638, lng: -95.2705 },
   { name: "Weatherford", slug: "weatherford", county: "Parker", region: "dfw-metro", population: 32930, neighbors: ["azle", "granbury", "mineral-wells"], soilType: "sandy loam and clay", lat: 32.7593, lng: -97.7973 },
   { name: "Azle", slug: "azle", county: "Tarrant", region: "dfw-metro", population: 13024, neighbors: ["weatherford", "springtown", "decatur"], soilType: "sandy loam", lat: 32.8954, lng: -97.5458 },
   { name: "Granbury", slug: "granbury", county: "Hood", region: "dfw-metro", population: 11320, neighbors: ["weatherford", "cleburne", "glen-rose"], soilType: "sandy loam and limestone", lat: 32.4419, lng: -97.7942 },
