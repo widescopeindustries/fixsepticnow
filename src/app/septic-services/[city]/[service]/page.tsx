@@ -22,7 +22,7 @@ import { getCityTestimonials } from "@/lib/testimonials";
 import type { Metadata } from "next";
 
 const SITE_NAME = "Fix Septic Now";
-const PHONE = "(469) 506-6606";
+const PHONE = "(936) 297-7856";
 
 // Parse city slug from URL param (e.g., "conroe-tx" -> "conroe")
 function parseCityParam(param: string): string | null {
@@ -93,9 +93,9 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
   const comboFaqs = comboContent?.faqs || [
     { question: `How much does ${service.shortName.toLowerCase()} cost in ${city.name}, Texas?`, answer: `${service.name} in ${city.name} typically costs ${service.priceRange}. Final pricing depends on tank size, accessibility, and ${city.soilType} soil conditions common in ${city.county} County. We provide free estimates.` },
     { question: `How quickly can I get ${service.shortName.toLowerCase()} in ${city.name}, TX?`, answer: `We dispatch licensed technicians to ${city.name} and throughout ${city.county} County 24/7. Emergency response times are typically under 60 minutes. Scheduled service available within 24–48 hours.` },
-    { question: `Who provides ${service.shortName.toLowerCase()} in ${city.name}?`, answer: `Fix Septic Now provides licensed, insured ${service.shortName.toLowerCase()} in ${city.name} and all of ${city.county} County. Our technicians are experienced with the ${city.soilType} soil conditions in your area. Call (469) 506-6606.` },
+    { question: `Who provides ${service.shortName.toLowerCase()} in ${city.name}?`, answer: `Fix Septic Now provides licensed, insured ${service.shortName.toLowerCase()} in ${city.name} and all of ${city.county} County. Our technicians are experienced with the ${city.soilType} soil conditions in your area. Call (936) 297-7856.` },
     { question: `What happens if I ignore septic problems in ${city.name}?`, answer: `Ignoring septic issues in ${city.name} can lead to sewage backup, drain field failure ($5,000–$15,000 to replace), property damage, and potential TCEQ violations. ${city.soilType} soil in ${city.county} County can accelerate drain field problems. Early service saves thousands.` },
-    { question: `Is ${service.shortName.toLowerCase()} available on weekends in ${city.name}?`, answer: `Yes. We offer ${service.shortName.toLowerCase()} in ${city.name} seven days a week, including weekends and holidays. Emergency service is available 24/7. Call (469) 506-6606 to schedule.` },
+    { question: `Is ${service.shortName.toLowerCase()} available on weekends in ${city.name}?`, answer: `Yes. We offer ${service.shortName.toLowerCase()} in ${city.name} seven days a week, including weekends and holidays. Emergency service is available 24/7. Call (936) 297-7856 to schedule.` },
   ];
 
   const schemas = [
@@ -158,7 +158,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         <div className="max-w-3xl mx-auto px-4 space-y-6">
           <QuickAnswer
             question={`How much does ${service.shortName.toLowerCase()} cost in ${city.name}, Texas?`}
-            answer={`${service.name} in ${city.name} typically costs ${service.priceRange}. Pricing depends on tank size, accessibility, and the ${city.soilType} soil conditions in ${city.county} County. Call (469) 506-6606 for a free estimate — emergency service available 24/7.`}
+            answer={`${service.name} in ${city.name} typically costs ${service.priceRange}. Pricing depends on tank size, accessibility, and the ${city.soilType} soil conditions in ${city.county} County. Call (936) 297-7856 for a free estimate — emergency service available 24/7.`}
           />
           <div className="text-slate-600 text-sm leading-relaxed space-y-2">
             <p>According to the EPA, <strong>1 in 5 U.S. homes</strong> relies on a septic system for wastewater treatment.</p>

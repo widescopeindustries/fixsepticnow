@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 const SITE_NAME = "Fix Septic Now";
 const SITE_URL = "https://fixsepticnow.com";
-const PHONE = "(469) 506-6606";
+const PHONE = "(936) 297-7856";
 
 export function homeMetadata(): Metadata {
   return {

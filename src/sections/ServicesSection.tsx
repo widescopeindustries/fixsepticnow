@@ -159,10 +159,10 @@ export default function ServicesSection() {
                   Need Immediate Help?
                 </h3>
                 <a
-                  href="tel:4695066606"
+                  href="tel:9362977856"
                   className="block mt-2 text-[28px] font-bold text-green-600 hover:text-green-700"
                 >
-                  (469) 506-6606
+                  (936) 297-7856
                 </a>
                 <div className="mt-3 flex items-center gap-2">
                   <span className="inline-block h-2 w-2 rounded-full bg-green-600 pulse-dot" />
@@ -178,7 +178,7 @@ export default function ServicesSection() {
                   All prices are estimates. Final quote provided after on-site inspection.
                 </p>
                 <a
-                  href="tel:4695066606"
+                  href="tel:9362977856"
                   className="mt-5 flex items-center justify-center gap-2 w-full py-4 rounded-lg bg-green-600 text-white font-semibold transition-colors duration-200 hover:bg-green-700"
                 >
                   <Phone size={18} />

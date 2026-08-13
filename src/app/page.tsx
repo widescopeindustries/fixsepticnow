@@ -6,6 +6,7 @@ import HowItWorksSection from "@/sections/HowItWorksSection";
 import ServiceAreasSection from "@/sections/ServiceAreasSection";
 import ReviewsSection from "@/sections/ReviewsSection";
 import FAQSection from "@/sections/FAQSection";
+import BannerImage from "@/sections/BannerImage";
 import CTABanner from "@/sections/CTABanner";
 import { SchemaMarkup } from "@/components/SchemaMarkup";
 import { organizationSchema, localBusinessSchema, websiteSchema } from "@/lib/schema";
@@ -22,9 +23,21 @@ export default function HomePage() {
       <LeadFormBand />
       <ServicesSection />
       <HowItWorksSection />
+      <BannerImage
+        src="/images/texas-homeowners-guide-banner.jpg"
+        alt="The Texas Homeowner's Guide to Septic Systems — learn, maintain, and understand your most vital home system. 24/7 emergency pumping, service-disabled veteran-owned."
+        href="/blog"
+        ariaLabel="Read the Texas Homeowner's Guide to Septic Systems on our blog"
+      />
       <ServiceAreasSection />
       <ReviewsSection />
       <FAQSection />
+      <BannerImage
+        src="/images/questions-24-7-banner.jpg"
+        alt="Questions? We're here 24/7. Service-disabled veteran-owned septic team serving Conroe, Katy, Ennis, and Midlothian, Texas. Call (936) 297-7856 for 24/7 dispatch."
+        href="tel:9362977856"
+        ariaLabel="Questions? Call (936) 297-7856 — 24/7 dispatch"
+      />
       <CTABanner />
     </>
   );

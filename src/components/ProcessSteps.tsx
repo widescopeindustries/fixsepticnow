@@ -1,7 +1,7 @@
 import { Phone, Truck, CheckCircle } from "lucide-react";
 
 const steps = [
-  { icon: Phone, title: "1. Call or Request Help", description: "Call (469) 506-6606 or submit the form with your city and problem. It takes 30 seconds." },
+  { icon: Phone, title: "1. Call or Request Help", description: "Call (936) 297-7856 or submit the form with your city and problem. It takes 30 seconds." },
   { icon: Truck, title: "2. Get Price + ETA", description: "We confirm a real quote and arrival window before any work begins. No surprises, no hidden fees." },
   { icon: CheckCircle, title: "3. We Fix It", description: "A licensed technician arrives on time and completes the job. Satisfaction guaranteed — if we can't fix it, you don't pay." },
 ];

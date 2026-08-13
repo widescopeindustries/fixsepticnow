@@ -58,11 +58,11 @@ export default function NewFooter() {
               24/7 emergency septic pumping, cleaning, repair & installation across Texas.
             </p>
             <a
-              href="tel:4695066606"
+              href="tel:9362977856"
               className="mt-4 inline-flex items-center gap-2 text-base font-semibold text-lime-400 hover:text-lime-300"
             >
               <Phone size={14} />
-              (469) 506-6606
+              (936) 297-7856
             </a>
             <div className="mt-4">
               <Image

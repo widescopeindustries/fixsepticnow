@@ -27,8 +27,8 @@ async function sendLeadNotification(lead: {
   try {
     await resend.emails.send({
       from: "Fix Septic Now <leads@fixsepticnow.com>",
-      to: ["morelyndon@pm.me"],
-      subject: `🚨 NEW LEAD: ${lead.name} - ${lead.city}`,
+      to: ["morelyndon@pm.me", "lyndon@widescopeindustries.com"],
+      subject: `🚨 NEW SEPTIC LEAD: ${lead.name} - ${lead.city}`,
       html: `
         <h2>🚨 New Septic Lead!</h2>
         <table style="border-collapse: collapse; width: 100%; max-width: 500px;">
@@ -71,6 +71,23 @@ async function sendLeadNotification(lead: {
       `,
     });
     console.log("Lead notification email sent successfully");
+
+    const twilioAccountSid = process.env.TWILIO_ACCOUNT_SID;
+    const twilioAuthToken = process.env.TWILIO_AUTH_TOKEN;
+    if (twilioAccountSid && twilioAuthToken) {
+      try {
+        const Twilio = require("twilio");
+        const client = new Twilio(twilioAccountSid, twilioAuthToken);
+        await client.messages.create({
+          body: `🚨 FIX SEPTIC FORM LEAD!\nName: ${lead.name}\nPhone: ${lead.phone}\nCity: ${lead.city}\nService: ${lead.service}${lead.message ? `\nMsg: ${lead.message}` : ""}`,
+          from: process.env.TWILIO_PHONE_NUMBER || "+18175338424",
+          to: "+16829990953",
+        });
+        console.log("SMS lead notification sent to +16829990953");
+      } catch (smsErr) {
+        console.error("Failed to send SMS lead notification:", smsErr);
+      }
+    }
   } catch (emailError) {
     console.error("Failed to send lead notification email:", emailError);
     // Don't fail the request if email fails - lead is already saved

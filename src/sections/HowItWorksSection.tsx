@@ -12,7 +12,7 @@ const STEPS = [
     icon: Phone,
     number: "1",
     title: "Call or Request Help",
-    description: "Call (469) 506-6606 or submit the form with your city and problem. It takes 30 seconds.",
+    description: "Call (936) 297-7856 or submit the form with your city and problem. It takes 30 seconds.",
   },
   {
     icon: ClipboardCheck,

@@ -22,7 +22,7 @@ const FAQ_ITEMS = [
   },
   {
     question: "Do you offer 24/7 emergency septic service?",
-    answer: "Yes. We offer true 24/7 emergency septic service across Texas, including nights, weekends, and holidays. Our average emergency response time is under 2 hours. Call (469) 506-6606 anytime for immediate dispatch.",
+    answer: "Yes. We offer true 24/7 emergency septic service across Texas, including nights, weekends, and holidays. Our average emergency response time is under 2 hours. Call (936) 297-7856 anytime for immediate dispatch.",
   },
   {
     question: "What areas do you serve in Texas?",

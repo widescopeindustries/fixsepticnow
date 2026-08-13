@@ -9,7 +9,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "How Long Does Septic Pumping Take in Central Texas? | Fix Septic Now",
-  description: "Septic pumping takes 1-3 hours in Central Texas. Same-day service available with response times under 2 hours. Call (469) 506-6606 now.",
+  description: "Septic pumping takes 1-3 hours in Central Texas. Same-day service available with response times under 2 hours. Call (936) 297-7856 now.",
   openGraph: {
     title: "How Long Does Septic Pumping Take in Central Texas?",
     description: "Septic pumping takes 1-3 hours in Central Texas. Same-day service available with response times under 2 hours.",
@@ -35,7 +35,7 @@ const waitTimeFaqs = [
   },
   {
     question: "Can I get same-day septic pumping in Texas?",
-    answer: "Yes. Same-day septic pumping is available across our Texas service areas including Houston metro, Austin, San Antonio, DFW, and East Texas. Call (469) 506-6606 before noon for the best chance of same-day scheduling.",
+    answer: "Yes. Same-day septic pumping is available across our Texas service areas including Houston metro, Austin, San Antonio, DFW, and East Texas. Call (936) 297-7856 before noon for the best chance of same-day scheduling.",
   },
   {
     question: "How long does the entire septic pumping appointment take?",

@@ -75,11 +75,11 @@ export default function CTABanner() {
           Call now for immediate dispatch. Emergency service available 24/7 across Texas.
         </p>
         <a
-          href="tel:4695066606"
+          href="tel:9362977856"
           className="mt-8 inline-flex items-center gap-3 px-10 py-4 rounded-xl bg-green-600 text-white text-lg font-semibold transition-all duration-200 hover:bg-green-700 hover:scale-[1.03] hover:shadow-[0_8px_30px_rgba(22,163,74,0.3)]"
         >
           <Phone size={20} />
-          CALL (469) 506-6606
+          CALL (936) 297-7856
         </a>
       </div>
     </section>

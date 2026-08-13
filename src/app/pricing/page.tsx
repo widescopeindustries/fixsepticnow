@@ -8,7 +8,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Septic Service Pricing in Texas | Fix Septic Now",
-  description: "Transparent septic pricing for Texas homeowners. Pumping $300-600, inspections $200-500, repairs $500-3000+. Free estimates. Call (469) 506-6606.",
+  description: "Transparent septic pricing for Texas homeowners. Pumping $300-600, inspections $200-500, repairs $500-3000+. Free estimates. Call (936) 297-7856.",
   openGraph: {
     title: "Septic Service Pricing in Texas",
     description: "Transparent septic pricing for Texas homeowners. Free estimates before any work begins.",
