@@ -63,7 +63,7 @@ export default function NewNavigation() {
             className="text-center text-[11px] font-medium uppercase tracking-widest text-white"
             style={{ fontFamily: "var(--font-jetbrains), 'JetBrains Mono', monospace" }}
           >
-            SEPTIC EMERGENCY? Call (936) 297-7856 NOW — 24/7 Dispatch
+            SEPTIC EMERGENCY? Call (469) 986-7883 NOW — 24/7 Dispatch
           </span>
           <button
             onClick={dismissBanner}
@@ -127,11 +127,11 @@ export default function NewNavigation() {
 
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="tel:9362977856"
+              href="tel:4699867883"
               className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-green-600 text-white text-sm font-semibold transition-colors duration-200 hover:bg-green-700"
             >
               <Phone size={14} />
-              (936) 297-7856
+              (469) 986-7883
             </a>
             {isHome ? (
               <button
@@ -191,11 +191,11 @@ export default function NewNavigation() {
           )}
           <div className="flex flex-col gap-3 mt-4">
             <a
-              href="tel:9362977856"
+              href="tel:4699867883"
               className="flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-green-600 text-white text-base font-semibold"
             >
               <Phone size={16} />
-              (936) 297-7856
+              (469) 986-7883
             </a>
             {isHome ? (
               <button

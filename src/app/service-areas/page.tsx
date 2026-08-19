@@ -8,7 +8,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Septic Service Areas Across Texas | Fix Septic Now",
-  description: "Fix Septic Now serves 40+ cities across Texas. Find your city and schedule septic pumping, repair, or emergency service. Call (936) 297-7856.",
+  description: "Fix Septic Now serves 40+ cities across Texas. Find your city and schedule septic pumping, repair, or emergency service. Call (469) 986-7883.",
   openGraph: {
     title: "Septic Service Areas Across Texas",
     description: "Find septic service in your Texas city. 40+ cities served across Houston, Austin, San Antonio, DFW, and East Texas.",

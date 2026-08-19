@@ -6,7 +6,7 @@ import { Mail, Phone, MapPin } from "lucide-react";
 
 export const metadata = {
   title: "Contact Fix Septic Now | 24/7 Septic Service in Texas",
-  description: "Contact Fix Septic Now for emergency septic service, free estimates, or questions. Call (936) 297-7856 or fill out our form.",
+  description: "Contact Fix Septic Now for emergency septic service, free estimates, or questions. Call (469) 986-7883 or fill out our form.",
   alternates: { canonical: "https://fixsepticnow.com/contact" },
 };
 

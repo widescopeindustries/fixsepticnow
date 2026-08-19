@@ -34,9 +34,9 @@ export default function HomePage() {
       <FAQSection />
       <BannerImage
         src="/images/questions-24-7-banner.jpg"
-        alt="Questions? We're here 24/7. Service-disabled veteran-owned septic team serving Conroe, Katy, Ennis, and Midlothian, Texas. Call (936) 297-7856 for 24/7 dispatch."
-        href="tel:9362977856"
-        ariaLabel="Questions? Call (936) 297-7856 — 24/7 dispatch"
+        alt="Questions? We're here 24/7. Service-disabled veteran-owned septic team serving Conroe, Katy, Ennis, and Midlothian, Texas. Call (469) 986-7883 for 24/7 dispatch."
+        href="tel:4699867883"
+        ariaLabel="Questions? Call (469) 986-7883 — 24/7 dispatch"
       />
       <CTABanner />
     </>

@@ -1,5 +1,5 @@
-export const PHONE_NUMBER = "(936) 297-7856";
-export const PHONE_TEL = "tel:+19362977856";
+export const PHONE_NUMBER = "(469) 986-7883";
+export const PHONE_TEL = "tel:+14699867883";
 export const SITE_NAME = "Fix Septic Now";
 export const SITE_URL = "https://fixsepticnow.com";
 export const EMAIL = "info@fixsepticnow.com";

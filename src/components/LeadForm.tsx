@@ -81,7 +81,7 @@ export function LeadForm({ sourcePage, preselectedCity }: LeadFormProps) {
         <p className="text-green-700">A technician will call you back within 15 minutes. If this is an emergency, call us now.</p>
         <div className="mt-4">
           <a
-            href="tel:+19362977856"
+            href="tel:+14699867883"
             onClick={() => {
               if (typeof window !== "undefined" && typeof window.gtag === "function") {
                 window.gtag("event", "phone_click", { event_category: "conversion", event_label: "LeadForm Submitted Phone Click" });
@@ -135,7 +135,7 @@ export function LeadForm({ sourcePage, preselectedCity }: LeadFormProps) {
       <div className="mt-4 text-center border-t border-slate-100 pt-4">
         <p className="text-xs text-slate-400 mb-2">Rather talk to a human?</p>
         <a
-          href="tel:+19362977856"
+          href="tel:+14699867883"
           onClick={() => {
             if (typeof window !== "undefined" && typeof window.gtag === "function") {
               window.gtag("event", "phone_click", { event_category: "conversion", event_label: "LeadForm Fallback Phone Click" });

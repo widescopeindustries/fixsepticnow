@@ -28,7 +28,7 @@ const regionLabels: Record<string, string> = {
 const serviceFaqs = [
   { question: "What septic services do you offer in Texas?", answer: "We offer septic tank pumping, cleaning, repair, inspection, installation, maintenance, and 24/7 emergency service across Texas. All work is performed by TCEQ-licensed contractors." },
   { question: "How much does septic pumping cost in Texas?", answer: "Septic tank pumping in Texas typically costs $300–$600 depending on tank size and accessibility. Emergency after-hours service costs more. We provide free estimates before any work begins." },
-  { question: "Do you offer same-day septic service?", answer: "Yes. Same-day and emergency septic service is available in most of our Texas service areas. Call (936) 297-7856 for immediate dispatch. Response times vary by location but emergency calls are prioritized." },
+  { question: "Do you offer same-day septic service?", answer: "Yes. Same-day and emergency septic service is available in most of our Texas service areas. Call (469) 986-7883 for immediate dispatch. Response times vary by location but emergency calls are prioritized." },
   { question: "What areas of Texas do you serve?", answer: "We serve 40+ cities across Texas including the Houston metro (Conroe, The Woodlands, Katy, Spring), Austin metro (Georgetown, Dripping Springs, Liberty Hill), San Antonio metro (New Braunfels, Boerne), DFW (Weatherford, Waxahachie), and East Texas (Huntsville, Athens, Nacogdoches)." },
 ];
 

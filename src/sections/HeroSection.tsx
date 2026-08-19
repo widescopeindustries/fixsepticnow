@@ -67,11 +67,11 @@ export default function HeroSection() {
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="tel:9362977856"
+            href="tel:4699867883"
             className="flex items-center gap-2 px-8 py-4 rounded-lg bg-green-600 text-white font-semibold transition-all duration-200 hover:scale-[1.02] hover:bg-green-700"
           >
             <Phone size={18} />
-            CALL (936) 297-7856
+            CALL (469) 986-7883
           </a>
           <button
             onClick={() => {

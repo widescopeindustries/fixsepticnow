@@ -15,7 +15,7 @@ export function StickyMobileCTA() {
   }
 
   const smsBody = encodeURIComponent("I need septic service. Please call me back.");
-  const smsHref = `sms:+19362977856?body=${smsBody}`;
+  const smsHref = `sms:+14699867883?body=${smsBody}`;
 
   return (
     <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-green-700 border-t border-green-800 shadow-lg">

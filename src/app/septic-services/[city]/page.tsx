@@ -22,7 +22,7 @@ import { getCityTestimonials } from "@/lib/testimonials";
 import type { Metadata } from "next";
 
 const SITE_NAME = "Fix Septic Now";
-const PHONE = "(936) 297-7856";
+const PHONE = "(469) 986-7883";
 
 // Parse city slug from URL param (e.g., "conroe-tx" -> "conroe")
 function parseCityParam(param: string): string | null {
@@ -74,10 +74,10 @@ export default async function CityHubPage({ params }: { params: Promise<{ city: 
 
   const cityFaqs = content?.faqs || [
     { question: `How much does septic pumping cost in ${city.name}?`, answer: `Septic pumping in ${city.name} typically costs $300-$600. Prices vary based on tank size and accessibility. We provide free estimates.` },
-    { question: `Do you offer emergency septic service in ${city.name}?`, answer: `Yes! We provide 24/7 emergency septic service in ${city.name} and throughout ${city.county} County. Call (936) 297-7856 anytime.` },
+    { question: `Do you offer emergency septic service in ${city.name}?`, answer: `Yes! We provide 24/7 emergency septic service in ${city.name} and throughout ${city.county} County. Call (469) 986-7883 anytime.` },
     { question: `What type of soil does ${city.name} have?`, answer: `${city.name} has predominantly ${city.soilType} soil. This soil type affects drain field performance and may require specific septic system designs.` },
     { question: `How often should I pump my septic tank in ${city.name}?`, answer: `With ${city.soilType} soil common in ${city.name}, we recommend pumping every 3-5 years. Homes with more occupants should pump more frequently.` },
-    { question: `How do I find a licensed septic company near ${city.name}?`, answer: `Look for companies licensed by the Texas Commission on Environmental Quality (TCEQ) with insurance and local experience. Fix Septic Now is fully licensed, insured, and serves ${city.name} and all of ${city.county} County. Call (936) 297-7856 for a free estimate.` },
+    { question: `How do I find a licensed septic company near ${city.name}?`, answer: `Look for companies licensed by the Texas Commission on Environmental Quality (TCEQ) with insurance and local experience. Fix Septic Now is fully licensed, insured, and serves ${city.name} and all of ${city.county} County. Call (469) 986-7883 for a free estimate.` },
   ];
 
   const schemas = [
@@ -132,7 +132,7 @@ export default async function CityHubPage({ params }: { params: Promise<{ city: 
         <div className="max-w-3xl mx-auto px-4 space-y-6">
           <QuickAnswer
             question={`How much do septic services cost in ${city.name}, Texas?`}
-            answer={`Septic services in ${city.name} range from $200 for inspections to $600+ for pumping and cleaning. Emergency service is available 24/7. Pricing depends on tank size and the ${city.soilType} soil conditions in ${city.county} County. Call (936) 297-7856 for a free estimate.`}
+            answer={`Septic services in ${city.name} range from $200 for inspections to $600+ for pumping and cleaning. Emergency service is available 24/7. Pricing depends on tank size and the ${city.soilType} soil conditions in ${city.county} County. Call (469) 986-7883 for a free estimate.`}
           />
           <div className="text-slate-600 text-sm leading-relaxed space-y-2">
             <p>Texas has over <strong>3 million septic systems</strong> statewide, more than nearly every other state (Texas Commission on Environmental Quality).</p>

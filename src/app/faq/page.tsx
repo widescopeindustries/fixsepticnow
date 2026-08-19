@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Septic FAQ | Fix Septic Now",
-  description: "Get answers to the most common septic questions from Texas homeowners. Pumping, repair, costs, emergencies, and more. Call (936) 297-7856.",
+  description: "Get answers to the most common septic questions from Texas homeowners. Pumping, repair, costs, emergencies, and more. Call (469) 986-7883.",
   alternates: { canonical: "https://fixsepticnow.com/faq" },
 };
 
@@ -14,7 +14,7 @@ const allFaqs = [
   { question: "How much does septic tank pumping cost in Texas?", answer: "Septic tank pumping in Texas typically costs $300-$600 depending on tank size, accessibility, and location. Emergency or after-hours service may cost more. We provide free estimates before any work begins." },
   { question: "How often should a septic tank be pumped?", answer: "Most septic tanks should be pumped every 3-5 years. However, this depends on household size, tank size, and water usage. Homes with garbage disposals or more occupants may need pumping more frequently." },
   { question: "What are signs my septic tank needs pumping?", answer: "Common signs include slow drains, gurgling toilets, sewage odors near the tank or drain field, standing water over the drain field, and sewage backup in your home. If you notice any of these, call us immediately." },
-  { question: "Do you offer 24/7 emergency septic service?", answer: "Yes. We provide 24/7 emergency septic service across Texas. Our licensed technicians are available days, nights, weekends, and holidays. Call (936) 297-7856 anytime." },
+  { question: "Do you offer 24/7 emergency septic service?", answer: "Yes. We provide 24/7 emergency septic service across Texas. Our licensed technicians are available days, nights, weekends, and holidays. Call (469) 986-7883 anytime." },
   { question: "What areas do you serve in Texas?", answer: "We serve over 40 cities across Texas including Conroe, Katy, Spring, The Woodlands, New Braunfels, Boerne, Georgetown, Dripping Springs, Weatherford, and many more suburban and rural communities." },
   { question: "Can you pump my septic tank on weekends?", answer: "Yes. Weekend and after-hours septic pumping is available across our Texas service areas. Pricing depends on travel time and whether the job is emergency service." },
   { question: "How long does septic pumping take?", answer: "A typical septic pumping appointment takes 1–3 hours depending on tank size and accessibility. Complex jobs like installations or major repairs may take 1–3 days." },

@@ -66,7 +66,7 @@ export function ChatWidget() {
     } catch {
       setMessages((prev) => [
         ...prev,
-        { role: "assistant", content: "Sorry, I'm having trouble connecting. Please call us at (936) 297-7856 for immediate help." },
+        { role: "assistant", content: "Sorry, I'm having trouble connecting. Please call us at (469) 986-7883 for immediate help." },
       ]);
     } finally {
       setLoading(false);

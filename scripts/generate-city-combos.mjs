@@ -77,9 +77,9 @@ const cities = [
 
 function generateHero(city, service) {
   if (service.emergency) {
-    return `Sewage backup in ${city.name}? Fix Septic Now provides 24/7 emergency septic service throughout ${city.name} and ${city.county} County. ${city.detail}. Our licensed technicians respond day or night, including weekends and holidays, to contain the backup, pump the tank, and stabilize your system. Call (469) 506-6606 now.`;
+    return `Sewage backup in ${city.name}? Fix Septic Now provides 24/7 emergency septic service throughout ${city.name} and ${city.county} County. ${city.detail}. Our licensed technicians respond day or night, including weekends and holidays, to contain the backup, pump the tank, and stabilize your system. Call (469) 986-7883 now.`;
   }
-  return `Fix Septic Now provides professional ${service.short} in ${city.name} and ${city.county} County. ${city.detail}. Our licensed technicians understand the ${city.soil} soil conditions and how they affect septic system performance. ${service.price ? `${service.name} in ${city.name} typically costs ${service.price}.` : ""} Call (469) 506-6606 for a free estimate${service.emergency ? " — available 24/7" : ""}.`;
+  return `Fix Septic Now provides professional ${service.short} in ${city.name} and ${city.county} County. ${city.detail}. Our licensed technicians understand the ${city.soil} soil conditions and how they affect septic system performance. ${service.price ? `${service.name} in ${city.name} typically costs ${service.price}.` : ""} Call (469) 986-7883 for a free estimate${service.emergency ? " — available 24/7" : ""}.`;
 }
 
 function generateLocalRelevance(city, service) {
@@ -113,7 +113,7 @@ function generateFaqs(city, service) {
     faqs.push(
       {
         question: `What counts as a septic emergency in ${city.name}?`,
-        answer: `Sewage backing up into your home, raw sewage pooling in the yard, a septic alarm that won't stop, multiple drains backing up at once, or strong sewage odors making rooms unusable are all emergencies. Stop using water and call (469) 506-6606 immediately.`,
+        answer: `Sewage backing up into your home, raw sewage pooling in the yard, a septic alarm that won't stop, multiple drains backing up at once, or strong sewage odors making rooms unusable are all emergencies. Stop using water and call (469) 986-7883 immediately.`,
       },
       {
         question: `How fast can you get to ${city.name} for an emergency?`,
@@ -134,11 +134,11 @@ function generateFaqs(city, service) {
         question: service.slug === "septic-pumping" ? `How often should I pump my septic tank in ${city.name}?` : `Who provides ${service.short} in ${city.name}?`,
         answer: service.slug === "septic-pumping"
           ? `Most ${city.name} homes should pump every 3 to 5 years. Larger households, homes with garbage disposals, or systems on ${city.soil} often benefit from more frequent service.`
-          : `Fix Septic Now provides licensed, insured ${service.short} in ${city.name} and all of ${city.county} County. Our technicians are experienced with local ${city.soil} conditions. Call (469) 506-6606.`,
+          : `Fix Septic Now provides licensed, insured ${service.short} in ${city.name} and all of ${city.county} County. Our technicians are experienced with local ${city.soil} conditions. Call (469) 986-7883.`,
       },
       {
         question: `Do you offer ${service.short} on weekends in ${city.name}?`,
-        answer: `Yes. We offer ${service.short} in ${city.name} seven days a week, including weekends and holidays. Emergency service is available 24/7. Call (469) 506-6606 to schedule.`,
+        answer: `Yes. We offer ${service.short} in ${city.name} seven days a week, including weekends and holidays. Emergency service is available 24/7. Call (469) 986-7883 to schedule.`,
       }
     );
   }
@@ -148,9 +148,9 @@ function generateFaqs(city, service) {
 
 function generateMeta(city, service) {
   if (service.emergency) {
-    return `24/7 emergency septic service in ${city.name}, TX. Fast response for backups, overflows & alarms. Licensed ${city.county} County technicians. Call (469) 506-6606 now.`;
+    return `24/7 emergency septic service in ${city.name}, TX. Fast response for backups, overflows & alarms. Licensed ${city.county} County technicians. Call (469) 986-7883 now.`;
   }
-  return `${service.name} in ${city.name}, TX. Licensed ${city.county} County service, upfront pricing. Call (469) 506-6606 for a free estimate.`;
+  return `${service.name} in ${city.name}, TX. Licensed ${city.county} County service, upfront pricing. Call (469) 986-7883 for a free estimate.`;
 }
 
 function generateCombo(city, service) {

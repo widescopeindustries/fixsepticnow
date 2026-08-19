@@ -37,7 +37,7 @@ export default function PrivacyPolicyPage() {
         <p>By submitting your phone number through our forms, you consent to receive calls and text messages from Fix Septic Now. You may opt out at any time by replying STOP or calling us.</p>
 
         <h2>Contact Us</h2>
-        <p>For privacy questions, contact us at <a href="mailto:info@fixsepticnow.com">info@fixsepticnow.com</a> or call (936) 297-7856.</p>
+        <p>For privacy questions, contact us at <a href="mailto:info@fixsepticnow.com">info@fixsepticnow.com</a> or call (469) 986-7883.</p>
       </div>
     </section>
   );
