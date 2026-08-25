@@ -79,6 +79,43 @@ export const cities: City[] = [
   { name: "Navasota", slug: "navasota", county: "Grimes", region: "east-texas", population: 7700, neighbors: ["huntsville", "brenham", "hempstead"], soilType: "sandy loam", lat: 30.3880, lng: -96.0878 },
   { name: "Brenham", slug: "brenham", county: "Washington", region: "east-texas", population: 17800, neighbors: ["navasota", "hempstead", "la-grange"], soilType: "sandy loam and clay", lat: 30.1669, lng: -96.3978 },
   { name: "La Grange", slug: "la-grange", county: "Fayette", region: "east-texas", population: 4900, neighbors: ["smithville", "brenham"], soilType: "sandy loam and clay", lat: 29.9055, lng: -96.8767 },
+
+  // Tier 1 - Streetman & Central Texas Core (100-mile Radius)
+  { name: "Streetman", slug: "streetman", county: "Freestone", region: "central-texas", population: 300, neighbors: ["fairfield", "teague", "corsicana", "wortham", "kerens"], soilType: "sandy loam and clay (Richland Chambers Lake)", lat: 31.8732, lng: -96.3264 },
+  { name: "Fairfield", slug: "fairfield", county: "Freestone", region: "central-texas", population: 3000, neighbors: ["streetman", "teague", "buffalo", "corsicana"], soilType: "sandy loam and red clay", lat: 31.7243, lng: -96.1652 },
+  { name: "Teague", slug: "teague", county: "Freestone", region: "central-texas", population: 3500, neighbors: ["fairfield", "streetman", "mexia", "wortham"], soilType: "clay loam", lat: 31.6282, lng: -96.2841 },
+  { name: "Mexia", slug: "mexia", county: "Limestone", region: "central-texas", population: 7400, neighbors: ["groesbeck", "teague", "wortham", "corsicana"], soilType: "blackland clay", lat: 31.6846, lng: -96.5828 },
+  { name: "Groesbeck", slug: "groesbeck", county: "Limestone", region: "central-texas", population: 4200, neighbors: ["mexia", "waco", "buffalo"], soilType: "blackland clay", lat: 31.5249, lng: -96.5350 },
+  { name: "Buffalo", slug: "buffalo", county: "Leon", region: "central-texas", population: 1900, neighbors: ["fairfield", "centerville", "jewett"], soilType: "sandy loam", lat: 31.4657, lng: -96.0583 },
+  { name: "Centerville", slug: "centerville", county: "Leon", region: "central-texas", population: 900, neighbors: ["buffalo", "madisonville", "crockett"], soilType: "sandy loam", lat: 31.2588, lng: -95.9791 },
+  { name: "Wortham", slug: "wortham", county: "Freestone", region: "central-texas", population: 1100, neighbors: ["streetman", "mexia", "teague", "corsicana"], soilType: "blackland clay", lat: 31.7877, lng: -96.4633 },
+  { name: "Kerens", slug: "kerens", county: "Navarro", region: "central-texas", population: 1500, neighbors: ["corsicana", "streetman", "athens"], soilType: "sandy loam", lat: 32.1332, lng: -96.2289 },
+
+  // Cedar Creek Lake / Tri-County Lake Hubs
+  { name: "Gun Barrel City", slug: "gun-barrel-city", county: "Henderson", region: "east-texas", population: 6200, neighbors: ["mabank", "malakoff", "tool", "seven-points"], soilType: "sandy loam (Cedar Creek Lake waterfront)", lat: 32.3324, lng: -96.1158 },
+  { name: "Mabank", slug: "mabank", county: "Kaufman", region: "dfw-metro", population: 4000, neighbors: ["gun-barrel-city", "canton", "kaufman"], soilType: "sandy loam and clay", lat: 32.3671, lng: -96.1030 },
+  { name: "Malakoff", slug: "malakoff", county: "Henderson", region: "east-texas", population: 2400, neighbors: ["gun-barrel-city", "athens", "kerens"], soilType: "sandy loam", lat: 32.1677, lng: -95.9772 },
+  { name: "Tool", slug: "tool", county: "Henderson", region: "east-texas", population: 2300, neighbors: ["gun-barrel-city", "seven-points", "malakoff"], soilType: "sandy loam", lat: 32.2618, lng: -96.1558 },
+  { name: "Seven Points", slug: "seven-points", county: "Henderson", region: "east-texas", population: 1500, neighbors: ["tool", "gun-barrel-city", "mabank"], soilType: "sandy loam", lat: 32.3368, lng: -96.2080 },
+
+  // Waco & McLennan County Hub
+  { name: "Waco", slug: "waco", county: "McLennan", region: "central-texas", population: 138000, neighbors: ["hewitt", "woodway", "robinson", "hillsboro"], soilType: "blackland clay and limestone", lat: 31.5493, lng: -97.1467 },
+  { name: "Hewitt", slug: "hewitt", county: "McLennan", region: "central-texas", population: 16000, neighbors: ["waco", "woodway", "robinson"], soilType: "blackland clay", lat: 31.4552, lng: -97.1950 },
+  { name: "Woodway", slug: "woodway", county: "McLennan", region: "central-texas", population: 9000, neighbors: ["waco", "hewitt", "mcgregor"], soilType: "blackland clay", lat: 31.5038, lng: -97.2417 },
+  { name: "Robinson", slug: "robinson", county: "McLennan", region: "central-texas", population: 12000, neighbors: ["waco", "hewitt", "groesbeck"], soilType: "blackland clay", lat: 31.4682, lng: -97.1147 },
+  { name: "Hillsboro", slug: "hillsboro", county: "Hill", region: "central-texas", population: 8500, neighbors: ["waco", "whitney", "corsicana", "waxahachie"], soilType: "blackland clay", lat: 32.0113, lng: -97.1300 },
+  { name: "Whitney", slug: "whitney", county: "Hill", region: "central-texas", population: 2100, neighbors: ["hillsboro", "cleburne", "waco"], soilType: "limestone karst (Lake Whitney)", lat: 31.9515, lng: -97.3228 },
+
+  // Tyler & East TX Outer Expansion
+  { name: "Tyler", slug: "tyler", county: "Smith", region: "east-texas", population: 107000, neighbors: ["lindale", "jacksonville", "canton", "athens"], soilType: "deep sandy loam and red clay", lat: 32.3513, lng: -95.3011 },
+  { name: "Lindale", slug: "lindale", county: "Smith", region: "east-texas", population: 6500, neighbors: ["tyler", "canton", "mineola"], soilType: "sandy loam", lat: 32.5160, lng: -95.4094 },
+  { name: "Crockett", slug: "crockett", county: "Houston", region: "east-texas", population: 6800, neighbors: ["centerville", "palestine", "lufkin"], soilType: "sandy loam", lat: 31.3174, lng: -95.4566 },
+  { name: "Madisonville", slug: "madisonville", county: "Madison", region: "central-texas", population: 4500, neighbors: ["centerville", "huntsville", "bryan"], soilType: "sandy loam", lat: 30.9502, lng: -95.9125 },
+  { name: "Bryan", slug: "bryan", county: "Brazos", region: "central-texas", population: 87000, neighbors: ["college-station", "madisonville", "navasota"], soilType: "sandy loam and clay", lat: 30.6744, lng: -96.3700 },
+  { name: "College Station", slug: "college-station", county: "Brazos", region: "central-texas", population: 120000, neighbors: ["bryan", "navasota", "brenham"], soilType: "sandy loam and clay", lat: 30.6280, lng: -96.3344 },
+  { name: "Mansfield", slug: "mansfield", county: "Tarrant", region: "dfw-metro", population: 78000, neighbors: ["midlothian", "burleson", "arlington"], soilType: "blackland clay", lat: 32.5632, lng: -97.1417 },
+  { name: "Burleson", slug: "burleson", county: "Johnson", region: "dfw-metro", population: 52000, neighbors: ["cleburne", "mansfield", "crowley"], soilType: "blackland clay", lat: 32.5421, lng: -97.3208 },
+  { name: "Crandall", slug: "crandall", county: "Kaufman", region: "dfw-metro", population: 4500, neighbors: ["kaufman", "forney", "seagoville"], soilType: "blackland clay", lat: 32.6282, lng: -96.4542 },
 ];
 
 export function getCityBySlug(slug: string): City | undefined {
@@ -99,6 +136,8 @@ export function getCitiesByRegion(region: string): City[] {
 
 export function getResponseTime(city: City): string {
   switch (city.region) {
+    case "central-texas":
+      return "30–60 minutes";
     case "houston-metro":
       return "30–60 minutes";
     case "austin-metro":
@@ -110,6 +149,6 @@ export function getResponseTime(city: City): string {
     case "east-texas":
       return "60–120 minutes";
     default:
-      return "45–90 minutes";
+      return "30–60 minutes";
   }
 }
